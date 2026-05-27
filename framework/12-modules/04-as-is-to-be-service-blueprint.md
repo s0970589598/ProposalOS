@@ -74,6 +74,13 @@
 3. **差異對比表**：每步驟前後時間 / 人力 / 錯誤率
 4. **服務藍圖**：前台、後台、支援流程分層
 
+## 推薦方法論
+
+| 方法論 | 用處 |
+|---|---|
+| [Service Design 5 階段](../methodologies/service-design.md) | Discover/Define/Develop/Deliver/Operate 完整體系 |
+| [DDD Ubiquitous Language](../methodologies/software-architecture-patterns.md) | 跟客戶對齊用詞、不混淆 |
+
 ## 與其他模組的關係
 
 - ← 模組 03：問題定義 → 流程哪段有問題

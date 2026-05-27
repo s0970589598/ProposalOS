@@ -109,6 +109,12 @@
 4. **維運服務目錄 + SLA**
 5. **上線後 30/60/90 天回顧計畫**
 
+## 推薦方法論
+
+| 方法論 | 用處 |
+|---|---|
+| [DORA Metrics + SRE](../methodologies/dora-sre.md) | 軟體型維運的業界標準：4 DORA metrics、SLO/SLI/SLA、Error Budget、Toil、Blameless Postmortem |
+
 ## 與其他模組的關係
 
 - ← 模組 03：經營目標 → 效益追蹤 KPI

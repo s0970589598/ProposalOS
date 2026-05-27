@@ -40,6 +40,14 @@
 3. 3-5 條 bullet 點出典型痛點
 4. 一段「為什麼這個時間點要做」的時機論述
 
+## 推薦方法論
+
+| 方法論 | 用處 |
+|---|---|
+| [PESTEL](../methodologies/pestel-swot.md) | 系統化盤點外部環境趨勢 |
+| [Wardley Mapping](../methodologies/wardley-mapping.md) | 戰略定位、判斷自建 vs 買 |
+| [market-research skill](../../playbook/skill-integration.md) | TAM/SAM/SOM 量化 |
+
 ## 與其他模組的關係
 
 - → 模組 02：產業痛點 → 競品在解的問題 → 我們的切入點

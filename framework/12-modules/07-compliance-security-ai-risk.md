@@ -86,6 +86,13 @@ AI 額外要寫：
 4. **AI 治理說明**（若有 AI）
 5. **責任邊界**：我們負什麼、客戶負什麼
 
+## 推薦方法論
+
+| 方法論 | 用處 |
+|---|---|
+| [Cybersecurity Frameworks](../methodologies/cybersecurity-frameworks.md) | MITRE ATT&CK + Zero Trust + CIS Controls + BSIMM + SLSA + CSA CCM 完整補強 |
+| [MLOps + AI Governance](../methodologies/mlops-and-ai-governance.md) | 提案含 AI 時、Model Cards、RAG、AI 成本控管 |
+
 ## 與其他模組的關係
 
 - ← 模組 06：資料分類、敏感度

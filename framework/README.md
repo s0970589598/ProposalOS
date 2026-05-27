@@ -1,13 +1,17 @@
 # framework/ — 框架核心
 
-ProposalOS 的本體。三層架構：
+ProposalOS 的本體。四層架構：
 
 ```
 framework/
-├── 12-modules/              ← 必選骨幹（每案都要過一次）
-├── 8-mandatory-checks/      ← 強制檢查項（容易被埋的細節）
-└── industry-addons/         ← 產業加掛（依案件選用）
+├── 12-modules/              ← 必選骨幹（每案都要過一次）— WHAT
+├── 8-mandatory-checks/      ← 強制檢查項（容易被埋的細節）— WHAT
+├── industry-addons/         ← 產業加掛（依案件選用）
+├── methodologies/           ← 跨領域方法論（業界成熟框架）— HOW
+└── MATRIX.md                ← 12 × 8 對應矩陣
 ```
+
+**WHAT vs HOW**：12 模組 / 8 檢查項 / Add-ons = **要寫什麼**；methodologies = **用什麼方法寫**。
 
 ## 使用順序
 

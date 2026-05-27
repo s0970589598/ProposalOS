@@ -108,6 +108,14 @@
 2. **量化痛點表**：每個問題的頻率 × 單次成本 = 年成本
 3. **效益假設**：解了之後預期改善多少（要標假設，不要當承諾）
 
+## 推薦方法論
+
+| 方法論 | 用處 |
+|---|---|
+| [Jobs to be Done (JTBD)](../methodologies/jtbd.md) | 訪談深度挖掘真痛點（3 層：Functional/Emotional/Social）+ 4 力分析（Push/Pull/Inertia/Anxiety）|
+| [Kano Model](../methodologies/kano-model.md) | 需求分類（Must/Performance/Delight/Indifferent/Reverse）— 比 P0/P1/P2 更精準 |
+| [BMC + VPC](../methodologies/bmc-vpc.md) | 訪談時跟客戶一起畫 Business Model Canvas、發現生意全貌 |
+
 ## 與其他模組的關係
 
 - ← 模組 01 / 02：產業 + 競品 → 客戶能接受的解法範圍

@@ -204,6 +204,14 @@ Hard Cutoff（達 100% 拒服）
 - 智財權歸屬
 - 保密協議
 
+## 推薦方法論
+
+| 方法論 | 用處 |
+|---|---|
+| [RFP / RFI / RFQ 區分](../methodologies/rfp-rfi-rfq.md) | 三種詢問形式、不同策略 |
+| [PoC / Pilot Pricing](../../templates/poc-pilot-pricing-template.md) | Complex 情境的階梯定價 |
+| [Shipley Capture Plan](../methodologies/shipley-apmp.md) | 大標案的事前情報蒐集 |
+
 ## 與其他模組的關係
 
 - ← 模組 02：競品價格

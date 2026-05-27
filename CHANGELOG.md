@@ -4,6 +4,50 @@
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-05-27
+
+### Added
+新增 `framework/methodologies/` 完整跨領域方法論（15 個）：
+
+**提案方法論本身**：
+- `shipley-apmp.md`：Shipley / APMP（Bid/No-Bid、Capture Plan、Win Themes、Ghosting、Pink/Red/Gold Team、Compliance Matrix、Storyboarding）
+- `pyramid-principle.md`：Pyramid Principle + SCQA + MECE（McKinsey 寫作法）
+- `cynefin.md`：Cynefin Framework（情境分類元方法、決定用什麼提案方法）
+
+**需求 / 戰略分析**：
+- `kano-model.md`：Kano Model（Must/Performance/Delight/Indifferent/Reverse 5 類）
+- `jtbd.md`：Jobs to be Done（3 層 Job + 4 力分析）
+- `pestel-swot.md`：PESTEL + SWOT + TOWS 戰略推導
+- `wardley-mapping.md`：Wardley 戰略地圖
+- `bmc-vpc.md`：Business Model Canvas + Value Proposition Canvas
+
+**服務 / 體驗設計**：
+- `service-design.md`：Service Design 5 階段（Discover/Define/Develop/Deliver/Operate）
+
+**系統 / 架構**：
+- `c4-model.md`：C4 Model（Context/Container/Component/Code）
+- `dora-sre.md`：DORA Metrics + SRE（SLO/SLI/SLA、Error Budget、Toil、Blameless）
+- `software-architecture-patterns.md`：12-Factor + DDD + Event Storming + Hexagonal + Microservices
+
+**資安 / AI**：
+- `cybersecurity-frameworks.md`：MITRE ATT&CK + Zero Trust + CIS Controls v8 + BSIMM + CSA CCM + SLSA
+- `mlops-and-ai-governance.md`：MLOps Maturity + Model Cards + Datasheets + Responsible AI + RAG + AI Cost 控管
+
+**商務**：
+- `rfp-rfi-rfq.md`：三種詢問形式區分（RFI / RFP / RFQ）
+
+新增 playbook：
+- `playbook/skill-integration.md`：整合 30+ 既有 Claude Skills 到提案各階段
+
+新增 templates：
+- `templates/capture-plan-template.md`：Shipley Capture Plan
+- `templates/compliance-matrix-template.md`：政府 RFP 對應
+- `templates/poc-pilot-pricing-template.md`：階梯定價（PoC → Pilot → Production → Expansion）
+
+### Changed
+- 模組 01-04、07、08、10、11 加「推薦方法論」段落、連結到 methodologies/
+- README.md 加 methodologies 與新 templates、playbook 章節
+
 ## [1.1.0] - 2026-05-27
 
 ### Added

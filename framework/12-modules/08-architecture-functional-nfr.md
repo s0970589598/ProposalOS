@@ -102,6 +102,14 @@ ID: FR-001
 - 至少 8 條 NFR（每類至少一條）
 - 整合介面表（與外部系統的對接清單）
 
+## 推薦方法論
+
+| 方法論 | 用處 |
+|---|---|
+| [C4 Model](../methodologies/c4-model.md) | 軟體架構圖事實標準（Context / Container / Component），補強 TOGAF 4 層 |
+| [Software Architecture Patterns](../methodologies/software-architecture-patterns.md) | 12-Factor App + DDD + Event Storming + Hexagonal + Microservices |
+| [Kano Model](../methodologies/kano-model.md) | 取代 P0/P1/P2 的功能分類 |
+
 ## 與其他模組的關係
 
 - ← 模組 04、06、07：流程、資料、合規

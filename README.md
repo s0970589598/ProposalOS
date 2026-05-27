@@ -153,9 +153,25 @@ ProposalOS/
 │   ├── MATRIX.md                12 × 8 對應矩陣
 │   ├── 12-modules/              12 大模組逐項
 │   ├── 8-mandatory-checks/      8 強制檢查項
-│   └── industry-addons/         產業加掛模組
-│       ├── README.md            + 通用議題交叉索引
-│       └── MODULE-INDEX.md      從模組看 add-on 反向索引
+│   ├── industry-addons/         產業加掛模組
+│   │   ├── README.md            + 通用議題交叉索引
+│   │   └── MODULE-INDEX.md      從模組看 add-on 反向索引
+│   └── methodologies/           跨領域方法論
+│       ├── shipley-apmp.md      大標案提案方法論
+│       ├── pyramid-principle.md SCQA + MECE 結構化寫作
+│       ├── cynefin.md           情境分類元方法
+│       ├── kano-model.md        需求分類（取代 P0/P1/P2）
+│       ├── c4-model.md          軟體架構圖標準
+│       ├── dora-sre.md          DORA Metrics + SRE
+│       ├── wardley-mapping.md   戰略地圖
+│       ├── jtbd.md              Jobs to be Done
+│       ├── service-design.md    服務設計 5 階段
+│       ├── bmc-vpc.md           Business Model Canvas + VPC
+│       ├── pestel-swot.md       外部 / SWOT 分析
+│       ├── mlops-and-ai-governance.md  AI 治理 + RAG
+│       ├── cybersecurity-frameworks.md MITRE ATT&CK + Zero Trust + CIS + SLSA
+│       ├── software-architecture-patterns.md 12-Factor + DDD + Event Storming
+│       └── rfp-rfi-rfq.md       三種詢問形式
 ├── templates/
 │   ├── README.md                3 版本選擇指引
 │   ├── proposal-template-short.md       < NT$ 50 萬
@@ -164,13 +180,17 @@ ProposalOS/
 │   ├── rtm-template.md
 │   ├── architecture-diagram-checklist.md
 │   ├── before-after-diagram-template.md
-│   └── pricing-breakdown-template.md
+│   ├── pricing-breakdown-template.md
+│   ├── capture-plan-template.md         Shipley 事前情報
+│   ├── compliance-matrix-template.md    政府 RFP 對應
+│   └── poc-pilot-pricing-template.md    階梯定價
 ├── playbook/
 │   ├── proposal-flow.md         流程順序（4 大段 ＋ 18 小階段）
 │   ├── ai-assistance.md         AI 輔助流程
 │   ├── skill-building.md        個人能力建構
 │   ├── interview-script.md      訪談腳本
-│   └── red-team-questions.md    反方審查題庫
+│   ├── red-team-questions.md    反方審查題庫
+│   └── skill-integration.md     整合既有 Claude Skills
 ├── examples/
 │   └── mingyang-cold-chain/     完整虛構案例（含 RTM、架構、報價、反方審查）
 ├── skills/

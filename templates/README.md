@@ -36,6 +36,9 @@
 | [architecture-diagram-checklist.md](architecture-diagram-checklist.md) | 架構圖必有元素 |
 | [before-after-diagram-template.md](before-after-diagram-template.md) | 導入前後差異圖 |
 | [pricing-breakdown-template.md](pricing-breakdown-template.md) | 報價拆項 |
+| [capture-plan-template.md](capture-plan-template.md) | 大標案的事前情報蒐集（Shipley）|
+| [compliance-matrix-template.md](compliance-matrix-template.md) | 政府 RFP 逐條對應 |
+| [poc-pilot-pricing-template.md](poc-pilot-pricing-template.md) | Complex 情境的階梯定價 |
 
 ## 完整填寫範例
 
