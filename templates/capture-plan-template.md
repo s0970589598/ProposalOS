@@ -3,20 +3,38 @@
 ⚠️ **Capture Plan = 提案前的情報蒐集與佈局**。
 依 [Shipley / APMP](../framework/methodologies/shipley-apmp.md) 方法論。
 
-## 何時必做（升級規則、per AP-NEW-WRITE-3）
+## 區分「動作」vs「輸出」
 
-| 案件規模 | Capture Plan 必要性 |
+⚠️ **動作（查公開資料）每案必做**、**輸出（完整 Capture Plan 檔）依規模決定**。
+
+| | 動作：WebSearch 30 min | 輸出：完整 Capture Plan 檔 |
+|---|---|---|
+| 小案 < NT$ 50 萬 | ✅ 每案必做 | 🟡 1 頁筆記即可 / 「5 facts 摘要」|
+| 中型案 NT$ 100 萬+ | ✅ 必做 | ✅ 完整 10 段 Capture Plan |
+| 大案 / 政府案 | ✅ 必做（深度 1-2 hr）| ✅ 完整 + Win Themes + Discriminators + 接觸計畫 |
+
+### 為什麼小案也要 WebSearch
+
+| 不查的風險 | 例子 |
 |---|---|
-| 小案 < NT$ 50 萬 | 可省（只用 Short template）|
-| **中型案 NT$ 100 萬+** | **必做**（事實版、含公開資料 Sources） |
-| 大案 / 政府案 / 國際集團 | **必做**（完整版 + Win Themes + Discriminators + 接觸計畫）|
+| 不知客戶有沒有現成工具、寫重複的 | 客戶要 dashboard、其實已有 BI |
+| 不知客戶用什麼系統、整合做錯 | 客戶要小 API 整合、未知 ERP 規格 |
+| 不知客戶業務、講話沒重點 | 顧問 engagement、提案方向偏 |
+| 不知競品 / 替代方案 | PoC 規格設計失準 |
 
-**為什麼中型案以上必做**：
-- 跳過 Capture Plan = AP-NEW-WRITE-1（沒查公開資料、framing 過時）
-- 跳過 = AP-NEW-WRITE-2（競品「待補」、提案缺差異化）
-- 真實案例：祥圃 MES 案、跑 Capture Plan 後發現「已用 SAP ERP」、整個 framing 改寫
+→ **WebSearch 30 min 對比後續可能 1-2 週白費**、ROI 永遠正。
 
-→ Capture Plan **占成功因素 70%**（per Shipley）、不是「shipley 大標案才用」。
+### 小案 vs 中案的差別在「輸出格式」
+
+- **小案**：查完寫進腦袋、用 1 頁筆記、不寫正式 Capture Plan 檔
+- **中案**：寫成 Capture Plan 檔（10 段）、可被團隊共享、可長期 reference
+- **大案**：完整 Capture Plan + Win Themes + Discriminators + 接觸計畫 + 多輪 review
+
+### 真實案例（per AP-NEW-WRITE-1）
+
+祥圃 MES 案、跑 Capture Plan WebSearch 後發現「已用 SAP ERP 2020 升級」、整個 framing 從「零基礎」改為「SAP 互補」、避免 framing 過時。
+
+→ Capture Plan **占成功因素 70%**（per Shipley）、**WebSearch 動作不可省**。
 
 ---
 

@@ -325,7 +325,10 @@
 - **後果**：客戶基本資料 / IT 現況 / 競品 / 採購流程 等沒有單獨檔、proposal 寫到一半才發現缺
 - **根因**：誤把 Capture Plan 當「Shipley 大標案專用」、忽略中型案也需要事前情報整合
 - **教訓**：
-  - **中型案（NT$ 100 萬+）寫 proposal 前必先有 Capture Plan**
+  - **區分「動作」vs「輸出」**：
+    - **動作（WebSearch 公開資料）= 每案必做、含小案**（不查的風險不分案件大小）
+    - **輸出（Capture Plan 完整檔）= 中型案 NT$ 100 萬+ 必做**
+    - 小案動作做完、可用 1 頁筆記 / 5 facts 摘要、不用寫正式 Capture Plan 檔
   - Capture Plan 內容：客戶 + 競品 + IT + 採購 + Win Themes + 風險（公開資料事實版）
   - 寫主 proposal 時引用 Capture Plan 為 source of truth
   - 訪談後更新 Capture Plan（不是直接改 proposal）
