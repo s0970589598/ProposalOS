@@ -261,6 +261,35 @@
 - **發生**：「過去 30d X = 971」是 sliding window、同 30d 已變 733
 - **教訓**：時序型 hero stat 必標「(截至 YYYY-MM-DD)」+ 註明 sliding window
 
+## AI 模擬訪談相關 Anti-Patterns
+
+源自 ProposalOS 對 AI 模擬訪談的 3 模式分層（[playbook/ai-simulated-interview.md](../playbook/ai-simulated-interview.md)）。
+
+### AP-NEW-AI-1：AI 模擬內容沒標 unverified、誤當真實 quote
+- **發生**：用 AI 模擬客戶會說什麼、寫進 pitch 客戶引言段、沒標示
+- **後果**：客戶發現 = 信任崩潰、評委發現 = 直接出局
+- **教訓**：AI 模擬內容必含「⚠️ AI 推論、待真實訪談」警示標頭、絕不放在「客戶引言」段
+
+### AP-NEW-AI-2：C2 placeholder 永久未替換
+- **發生**：deadline 緊用 AI 模擬當 placeholder、deadline 過後忘記替換
+- **後果**：永遠的 fake quote 在 pitch 內、定時炸彈
+- **教訓**：每段 C2 必有「替換計畫」（deadline + 負責人 + 動作 + 14 天追蹤）
+
+### AP-NEW-AI-3：AI 模擬寫得像真實 quote
+- **發生**：「我們當初是憑經驗設規則」這種 quote 風格句子 + AI 模擬標記
+- **後果**：讀者只看 quote、忽略小字標記、視為事實
+- **教訓**：C2 內容**改用清單形式描述主題、不用 quote 風格句子**
+
+### AP-NEW-AI-4：沒紀錄 C2 使用、無從追蹤
+- **發生**：用了 AI 模擬替代真實訪談、沒紀錄哪些段是 C2
+- **後果**：後續無法 audit、無法替換、無法累積 anti-pattern
+- **教訓**：所有 C2 使用必紀錄（建立日 / 來源 / 替換進度）
+
+### AP-NEW-AI-5：B 模式預判沒做訪後比對
+- **發生**：AI 預判完、真實訪談跑完、忘記比對「預判 vs 實際」
+- **後果**：失去 B 模式最有價值的部分（AI 盲點累積）
+- **教訓**：訪後 24 hr 內必填預判 template 的「實際 / 差異」欄、抽 anti-pattern 候選
+
 ## 7 問 Sanity Check（從真實案例提煉）
 
 寫每個具體數字 / 主張前自問：
