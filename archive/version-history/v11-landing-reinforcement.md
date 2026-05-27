@@ -31,7 +31,7 @@ V11 強調這些**不是 12 模組漏掉**，而是**容易被埋在模組裡看
 ## 對應到 V12
 
 → 完整保留進 [framework/8-mandatory-checks/](../../framework/8-mandatory-checks/)
-→ 提案模板 [templates/proposal-template.md](../../templates/proposal-template.md) 每個對應章節都引用
+→ 提案模板 [templates/proposal-template-standard.md](../../templates/proposal-template-standard.md) 每個對應章節都引用
 
 ## V11 與專業框架對齊
 

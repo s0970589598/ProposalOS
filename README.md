@@ -116,7 +116,7 @@ ISO / 法規 / 資安 / AI 風險
 
 ```
 1. 讀 playbook/proposal-flow.md 確認流程順序
-2. 從 templates/proposal-template.md 複製一份新提案骨架
+2. 依案件規模從 templates/proposal-template-{short,standard,enterprise}.md 複製骨架
 3. 依 framework/12-modules/ 逐項填寫
 4. 用 framework/8-mandatory-checks/ 過 checklist
 5. 看 framework/industry-addons/ 是否需要加掛
@@ -141,19 +141,45 @@ ProposalOS 把 AI 定位成提案顧問，不只是被提案物：
 
 ```
 ProposalOS/
-├── README.md                    本檔
+├── README.md                    本檔（總覽 + 12 模組）
+├── CHEAT-SHEET.md               一頁濃縮版（會議帶著用）
+├── GLOSSARY.md                  術語表（150+ 縮寫對照）
 ├── CLAUDE.md                    給 AI 助手的工作指引
+├── CHANGELOG.md                 版本變更紀錄
+├── CONTRIBUTING.md              貢獻指引
+├── LICENSE                      MIT
 ├── framework/
+│   ├── README.md                框架入口
+│   ├── MATRIX.md                12 × 8 對應矩陣
 │   ├── 12-modules/              12 大模組逐項
 │   ├── 8-mandatory-checks/      8 強制檢查項
 │   └── industry-addons/         產業加掛模組
-├── templates/                   提案 / RTM / 圖表範本
+│       ├── README.md            + 通用議題交叉索引
+│       └── MODULE-INDEX.md      從模組看 add-on 反向索引
+├── templates/
+│   ├── README.md                3 版本選擇指引
+│   ├── proposal-template-short.md       < NT$ 50 萬
+│   ├── proposal-template-standard.md    NT$ 50-500 萬
+│   ├── proposal-template-enterprise.md  NT$ 500 萬+ / 政府 / 跨國
+│   ├── rtm-template.md
+│   ├── architecture-diagram-checklist.md
+│   ├── before-after-diagram-template.md
+│   └── pricing-breakdown-template.md
 ├── playbook/
-│   ├── proposal-flow.md         流程順序
+│   ├── proposal-flow.md         流程順序（4 大段 ＋ 18 小階段）
 │   ├── ai-assistance.md         AI 輔助流程
 │   ├── skill-building.md        個人能力建構
 │   ├── interview-script.md      訪談腳本
 │   └── red-team-questions.md    反方審查題庫
+├── examples/
+│   └── mingyang-cold-chain/     完整虛構案例（含 RTM、架構、報價、反方審查）
+├── skills/
+│   └── goodlinker-proposal/     Claude Skill：引導完整流程
+├── scripts/
+│   ├── check-links.sh           驗證所有 markdown link
+│   ├── new-proposal.sh          從模板建新案資料夾
+│   └── completeness-check.sh    對照 12 × 8 自查
+├── diagrams/                    圖檔來源（Excalidraw / draw.io / Mermaid）
 ├── archive/
 │   └── version-history/         V1～V11 演化紀錄
 └── research/
