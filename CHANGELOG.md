@@ -4,6 +4,52 @@
 
 ## [Unreleased]
 
+## [1.3.0] - 2026-05-27
+
+### Changed — 重新定位（從 GoodLinker 內部工具 → 跨產業通用框架）
+
+- 主 README、CLAUDE.md 改用 ProposalOS 跨產業定位（GoodLinker 是 origin、不是 owner）
+- Claude Skill 改名：`goodlinker-proposal` → `proposal-os`
+- Skill description 更新含 9 產業（製造 / 醫療 / 政府 / 金融 / 零售 / ESG / 食品物流 / SaaS / 營建）
+
+### Added — 真正缺角補強
+
+- `framework/client-perspective.md`：客戶端視角（從讀提案者角度反向設計）
+- `framework/anti-patterns.md`：Anti-Patterns 庫（7 類、23 範例、待真實 case 累積）
+- `framework/scoring-rubric.md`：100 分制提案品質評估（9 大項 + 加減分）
+
+### Added — 新產業
+
+- `framework/industry-addons/saas-software.md`：純軟體 / SaaS / 雲服務
+- `framework/industry-addons/construction-realestate.md`：營建 / 不動產 / 工程
+- MODULE-INDEX.md 更新含 9 產業
+
+### Added — 真正能用
+
+- `scripts/install-skill.sh`：安裝 proposal-os Claude Skill
+- `scripts/setup-pre-commit.sh`：設定 pre-commit hook
+- `playbook/retrospect-past-case.md`：過去案件 retrospective 指引
+
+## [1.2.1] - 2026-05-27
+
+### Added
+- `DECISION-TREE.md`：5 個關鍵問題 + 自動推薦該用哪些工具 + 4 個實際案例配對
+
+### Fixed（三層 net 驗證後事實修正）
+- Shipley Associates 創立年 1985 → 1972
+- 移除「McKinsey 內部訓練手冊（泄漏版）」reputational risk citation
+- DORA Metrics 4 → 5（2021 加入 Reliability）+ MTTR 改為 Time to Restore Service
+- 移除錯誤的《Sounds Like a Cult》Wardley 訪談 citation
+- Double Diamond 5 階段 → 官方 4 階段 + 結構圖修正
+- SWOT 起源修正：Albert Humphrey 1960s SRI、不是 Porter 同期
+- SLSA L1-L4 → L1-L3（v1.0、2023）
+- MITRE ATT&CK Tactics / Techniques 標籤對齊
+- 押標金 / 履約保證金改用「法定上限」用語
+- compliance-matrix 「應」歸類為強制（台灣政採實務）
+- 移除《Crossing the Chasm》錯誤 Pilot Customer 歸屬
+- 修正 PoC 合約 §6.2 數字與工作範例一致
+- aws-serverless 修正為 plugin 含子 skill
+
 ## [1.2.0] - 2026-05-27
 
 ### Added

@@ -1,11 +1,18 @@
-# GoodLinker ProposalOS
+# ProposalOS
 
-谷林顧問式系統提案作業系統
+跨產業顧問式系統提案作業系統
 
-## 這是什麼
+## 定位
 
-不是一份模板，是一套**可重複使用的提案作業流程**。
-從市場、競品、需求、流程、資料、架構、合規、商務、驗收到維運，產出可成交、可交付、可驗收的系統方案。
+ProposalOS 是**跨產業通用、可重複使用的提案作業流程**。
+不限產業、不限規模、不限公司。從市場、競品、需求、流程、資料、架構、合規、商務、驗收到維運，產出可成交、可交付、可驗收的系統方案。
+
+源於 GoodLinker 內部 IoT / 製造 / 食品案件實踐，現在開源、跨產業適用：
+
+- ✅ 製造、醫療、政府、金融、零售、能源 ESG、食品物流、SaaS、營建等所有產業
+- ✅ 提案規模從 30 萬到 5000 萬+
+- ✅ 個人顧問、SI 公司、新創、大企業內部團隊都能用
+- ✅ MIT License、Fork 自用、加自己的 case
 
 ## 為什麼需要
 
@@ -157,6 +164,9 @@ ProposalOS/
 │   ├── industry-addons/         產業加掛模組
 │   │   ├── README.md            + 通用議題交叉索引
 │   │   └── MODULE-INDEX.md      從模組看 add-on 反向索引
+│   ├── client-perspective.md    客戶端視角（從讀提案者反向設計）
+│   ├── anti-patterns.md         Anti-Patterns 庫（過去做錯的具體案例）
+│   ├── scoring-rubric.md        提案品質評分標準（100 分制）
 │   └── methodologies/           跨領域方法論
 │       ├── shipley-apmp.md      大標案提案方法論
 │       ├── pyramid-principle.md SCQA + MECE 結構化寫作
@@ -191,15 +201,18 @@ ProposalOS/
 │   ├── skill-building.md        個人能力建構
 │   ├── interview-script.md      訪談腳本
 │   ├── red-team-questions.md    反方審查題庫
-│   └── skill-integration.md     整合既有 Claude Skills
+│   ├── skill-integration.md     整合既有 Claude Skills
+│   └── retrospect-past-case.md  過去案件 retrospective 指引
 ├── examples/
 │   └── mingyang-cold-chain/     完整虛構案例（含 RTM、架構、報價、反方審查）
 ├── skills/
-│   └── goodlinker-proposal/     Claude Skill：引導完整流程
+│   └── proposal-os/             Claude Skill：引導完整流程（跨產業）
 ├── scripts/
 │   ├── check-links.sh           驗證所有 markdown link
 │   ├── new-proposal.sh          從模板建新案資料夾
-│   └── completeness-check.sh    對照 12 × 8 自查
+│   ├── completeness-check.sh    對照 12 × 8 自查
+│   ├── install-skill.sh         安裝 proposal-os Claude Skill
+│   └── setup-pre-commit.sh      設定 git pre-commit hook
 ├── diagrams/                    圖檔來源（Excalidraw / draw.io / Mermaid）
 ├── archive/
 │   └── version-history/         V1～V11 演化紀錄

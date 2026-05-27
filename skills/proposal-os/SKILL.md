@@ -1,11 +1,12 @@
 ---
-name: goodlinker-proposal
-description: 用 GoodLinker ProposalOS 框架引導完整顧問式系統提案流程。從產業研究、競品分析、訪談、RTM、架構、報價到反方審查 — 一步步帶完。觸發：「幫我寫提案」「新案件 kickoff」「ProposalOS」「goodlinker-proposal」「proposal flow」「系統提案規劃」。
+name: proposal-os
+description: 用 ProposalOS 框架引導完整顧問式系統提案流程。跨產業通用（製造、醫療、政府、金融、零售、能源 ESG、食品物流、SaaS、營建等）。從產業研究、競品分析、訪談、RTM、架構、報價到反方審查 — 一步步帶完。觸發：「幫我寫提案」「新案件 kickoff」「ProposalOS」「proposal-os」「consultative proposal」「顧問式提案」「proposal flow」「系統提案規劃」。
 ---
 
-# GoodLinker ProposalOS Skill
+# ProposalOS Skill
 
 引導使用者用 **12 大模組 + 8 強制檢查項** 完成一份顧問式系統提案。
+跨產業通用、不限 GoodLinker 用。
 
 ## 啟動
 

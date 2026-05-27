@@ -13,6 +13,8 @@
 | 零售 / 電商 / 餐飲 / 連鎖 | [retail-ecommerce.md](retail-ecommerce.md) |
 | 能源 / ESG / 上市櫃永續報告 | [energy-esg.md](energy-esg.md) |
 | 食品 / 冷鏈 / 物流 | [food-logistics.md](food-logistics.md) |
+| **SaaS / 純軟體 / 雲服務** | [saas-software.md](saas-software.md) |
+| **營建 / 不動產 / 工程** | [construction-realestate.md](construction-realestate.md) |
 
 ## 加掛原則
 

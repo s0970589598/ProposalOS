@@ -6,7 +6,7 @@ ProposalOS 提供的 Claude Skill。
 
 | Skill | 用途 |
 |---|---|
-| [goodlinker-proposal](goodlinker-proposal/SKILL.md) | 引導完整 ProposalOS 提案流程 |
+| [proposal-os](proposal-os/SKILL.md) | 引導完整 ProposalOS 提案流程 |
 
 ## 安裝
 
@@ -14,13 +14,13 @@ ProposalOS 提供的 Claude Skill。
 
 ```bash
 # 全域安裝（兩台機器共用）
-cp -r skills/goodlinker-proposal ~/.claude/skills/
+cp -r skills/proposal-os ~/.claude/skills/
 
 # 或 symlink（要求 ~/.claude 是 git 同步的話）
-ln -s "$(pwd)/skills/goodlinker-proposal" ~/.claude/skills/goodlinker-proposal
+ln -s "$(pwd)/skills/proposal-os" ~/.claude/skills/proposal-os
 ```
 
-下次 Claude Code 對話輸入 `/goodlinker-proposal` 或自然語言觸發詞即可使用。
+下次 Claude Code 對話輸入 `/proposal-os` 或自然語言觸發詞即可使用。
 
 ## 維護
 
