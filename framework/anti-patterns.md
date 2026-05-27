@@ -223,12 +223,64 @@
 | 同行交流 | 不定 |
 | 書籍 / 業界文章 | 持續 |
 
+## 真實案例累積的 Anti-Patterns
+
+從 [examples/goodlinker-gcp-pitch-retrospective.md](../examples/goodlinker-gcp-pitch-retrospective.md) 累積（真實 investor pitch、71 修正提煉）。
+
+### AP-NEW-01：客戶引言段是 Placeholder（未訪談）
+- **產業**：跨產業
+- **階段**：提案
+- **發生**：標竿客戶引言段全為 `> 「___（待訪談）___」`
+- **後果**：客戶 / 評委會覺得 immature
+- **教訓**：訪談是必修、提案送出前**至少 1 個真實引言**
+- **對應模組**：[強制檢查項 H](8-mandatory-checks/H-evidence-pack.md)
+
+### AP-NEW-02：對方端決策鏈不明（RACI 空白）
+- **發生**：寫了我方 RACI、對方 RACI 0 個角色
+- **教訓**：投資 / partnership pitch 也要做對方端 stakeholder mapping
+- **對應模組**：[模組 05](12-modules/05-stakeholders-raci.md)
+
+### AP-NEW-03：累積大量修正、多半發生早期版本
+- **發生**：v1 → v2 → v3 累積 71 修正、大半早期就該驗
+- **教訓**：**事前 7 問 sanity check > 事後修 71 次**
+
+### AP-NEW-04：macOS sed 清空中文檔案
+- **發生**：`sed -i '' 's/中文/中文/g' 含中文檔.md` → 整檔變 0 bytes
+- **教訓**：禁用 sed 對中文檔案 in-place 替換、用 Edit / perl / uv python3
+
+### AP-NEW-05：Retract 的檔沒清乾淨
+- **發生**：被取代的檔還在、新人會用錯
+- **教訓**：retract 檔移到 archive/、不留原位
+
+### AP-NEW-06：deal-loss 對手寫不出（只靠 WebSearch）
+- **發生**：競品段對「真實 deal-loss 對手」無法填
+- **教訓**：競品分析**必訪業務員拉真實 deal-loss 紀錄**
+- **對應模組**：[模組 02](12-modules/02-competitors-alternatives.md)
+
+### AP-NEW-07：時序 hero stat 沒標日期（漂移）
+- **發生**：「過去 30d X = 971」是 sliding window、同 30d 已變 733
+- **教訓**：時序型 hero stat 必標「(截至 YYYY-MM-DD)」+ 註明 sliding window
+
+## 7 問 Sanity Check（從真實案例提煉）
+
+寫每個具體數字 / 主張前自問：
+
+1. **欄位真的在被 update 嗎？**（避免「99.91%」型翻車 — 用率高其實是 col 沒被寫）
+2. **數字背後有業務邏輯嗎？**（避免「9 個 tag」型誤推論）
+3. **cohort 樣本同 plan / 同用途嗎？**（apple-to-apple）
+4. **客戶 plan 歷史完整看了嗎？**（避免「1 筆 free 推 churn」型誤判）
+5. **0% / 100% 極端值藏多層次嗎？**（極端值通常是定義問題）
+6. **這數字當下 query 過嗎？基數定義明寫嗎？**
+7. **「客戶用 X 技術」推論前驗過嗎？**（沒實證標 unverified）
+
+⚠️ 這 7 問源於真實案件累積 71 修正後的提煉、適用於**任何具體主張**。
+
 ## Anti-Pattern Index 索引（按模組）
 
 | 模組 | Anti-Patterns |
 |---|---|
-| 訪談 | AP-01、AP-02、AP-03 |
-| 競品 | AP-04、AP-05 |
+| 訪談 | AP-01、AP-02、AP-03、AP-NEW-01 |
+| 競品 | AP-04、AP-05、AP-NEW-06 |
 | 架構 | AP-06、AP-07、AP-08 |
 | 商務 | AP-09、AP-10、AP-11、AP-12 |
 | 合規 | AP-13、AP-14、AP-15、AP-16 |

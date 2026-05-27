@@ -4,6 +4,27 @@
 
 ## [Unreleased]
 
+## [1.3.1] - 2026-05-27
+
+### Added — 第一份真實案件 retrospective（含 7 個真實 anti-patterns）
+
+- `examples/goodlinker-gcp-pitch-retrospective.md`：Goodlinker × GCP Pitch 真實案件回溯（去敏感版）
+  - 12 模組對照 + 8 強制檢查項對照
+  - 7 個 Good Patterns（71 修正方法論、Karpathy 三層架構、Schema propagation、7 問 sanity check、Cohort baseline + 跨產業驗證、Parking Lot、Human Review Gate）
+  - 7 個真實 Anti-Patterns（AP-NEW-01 ~ 07）
+  - 客戶端視角（Google Cloud 評委視角預測）
+  - 對 ProposalOS 框架的具體改進建議
+  - Meta-Lesson：真實 retrospect > 虛構案例
+
+### Changed
+- `framework/anti-patterns.md`：補進 7 個真實 anti-patterns + 7 問 sanity check 段（從真實 GCP pitch 案件提煉）
+- `CHEAT-SHEET.md`：加 7 問 sanity check（寫具體數字 / 主張前）
+- `examples/README.md`：加 retrospective 案例到清單
+
+### 案件適用範圍擴展
+- ProposalOS 適用範圍從「客戶提案」擴展到「investor / partnership pitch」
+- 確認大部分原則跨用例適用、部分（DPA/SLA/退場）不適用
+
 ## [1.3.0] - 2026-05-27
 
 ### Changed — 重新定位（從 GoodLinker 內部工具 → 跨產業通用框架）

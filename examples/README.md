@@ -9,11 +9,13 @@
 
 ## 案例列表
 
-| 案例 | 產業 | 規模 | 核心議題 | 路徑 |
+| 案例 | 類型 | 規模 | 核心議題 | 路徑 |
 |---|---|---|---|---|
-| **明陽食品冷鏈監控** | 食品 / 冷鏈 / 物流 | 中（300-500 萬）| IoT 監控、食品履歷、冷鏈追溯 | [mingyang-cold-chain/](mingyang-cold-chain/) |
+| **明陽食品冷鏈監控**（虛構教學案例）| 食品 / 冷鏈 / IoT | NT$ 300-500 萬 | 冷鏈監控、食品履歷、追溯 | [mingyang-cold-chain/](mingyang-cold-chain/) |
+| **Goodlinker × GCP Pitch retrospective**（真實案例去敏感版）| Investor / Partnership Pitch | $350K USD credit | AI 提煉 know-how、Vertex AI、跨產業遷移 | [goodlinker-gcp-pitch-retrospective.md](goodlinker-gcp-pitch-retrospective.md) |
 
 > 未來會加：醫療診所、製造業 OEE、政府專案、零售多通路等案例。
+> 也歡迎貢獻真實案件 retrospective（去敏感後）— 比虛構範例更值錢。
 
 ## 怎麼用
 
