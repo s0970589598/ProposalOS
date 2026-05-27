@@ -1,0 +1,25 @@
+# macOS
+.DS_Store
+._*
+
+# Editor / IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Claude Code 本機設定（不 share）
+.claude/settings.local.json
+.claude/projects/
+.claude/cache/
+
+# 提案產出（內含客戶資料，不上 public repo）
+proposals/
+internal-cases/
+*.proposal.md
+draft-*.md
+
+# 臨時檔
+*.tmp
+*.log
+*.bak
