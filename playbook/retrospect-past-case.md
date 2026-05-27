@@ -156,10 +156,53 @@
 
 | 頻率 | 動作 |
 |---|---|
-| 每案結束（贏 / 輸）| 個人 retrospect、30 分鐘版本 |
+| 每案結束（贏 / 輸）| 個人 retrospect、30-120 分鐘版本 |
 | 每月 | 整合月內案件、找跨案 pattern |
 | 每季 | 團隊聚集、分享 retrospect、更新框架 |
 | 每年 | 大型 review、決定 ProposalOS 下一版方向 |
+
+## 累積機制（從手動 → 半自動）
+
+ProposalOS 提供 2 層機制、不靠你的記憶力：
+
+### Layer 1：腳本（結構自動產出）
+
+```bash
+# 結案時跑
+./scripts/end-proposal.sh acme-cold-chain win
+
+# 自動建：
+#   proposals/acme-cold-chain/END_STATUS.md  ← 結案紀錄
+#   proposals/acme-cold-chain/retrospect.md  ← 5-step template
+
+# 填完跑：
+./scripts/extract-antipatterns.sh acme-cold-chain
+
+# 自動抽：
+#   proposals/acme-cold-chain/anti-patterns-candidates.md  ← AP 候選
+# 對候選做去敏感、合併到 framework/anti-patterns.md
+```
+
+### Layer 2：Claude Skill 觸發詞
+
+當你跟 Claude 講以下任一：
+
+- 「X 案結束了 / 輸了 / 贏了 / 簽了 / 上線了 / 暫停了」
+- 「跑 retrospect」「結案復盤」
+
+→ `proposal-os` skill 主動提醒、引導 5-step 流程。
+→ 詳見 [../skills/proposal-os/SKILL.md](../skills/proposal-os/SKILL.md) 「結案 Retrospect 累積機制」段。
+
+### 為什麼有機制 > 沒機制
+
+| 沒機制 | 有機制 |
+|---|---|
+| anti-patterns.md 卡在初始 7 個 virtual AP | 每結案 +1-3 個真實 AP |
+| 6 個月後仍 7 個 | 6 個月後 15-25 個 |
+| 重複踩同樣雷 | 累積式不重蹈 |
+| ProposalOS 永遠紙上完整 | 真實演化中、像 GCP Pitch 71 修正紀錄 |
+
+→ **機制 + 紀律 > 個人記憶力**。
 
 ## 範例
 

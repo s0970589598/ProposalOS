@@ -4,6 +4,36 @@
 
 ## [Unreleased]
 
+## [1.4.0] - 2026-05-27
+
+### Added — Anti-Patterns 累積機制
+
+- `scripts/end-proposal.sh`：結案時跑、自動建：
+  - `proposals/<案>/END_STATUS.md`（含日期 / outcome / 結案類型對應動作）
+  - `proposals/<案>/retrospect.md`（5-step + 12 模組 + 8 強制檢查項對照 template）
+- `scripts/extract-antipatterns.sh`：從填好的 retrospect 自動抽 AP 候選
+  - 輸出 `proposals/<案>/anti-patterns-candidates.md`（含去敏感 checklist）
+  - 用 Python 解析 markdown、抓 ### AP-NEW- block、過濾未填的 template
+- `skills/proposal-os/SKILL.md`：加結案 Retrospect 累積機制段
+  - 觸發詞偵測：「X 案結束了 / 輸了 / 贏了 / 簽了 / 上線了 / 暫停了」
+  - 主動提醒跑 retrospect、引導 5-step 流程
+  - 同步更新 description 加觸發詞清單
+- `playbook/retrospect-past-case.md`：加「累積機制（從手動 → 半自動）」段
+  - Layer 1：腳本（結構自動產出）
+  - Layer 2：Claude Skill 觸發詞
+
+### 為什麼這版重要
+
+機制 + 紀律 > 個人記憶力。
+
+- 沒機制：anti-patterns.md 卡在初始 7 個 virtual AP、6 個月後仍 7 個
+- 有機制：每結案 +1-3 個真實 AP、6 個月後 15-25 個、真實演化中
+
+### 同步動作
+
+- `~/.claude/skills/proposal-os/SKILL.md` 已同步
+- cc-manager git repo 已 commit + push
+
 ## [1.3.1] - 2026-05-27
 
 ### Added — 第一份真實案件 retrospective（含 7 個真實 anti-patterns）
