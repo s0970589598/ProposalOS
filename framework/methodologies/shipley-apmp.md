@@ -5,7 +5,7 @@
 
 ## 兩個來源
 
-- **Shipley Proposal Guide**（Shipley Associates，1985 起）
+- **Shipley Proposal Guide**（Shipley Associates，公司 1972 創立、Proposal Guide 1990s 初版、目前約第 5 版）
 - **APMP**（Association of Proposal Management Professionals，提供 CP / PPP / CPP 認證）
 
 我們現在的 ProposalOS 等於部分重新發明這套。本檔把 Shipley 的關鍵概念整合進來。

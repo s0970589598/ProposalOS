@@ -143,6 +143,7 @@ ProposalOS 把 AI 定位成提案顧問，不只是被提案物：
 ProposalOS/
 ├── README.md                    本檔（總覽 + 12 模組）
 ├── CHEAT-SHEET.md               一頁濃縮版（會議帶著用）
+├── DECISION-TREE.md             快速決策樹（這案該用哪些工具）
 ├── GLOSSARY.md                  術語表（150+ 縮寫對照）
 ├── CLAUDE.md                    給 AI 助手的工作指引
 ├── CHANGELOG.md                 版本變更紀錄

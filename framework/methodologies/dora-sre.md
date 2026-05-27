@@ -3,18 +3,22 @@
 軟體型客戶 / 含開發運維的提案的維運段必看。
 **Google SRE + DORA 是業界 DevOps / 平台工程事實標準**。
 
-## DORA Metrics（4 個關鍵指標）
+## DORA Metrics（5 個關鍵指標）
 
 DevOps Research and Assessment（Google Cloud 旗下）。每年發《Accelerate State of DevOps Report》。
+
+原本 4 metrics、**2021 加入 Reliability**（第 5 個）、後續報告又調整命名。
 
 | 指標 | 意思 | Elite / High / Medium / Low |
 |---|---|---|
 | **Deployment Frequency** | 多常部署到 prod | 每天多次 / 每週多次 / 每月 / 每季 |
 | **Lead Time for Changes** | commit → prod 多久 | 1hr 內 / 1 週內 / 1 月內 / > 6 月 |
 | **Change Failure Rate** | 部署失敗率 | 0-15% / 16-30% / 31-45% / 46%+ |
-| **MTTR**（Mean Time to Restore）| 失敗後復原 | < 1hr / < 1 day / < 1 week / > 6 月 |
+| **Time to Restore Service**（原 MTTR）| 失敗後復原（DORA 2022 正式更名）| < 1hr / < 1 day / < 1 week / > 6 月 |
+| **Reliability**（2021 新加）| 服務可靠度、達 SLO 比例 | 依目標 |
 
-→ 4 個指標一起看、不要單看一個。
+→ 5 個指標一起看、不要單看一個。
+→ MTTR 是傳統業界詞、DORA 已改用 **Time to Restore Service**（更精確）。
 
 ### 為什麼提案要寫 DORA
 
@@ -143,7 +147,8 @@ SRE 經典定義：
 | Deployment Frequency | On-demand（多次/天）|
 | Lead Time for Changes | < 1 hr |
 | Change Failure Rate | 0-15% |
-| Time to Restore | < 1 hr |
+| Time to Restore Service | < 1 hr |
+| Reliability | 持續達 SLO（依組織目標）|
 
 → 寫進提案 = 訊號客戶「我們是業界一流水準」（前提：我們真的能做到）。
 

@@ -43,7 +43,7 @@ ProposalOS 不重新發明輪子。
 |---|---|---|
 | **goodlinker-lambda** | GoodLinker 新 Lambda 完整流程 | 提案技術架構含 Lambda |
 | **goodlinker-mcp** | GoodLinker MCP Gateway | 提案含 MCP |
-| **aws-serverless** suite | AWS Lambda / API Gateway / SAM / CDK | 提案 AWS 架構 |
+| **aws-serverless plugin** 內子 skill：`aws-serverless:aws-lambda`、`aws-serverless:api-gateway`、`aws-serverless:aws-lambda-durable-functions`、`aws-serverless:aws-serverless-deployment` | AWS Lambda / API Gateway / SAM / CDK | 提案 AWS 架構 |
 | **engineering** | 23 個工程子技能 | 提案技術設計 |
 | **health** | code quality dashboard | 維運段引用 |
 
@@ -182,7 +182,7 @@ Gold Team（最終，提案 100%）
 
 | 規劃中 Skill | 用途 |
 |---|---|
-| `goodlinker-proposal` | 引導完整 ProposalOS 流程（已建）|
+| `goodlinker-proposal` | 引導完整 ProposalOS 流程（**本 repo `skills/goodlinker-proposal/` 已建檔、待 `cp -r` 到 `~/.claude/skills/` 才會被 Claude Code 識別**）|
 | `proposal-review` | 對既有提案做 12 × 8 自查 |
 | `competitor-research` | 對指定產業 / 公司做競品分析 |
 | `rtm-from-interview` | 訪談逐字稿 → RTM |

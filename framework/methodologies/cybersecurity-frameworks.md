@@ -25,11 +25,11 @@ SLSA          → 供應鏈完整性
 
 ## MITRE ATT&CK
 
-公開的**攻擊知識庫**：列出已知攻擊技術（Tactics）、戰術（Techniques）、實際案例（Procedures）。
+公開的**攻擊知識庫**（TTPs：Tactics、Techniques、Procedures）：
 
-- **Tactics**（戰術，14 個）：Initial Access、Execution、Persistence、Privilege Escalation、Defense Evasion、Credential Access、Discovery、Lateral Movement、Collection、Command and Control、Exfiltration、Impact、Reconnaissance、Resource Development
-- **Techniques**（技術，200+ 個）：每個 Tactic 下的具體做法
-- **Procedures**：實際 APT / threat actor 案例
+- **Tactics**（**戰術 = 目標 / 為什麼**，14 個）：Initial Access、Execution、Persistence、Privilege Escalation、Defense Evasion、Credential Access、Discovery、Lateral Movement、Collection、Command and Control、Exfiltration、Impact、Reconnaissance、Resource Development
+- **Techniques**（**技術 = 怎麼做**，200+ 個）：每個 Tactic 下的具體做法
+- **Procedures**（**實作 = 真實案例**）：實際 APT / threat actor 怎麼用這個技術
 
 提案中怎麼用：
 
@@ -118,17 +118,19 @@ SLSA          → 供應鏈完整性
 
 ## SLSA（Supply-chain Levels for Software Artifacts）
 
-Google 推、現在 Linux Foundation 主管。
+Google 推、現由 **OpenSSF（隸屬 Linux Foundation）** 主管。
 **軟體供應鏈完整性**標準。
 
-4 個 level（L1-L4）：
+**SLSA v1.0**（2023-04 重新發布、目前版本）**3 個 Build track levels**：
 
 | Level | 內容 |
 |---|---|
-| **L1** | Build 過程有 provenance 紀錄 |
-| **L2** | 加上 host service、簽章 |
-| **L3** | Build 環境安全強化 |
-| **L4** | Two-party review、reproducible |
+| **L1** | Build 過程有 provenance 紀錄、可追溯 |
+| **L2** | 加 hosted build service、簽章 |
+| **L3** | Build 環境安全強化、tamper-resistant provenance |
+
+⚠️ 舊版 **SLSA 0.1**（2021-2022）有 L1-L4、v1.0 重組為 L1-L3 並把 L4 概念拆到其他 track。
+v1.0 同時定義 **Source track 與 Dependencies track**（仍在發展中）。
 
 → 補強我們的 SBOM（SBOM 是「有什麼」、SLSA 是「怎麼蓋出來的」）。
 

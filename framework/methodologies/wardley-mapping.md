@@ -89,6 +89,7 @@ Wardley 列了 30+ 個戰略動作。常用：
 
 ## 推薦
 
-- Simon Wardley《Wardley Maps》（GitHub 上免費）
+- Simon Wardley《Wardley Maps》（Medium / GitHub 上可免費讀）
 - onlinewardleymaps.com（線上畫圖工具）
-- 《Sounds Like a Cult》Wardley 訪談（Podcast）
+- Wardley 在 GOTO Conferences、InfoQ 的演講（YouTube）
+- learnwardleymapping.com（教學）

@@ -141,11 +141,13 @@
 政府採購法下、RFP（公告招標）有嚴格格式：
 
 - 公開招標 / 選擇性招標 / 限制性招標
-- 押標金（招標金額 5%）
-- 履約保證金（合約金額 5-10%）
+- 押標金（**法定上限為招標金額 5%**、實務上常設低於上限）
+- 履約保證金（**通常為合約金額 10%**、上限 10%）
 - 評選委員（外部專家）
 - 廠商資格限制
 - 公文簽核、流程刻板
+
+⚠️ 具體金額以**該案招標公告**為準、不要假設固定百分比。
 
 → 政府案件用 [proposal-template-enterprise.md](../../templates/proposal-template-enterprise.md) + [Compliance Matrix](../../templates/compliance-matrix-template.md)。
 

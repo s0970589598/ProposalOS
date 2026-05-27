@@ -5,29 +5,30 @@
 
 我們現在模組 04 只用了「服務藍圖」一個工具、Service Design 是整套體系。
 
-## Service Design 完整 5 階段
+## Service Design 階段
+
+**官方 Design Council Double Diamond 是 4 階段**（兩個鑽石、兩個 space）：
 
 ```
-1. Discover      → 用戶研究、訪談、shadowing
-   ↓
-2. Define        → Persona、JTBD、Journey
-   ↓
-3. Develop       → Service Blueprint、Prototype
-   ↓
-4. Deliver       → Pilot、Iterate、Scale
-   ↓
-5. Operate       → 監測、改善、持續演化
+   Problem Space            Solution Space
+   (鑽石 1)                  (鑽石 2)
+   ◇                         ◇
+  ╱ ╲                       ╱ ╲
+ ╱   ╲                     ╱   ╲
+Discover → Define         Develop → Deliver
+（發散）   （收斂）          （發散）   （收斂）
+理解問題                  探索方案
 ```
 
-對應 Design Council 的「Double Diamond」模型：
+- **Discover**：用戶研究、訪談、shadowing（發散、探索問題）
+- **Define**：Persona、JTBD、Journey、定義核心問題（收斂）
+- **Develop**：Service Blueprint、Prototype、發想方案（發散）
+- **Deliver**：Pilot、Iterate、Scale、實作（收斂）
 
-```
-Discover ─┐
-          ├── Define
-Develop ──┤
-          ├── Deliver
-Operate ──┘
-```
+**Operate**（5）不是 Double Diamond 官方階段、但實務上**多數 Service Design 體系**會額外加上「持續營運與演化」階段（如 Design Council 在 2019 後的 Systemic Design 更新版有納入）。本框架延用 5 階段視角，但要知道 Double Diamond 原版是 4。
+
+→ 5 階段（含 Operate）= 實務擴充版
+→ 4 階段（原版 Double Diamond）= Design Council 官方
 
 ## 6 個核心工具
 

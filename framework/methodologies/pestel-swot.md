@@ -137,7 +137,9 @@ SWOT：
 
 ## 推薦讀物
 
-- Michael Porter《Competitive Strategy》（SWOT 同期經典）
+- **SWOT 起源**：Albert Humphrey 1960s 在 Stanford Research Institute (SRI) 開發、後續 Learned/Christensen/Andrews/Guth 在 Harvard 1965 形式化
+- **PESTEL 演化**：原是 PEST、後續加上 Environmental 和 Legal 變 PESTEL（也作 STEEPLE / STEEPLED）
+- Michael Porter《Competitive Strategy》（1980、Five Forces，跟 SWOT 是**不同框架**但常一起用）
 - HBS Case Method 中 SWOT / PESTEL 應用
 - 商業評論常見「五力分析 + PESTEL + SWOT」三角組合
 

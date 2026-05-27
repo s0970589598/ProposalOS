@@ -117,7 +117,7 @@ Microsoft 6 原則：
 | Retrieval | BM25 / Dense / Hybrid (RRF) |
 | Re-ranking | Cohere / Cross-encoder / 無 |
 | Guardrails | 輸入 / 輸出過濾 |
-| Evaluation | RAGAS / Ragas / 自製 |
+| Evaluation | RAGAS / DeepEval / TruLens / 自製 |
 
 ## AI Cost 控管
 

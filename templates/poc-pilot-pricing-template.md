@@ -143,7 +143,8 @@ Expansion（擴大）
 
 6. 後續合作
    6.1 雙方互不承諾必須進入 Pilot / Production
-   6.2 但雙方同意 Pilot 報價上限 NT$ 300 萬、Production 上限 NT$ 700 萬
+   6.2 但雙方同意 Pilot 報價上限 NT$ 300 萬、Production 上限 NT$ 600 萬
+   （上限數字以本範本前段工作範例為準、實際合約以雙方確認為主）
 
 7. 智財
    7.1 PoC 過程產生的客製化程式碼歸客戶
@@ -189,6 +190,6 @@ Expansion（擴大）
 
 ## 推薦讀物
 
-- 《Crossing the Chasm》Pilot Customer 概念
-- 《The Lean Startup》MVP 概念
-- HBS Case：various PoC pricing models
+- 《The Lean Startup》Eric Ries — MVP 概念、Build-Measure-Learn 迴圈
+- 《Crossing the Chasm》Geoffrey Moore — Beachhead market / Early adopters 概念（B2B 的「design partner / pilot customer」實務從這延伸）
+- Founding 50 / Design Partner 模式 — 矽谷 B2B SaaS 常用「先給 N 個早期客戶優惠 + 深度合作」的做法
