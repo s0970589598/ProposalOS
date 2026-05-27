@@ -36,6 +36,103 @@
 
 → Capture Plan **占成功因素 70%**（per Shipley）、**WebSearch 動作不可省**。
 
+## 工作量分級（依「未知度」、不依金額）
+
+⚠️ **工作量不該綁案件金額、該綁「未知度」**。
+
+### 工作量公式
+
+```
+WebSearch 工作量 =
+   客戶已知度（公開資料多寡）
+   + IT 環境複雜度（用 SAP / Salesforce / 自建？）
+   + 競品多寡（同業多寡）
+   + 法規 / 認證複雜度（食品 / 金融 / 醫療？）
+   + 案件創新度（是否冷門領域？）
+```
+
+### 分級對應
+
+| 未知度 | 工作量 | 適用情境 |
+|---|---|---|
+| **熟客 / 熟業界** | 5-15 min | 補 facts、確認沒變動 |
+| **典型新客** | 15-30 min | 中型案、典型產業 |
+| **複雜 IT 整合** | 30-60 min | 客戶用多套大型系統、整合多 |
+| **冷門 / 創新領域** | 60-90 min | 政府標、跨產業、創新案件 |
+| **跨國集團** | 90+ min | 母公司 / 子公司 / 多地、複雜 |
+
+→ 案件金額是**參考、不是決定因素**。30 萬小案若客戶是「跨國集團子公司」也可能要 60 min。
+
+## 三層輸出格式（避免大刀小用、per AP-NEW-WRITE-4）
+
+### Layer 1：5 Facts 摘要（小案 / 個人筆記用）
+
+```markdown
+# [客戶] Capture Plan — 5 Facts 摘要
+
+| Fact | 內容 | Source |
+|---|---|---|
+| 1. 客戶基本 | [年營收 / 員工 / 業務、1 句] | URL |
+| 2. 既有 IT | [ERP / 主要工具、1 句] | URL |
+| 3. 通路 / 客戶 | [B2B 客戶 / 上市櫃、1 句] | URL |
+| 4. 主要競品 | [1-2 個] | URL |
+| 5. 為什麼是現在 | [趨勢 / 法規 / 客戶壓力、1 句] | URL |
+
+填寫時間：5-10 min
+超過 = 該升級用完整 Capture Plan
+```
+
+### Layer 2：完整 Capture Plan（中型案、本檔下方範本）
+
+10 段完整、可被團隊共享、可長期 reference。
+
+### Layer 3：完整 + Win Themes + 接觸計畫（大標 / 政府）
+
+Layer 2 + Win Themes 詳述 + Discriminators 可驗證 + 多輪 Pink/Red/Gold Team Review + Compliance Matrix（政府）。
+
+## WebSearch 結果儲存設計
+
+| 案件規模 | 儲存位置 | 版本控管 |
+|---|---|---|
+| 小案（5 facts） | 個人 Obsidian / 1 頁 md / 用完即拋 | 不必 git |
+| 中案（完整 Capture Plan）| `~/code/[案件名]-proposal/capture-plan.md`（與 proposal 同目錄）| **private** git repo |
+| 大案 | 同上 + 多輪更新 git history | private git repo + 多人 review |
+| **跨案累積** | `~/code/proposal-intelligence/`（情報庫、見下方）| **private** git repo |
+
+### 跨案件「客戶情報庫」（proposal-intelligence repo）
+
+長期高 ROI 設計、跨案累積：
+
+```
+~/code/proposal-intelligence/（private repo、含敏感）
+├── clients/
+│   ├── [客戶代號]/
+│   │   ├── YYYY-MM-DD_facts.md     ← 每次更新加新檔
+│   │   └── relationship-history.md ← 跨案接觸紀錄
+│   └── ...
+├── competitors/                     ← 跨案累積對手情報
+│   ├── 鼎新.md
+│   ├── 東捷.md
+│   └── ...
+├── industries/                      ← 跨案累積產業情報
+│   ├── food-processing.md
+│   ├── manufacturing.md
+│   └── ...
+└── README.md
+```
+
+**累積邏輯**：
+- 每案 WebSearch 結果整理進 clients/competitors/industries 對應檔
+- 同競品多次遇到 → 競品檔越豐富
+- 同產業多次做 → 產業檔越深
+- 下次做新案 → 先查情報庫、不重做研究
+
+**ROI**：
+- 第 1 個祥圃案：30 min WebSearch
+- 第 2 個食品業案：15 min（產業檔已有）
+- 第 3 個遇到鼎新對手：5 min（鼎新檔已有）
+- → 越累積越快、長期符合飛輪效應
+
 ---
 
 # [客戶名稱] [案件名稱] Capture Plan

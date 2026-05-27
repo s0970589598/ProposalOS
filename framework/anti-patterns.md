@@ -334,6 +334,23 @@
   - 訪談後更新 Capture Plan（不是直接改 proposal）
 - **對應模組**：[Shipley / APMP](methodologies/shipley-apmp.md) + [templates/capture-plan-template.md](../templates/capture-plan-template.md)
 
+### AP-NEW-WRITE-4：小案用大案輸出格式（大刀小用）
+- **發生**：30 萬小案、寫 10 段完整 Capture Plan + 100 頁 proposal + 完整 Win Themes 詳述
+- **後果**：
+  - 客戶看不下去（小案不該這麼複雜）
+  - 業務員出手慢（一個小案花一週寫文件）
+  - 邊際效益低（細節寫了客戶也不看）
+  - 看起來「不專業」（小案 over-engineering = 顯得對小案無經驗）
+- **根因**：用「動作 vs 輸出」混淆思維 — 認為「做完整研究 = 寫完整文件」
+- **教訓**：
+  - **動作（查公開資料）依「未知度」決定深度、不依金額**
+  - **輸出格式依「案件規模」分 3 級**：
+    - Layer 1：5 Facts 摘要（小案、1 頁、5 分鐘可填）
+    - Layer 2：完整 Capture Plan（中案、10 段）
+    - Layer 3：Layer 2 + Win Themes + 接觸計畫 + Compliance（大標 / 政府）
+  - 動作做完 = 你知道一切；輸出 = 客戶 / 團隊看的、不要過度
+- **對應模組**：[templates/capture-plan-template.md](../templates/capture-plan-template.md) 三層輸出格式段
+
 ## 7 問 Sanity Check（從真實案例提煉）
 
 寫每個具體數字 / 主張前自問：
