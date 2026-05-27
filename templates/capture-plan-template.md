@@ -2,7 +2,21 @@
 
 ⚠️ **Capture Plan = 提案前的情報蒐集與佈局**。
 依 [Shipley / APMP](../framework/methodologies/shipley-apmp.md) 方法論。
-**大案 / 政府案必做、占成功因素 70%**。
+
+## 何時必做（升級規則、per AP-NEW-WRITE-3）
+
+| 案件規模 | Capture Plan 必要性 |
+|---|---|
+| 小案 < NT$ 50 萬 | 可省（只用 Short template）|
+| **中型案 NT$ 100 萬+** | **必做**（事實版、含公開資料 Sources） |
+| 大案 / 政府案 / 國際集團 | **必做**（完整版 + Win Themes + Discriminators + 接觸計畫）|
+
+**為什麼中型案以上必做**：
+- 跳過 Capture Plan = AP-NEW-WRITE-1（沒查公開資料、framing 過時）
+- 跳過 = AP-NEW-WRITE-2（競品「待補」、提案缺差異化）
+- 真實案例：祥圃 MES 案、跑 Capture Plan 後發現「已用 SAP ERP」、整個 framing 改寫
+
+→ Capture Plan **占成功因素 70%**（per Shipley）、不是「shipley 大標案才用」。
 
 ---
 

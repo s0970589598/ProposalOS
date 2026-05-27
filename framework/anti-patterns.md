@@ -290,6 +290,47 @@
 - **後果**：失去 B 模式最有價值的部分（AI 盲點累積）
 - **教訓**：訪後 24 hr 內必填預判 template 的「實際 / 差異」欄、抽 anti-pattern 候選
 
+## 提案撰寫階段相關 Anti-Patterns
+
+源自 [examples/predicted-to-pitch-update-demo.md](../examples/predicted-to-pitch-update-demo.md) + 祥圃 MES proposal dogfood（2026-05-27）。
+
+### AP-NEW-WRITE-1：寫提案沒做 WebSearch、用「客戶零基礎」假設
+- **發生**：寫 proposal 跳過 WebSearch 步驟、直接用「客戶端待補」placeholder 占位、結果發現客戶已有 SAP ERP 等核心系統、整個 framing 過時
+- **後果**：
+  - Pitch 寫成「我們從 0 蓋」、客戶讀完笑掉牙（你連我用什麼都不知道）
+  - 競品分析完全空白
+  - 報價 / 整合工程量錯誤（沒算 SAP 整合）
+- **根因**：把「公開可查」誤當「待訪談才能知」、低估 WebSearch 的價值
+- **教訓**：**寫 proposal 前 30 min 必跑 WebSearch**、查：
+  - 客戶公司基本資料（員工 / 規模 / 業務）
+  - 客戶既有 IT（ERP / WMS / CRM、找 SAP 案例 / Salesforce 客戶名單）
+  - 客戶通路（B2B 客戶誰）
+  - 業界競品（同產業 MES / SaaS 廠商）
+  - 法規 / 認證現況（CAS / HACCP / ISO）
+- **對應模組**：[模組 01](12-modules/01-industry-market.md) + [模組 02](12-modules/02-competitors-alternatives.md) + [模組 03](12-modules/03-problem-business-goals.md) + Capture Plan
+
+### AP-NEW-WRITE-2：競品分析「待補」、不是真寫
+- **發生**：proposal §2 競品段標「待 user 內部補」、自己給自己 4/10 低分
+- **後果**：違反 ProposalOS V10 「競品前移」紀律、Pitch 整體 framing 缺最關鍵的差異化定位
+- **根因**：以為「真實 deal-loss 對手」是業務訪談才能知、忽略 80% 競品分析可用公開資料完成
+- **教訓**：
+  - 提案撰寫**階段必含**競品分析（不是「待補」）
+  - 流程：WebSearch → 公開資料整理 → SWOT 每個競品 → 客戶選擇樹
+  - 標 confidence：高（多家媒體 / 官網）/ 中（推論）/ 低（無公開資料）
+  - **業務 deal-loss 訪談是補強、不是替代**
+- **對應模組**：[模組 02](12-modules/02-competitors-alternatives.md) + [methodologies/shipley-apmp.md](methodologies/shipley-apmp.md)
+
+### AP-NEW-WRITE-3：Capture Plan 當「大標案才用」、跳過
+- **發生**：寫中型案（NT$ 500-1000 萬）proposal、跳過 Capture Plan、直接寫主提案書
+- **後果**：客戶基本資料 / IT 現況 / 競品 / 採購流程 等沒有單獨檔、proposal 寫到一半才發現缺
+- **根因**：誤把 Capture Plan 當「Shipley 大標案專用」、忽略中型案也需要事前情報整合
+- **教訓**：
+  - **中型案（NT$ 100 萬+）寫 proposal 前必先有 Capture Plan**
+  - Capture Plan 內容：客戶 + 競品 + IT + 採購 + Win Themes + 風險（公開資料事實版）
+  - 寫主 proposal 時引用 Capture Plan 為 source of truth
+  - 訪談後更新 Capture Plan（不是直接改 proposal）
+- **對應模組**：[Shipley / APMP](methodologies/shipley-apmp.md) + [templates/capture-plan-template.md](../templates/capture-plan-template.md)
+
 ## 7 問 Sanity Check（從真實案例提煉）
 
 寫每個具體數字 / 主張前自問：

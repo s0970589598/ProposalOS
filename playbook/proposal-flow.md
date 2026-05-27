@@ -89,14 +89,35 @@
 
 **這是 ProposalOS 的關鍵差異**：競品前移到訪談前。
 
+### 階段 1.0：⭐ WebSearch 30 min（per AP-NEW-WRITE-1）
+
+⚠️ **寫 proposal 前必先跑、不可跳過**。最少查 6 類公開資料：
+
+| 類別 | 查什麼 | 為什麼 |
+|---|---|---|
+| 1. 客戶基本 | 員工 / 規模 / 業務 / 創立 / 老闆 | 案件規模驗證 |
+| 2. **客戶既有 IT** ⭐ | ERP / WMS / CRM（搜尋「SAP 案例」/「Salesforce 客戶」/ 鼎新 / 鼎捷 / 東捷 / 台塑網 客戶名單）| **整個 framing 取決於此** |
+| 3. 客戶通路 / 大客戶 | B2B 客戶誰、上市櫃狀態 | 客戶端壓力 |
+| 4. 業界競品 | 同產業 MES / SaaS / 工具廠商（用 WebSearch + 公開資料）| §2 競品分析 |
+| 5. 法規 / 認證 | CAS / HACCP / ISO / 業別 specific | 合規段 |
+| 6. 業界趨勢 | PESTEL、新興威脅 | §2.3 為什麼是現在 |
+
+**輸出**：產 [Capture Plan](../templates/capture-plan-template.md)（事實版、含 Sources）。
+
+**真實案例**：祥圃 MES proposal 跑 WebSearch 發現「已用 SAP ERP 2020 升級」、整個 framing 從「零基礎」改為「SAP 互補」、避免過時定位。
+
+### 階段 1.1-1.2：依 Phase 1.0 蒐集寫產業 + 競品
+
 對應：
 - [framework/12-modules/01-industry-market.md](../framework/12-modules/01-industry-market.md)
 - [framework/12-modules/02-competitors-alternatives.md](../framework/12-modules/02-competitors-alternatives.md)
 
 輸出：
+- **Capture Plan**（事實版、必有檔、per AP-NEW-WRITE-3）
 - 產業簡報（內部用、3-5 頁）
-- 競品定位圖（內部用）
+- 競品定位圖（內部用、含 SWOT 每個競品）
 - 競品功能對照表
+- 客戶選擇樹
 
 ## 階段 3：第一次客戶會議
 
