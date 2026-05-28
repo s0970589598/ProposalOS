@@ -222,6 +222,92 @@ ProposalOS/
 
 ---
 
+## 相關 Repo Ecosystem（不要混淆）
+
+ProposalOS 不是孤島、跟 3 層 ecosystem 配合運作：
+
+```
+┌─ Layer 1：方法論 + 工具（公開 / OSS） ──────────────────┐
+│                                                       │
+│  📚 ProposalOS（本 repo）                              │
+│     • 框架 / template / playbook / anti-patterns       │
+│     • 跨產業、不含客戶資料、MIT License                  │
+│                                                       │
+│  ⚙️ ~/.claude/skills/                                  │
+│     • proposal-os skill（引導流程）                     │
+│     • pitch-deck-builder（Phase 7 產 deck）             │
+│     • cove-verify / pair-review / best-version         │
+│                                                       │
+└───────────────────────────────────────────────────────┘
+                          ↓ 引用 / 規範
+┌─ Layer 2：跨案情報庫（private、含敏感資料） ──────────────┐
+│                                                       │
+│  🔒 ~/code/proposal-intelligence/                      │
+│     ├── clients/      每客戶資料夾、時序紀錄（不覆蓋）     │
+│     ├── competitors/  對手情報（in-place 更新）           │
+│     └── industries/   產業情報（in-place 更新）           │
+│                                                       │
+│  per Capture Plan template §跨案件客戶情報庫設計          │
+│                                                       │
+└───────────────────────────────────────────────────────┘
+                          ↓ 提供 facts / context
+┌─ Layer 3：每案 deliverable repo（per-project） ──────────┐
+│                                                       │
+│  📦 {project}-proposal/                                │
+│     ├── proposal.md / rtm.md                          │
+│     ├── DESIGN.md + outline.md（pitch-deck-builder）   │
+│     └── docs/deck/{slug}-deck.html + .pdf             │
+│                                                       │
+│  已驗範例：                                              │
+│  • xiangpu-mes-proposal     （食品 MES、NT$ 620 萬）      │
+│  • amafans-eaqs-proposal    （聯名 RFP、聯名合作）         │
+│  • goodlinker-gcp-pitch     （投資 pitch、$350K credit） │
+│                                                       │
+└───────────────────────────────────────────────────────┘
+                          ↓ 結案後
+┌─ Layer 4：累積回流 ────────────────────────────────────┐
+│                                                       │
+│  • 教訓 → ProposalOS framework/anti-patterns.md       │
+│    （去敏感後）                                          │
+│  • 新案件類型 → DECISION-TREE.md                        │
+│    （e.g. Amafans 案 → 加「聯名 RFP」新類型）             │
+│  • 新對手 / 客戶資料 → proposal-intelligence/           │
+│  • Skill 改進 → ~/.claude/skills/                      │
+│                                                       │
+└───────────────────────────────────────────────────────┘
+```
+
+### 三層的「不要混淆」原則
+
+| Layer | 內容 | 公開度 | 更新邏輯 |
+|---|---|---|---|
+| **ProposalOS** | 方法論 / 框架 / template | ✅ Public OSS | 案累積後改進框架 |
+| **proposal-intelligence** | 客戶 / 對手 / 產業 raw facts | 🔒 Private | 跨案累積、不覆蓋 |
+| **{project}-proposal** | 該案 deliverable | 🔒 看客戶 NDA | 只屬於該案 |
+
+### ❌ 容易混淆的錯誤
+
+1. **客戶名 / 對手價格寫進 ProposalOS** → 違反 OSS、改丟 proposal-intelligence
+2. **方法論抽出來放某個 case repo** → 該丟回 ProposalOS framework
+3. **每案重新研究 SUNON / 鼎新** → 該先查 proposal-intelligence/competitors/
+4. **proposal-intelligence 直接寫進 deck 引用** → 該標 unverified 或 manual cite source
+
+### 一個案件 lifecycle 怎麼跑
+
+```
+新案 kickoff
+  ↓
+Step 1: 查 proposal-intelligence/clients/{客戶}/ 看現有情報
+Step 2: 用 ProposalOS framework 套 12 模組（per case repo 寫 proposal.md）
+Step 3: Phase 7 用 pitch-deck-builder 產 deck（per case repo docs/deck/）
+Step 4: 結案 retrospect
+        ├── 教訓 → ProposalOS framework/anti-patterns.md
+        ├── 客戶資料更新 → proposal-intelligence/clients/{客戶}/
+        └── 對手 / 產業新情報 → proposal-intelligence/competitors|industries/
+```
+
+---
+
 ## 演化紀錄
 
 ProposalOS 從 V1 演化到 V12，每版都有獨特貢獻：
