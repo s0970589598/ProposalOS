@@ -1,0 +1,202 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e7]:
+    - complementary [ref=e8]:
+      - generic [ref=e12]:
+        - generic [ref=e13]:
+          - generic [ref=e14]:
+            - img [ref=e15]
+            - img [ref=e17]
+          - menubar [ref=e19]:
+            - menuitem "看板" [ref=e20]:
+              - generic [ref=e21] [cursor=pointer]:
+                - img [ref=e23]
+                - generic [ref=e25]: 看板
+                - img [ref=e27]
+            - menuitem "數據" [ref=e29]:
+              - generic [ref=e30] [cursor=pointer]:
+                - img [ref=e32]
+                - generic [ref=e34]: 數據
+                - img [ref=e36]
+            - menuitem "報表" [ref=e38]:
+              - generic [ref=e39] [cursor=pointer]:
+                - img [ref=e41]
+                - generic [ref=e43]: 報表
+                - img [ref=e45]
+            - menuitem "能源模組" [expanded] [ref=e47]:
+              - generic [ref=e48] [cursor=pointer]:
+                - img [ref=e50]
+                - generic [ref=e53]: 能源模組
+                - img [ref=e55]
+              - menu [ref=e57]:
+                - menuitem "即時監測" [ref=e58] [cursor=pointer]:
+                  - generic [ref=e59]: 即時監測
+                - menuitem "工單電費模擬器" [ref=e60] [cursor=pointer]:
+                  - generic [ref=e61]: 工單電費模擬器
+                - menuitem "年度電力契約模擬器" [ref=e62] [cursor=pointer]:
+                  - generic [ref=e63]: 年度電力契約模擬器
+            - menuitem "工廠配置" [ref=e64]:
+              - generic [ref=e65] [cursor=pointer]:
+                - img [ref=e67]
+                - generic [ref=e72]: 工廠配置
+                - img [ref=e74]
+            - menuitem "設定" [ref=e76]:
+              - generic [ref=e77] [cursor=pointer]:
+                - img [ref=e79]
+                - generic [ref=e81]: 設定
+                - img [ref=e83]
+        - generic [ref=e85]:
+          - generic [ref=e86]: Copyright © 谷林運算
+          - generic [ref=e87]: v.3.17.0
+          - generic [ref=e88]:
+            - img [ref=e90]
+            - generic [ref=e92]: 收合
+    - generic [ref=e93]:
+      - generic [ref=e95]:
+        - generic [ref=e96]:
+          - generic [ref=e97]: GoodLinker Dev
+          - generic [ref=e100]: 進階
+          - generic [ref=e101]: 2026/05/28(四) 12:05:12 (UTC +8)
+        - generic [ref=e102]:
+          - link:
+            - /url: /setting/log
+          - link [ref=e103] [cursor=pointer]:
+            - /url: https://lin.ee/YIdg3BS
+            - img [ref=e105]
+          - link [ref=e107] [cursor=pointer]:
+            - /url: https://night-steed-24c.notion.site/GoodLinker-69b6df040d1543c9b2aaff20e5d9707d?pvs=4
+            - img [ref=e109]
+          - img [ref=e113]
+          - img [ref=e117]
+          - button [ref=e120] [cursor=pointer]:
+            - generic [ref=e121]:
+              - img [ref=e122]
+              - img [ref=e124]
+          - button [ref=e127] [cursor=pointer]:
+            - img [ref=e128]
+      - main [ref=e130]:
+        - main [ref=e132]:
+          - generic [ref=e133]:
+            - generic [ref=e134]:
+              - generic [ref=e135]:
+                - generic [ref=e136]:
+                  - generic [ref=e138] [cursor=pointer]:
+                    - generic:
+                      - combobox [ref=e140]
+                      - generic [ref=e141]: 學校總電錶
+                    - img [ref=e144]
+                  - generic [ref=e147]:
+                    - heading "年度電力契約優化模擬器" [level=1] [ref=e148]
+                    - paragraph [ref=e149]: 低壓電 ·三段式｜ 夏月 6/1 ~ 9/30
+                - generic [ref=e150]:
+                  - generic [ref=e151]: 夏月 6/1 ~ 9/30
+                  - generic [ref=e153]: 非夏月 10/1 ~ 5/31
+              - generic [ref=e155]:
+                - generic [ref=e156]:
+                  - img [ref=e158]
+                  - text: 目前契約
+                - generic [ref=e160]:
+                  - generic [ref=e161]: 經常契約
+                  - generic [ref=e162]: "1000"
+                - generic [ref=e163]:
+                  - generic [ref=e164]: 半尖峰 (附加)
+                  - generic [ref=e165]: "100"
+                - generic [ref=e166]:
+                  - generic [ref=e167]: 週六半尖 (附加)
+                  - generic [ref=e168]: "0"
+                - generic [ref=e169]:
+                  - generic [ref=e170]: 離峰 (附加)
+                  - generic [ref=e171]: "50"
+                - button "修改" [ref=e172] [cursor=pointer]:
+                  - generic [ref=e173]:
+                    - img [ref=e175]
+                    - text: 修改
+                - generic [ref=e178]: 資料期間：2025-05-01 ～ 2026-04-30
+            - generic [ref=e181]:
+              - generic [ref=e182]:
+                - generic [ref=e183]:
+                  - img [ref=e185]
+                  - text: 模擬新契約方案
+                - text: 三段式
+              - generic [ref=e188]:
+                - generic [ref=e189]: 經常契約
+                - generic [ref=e191]:
+                  - button "減少數值" [ref=e192] [cursor=pointer]:
+                    - img [ref=e194]
+                  - button "增加數值" [ref=e196] [cursor=pointer]:
+                    - img [ref=e198]
+                  - spinbutton [disabled] [ref=e202]: "940"
+              - generic [ref=e203]:
+                - generic [ref=e204]: 半尖峰 (附加)
+                - generic [ref=e206]:
+                  - button "減少數值" [ref=e207]:
+                    - img [ref=e209]
+                  - button "增加數值" [ref=e211] [cursor=pointer]:
+                    - img [ref=e213]
+                  - spinbutton [disabled] [ref=e217]: "0"
+              - generic [ref=e218]:
+                - generic [ref=e219]: 週六半尖 (附加)
+                - generic [ref=e221]:
+                  - button "減少數值" [ref=e222]:
+                    - img [ref=e224]
+                  - button "增加數值" [ref=e226] [cursor=pointer]:
+                    - img [ref=e228]
+                  - spinbutton [disabled] [ref=e232]: "0"
+              - generic [ref=e233]:
+                - generic [ref=e234]: 離峰 (附加)
+                - generic [ref=e236]:
+                  - button "減少數值" [ref=e237]:
+                    - img [ref=e239]
+                  - button "增加數值" [ref=e241] [cursor=pointer]:
+                    - img [ref=e243]
+                  - spinbutton [disabled] [ref=e247]: "0"
+              - generic [ref=e249]:
+                - generic [ref=e250]:
+                  - img [ref=e252]
+                  - text: 安全係數 (%)
+                - generic [ref=e255]:
+                  - button "減少數值" [ref=e256] [cursor=pointer]:
+                    - img [ref=e258]
+                  - button "增加數值" [ref=e260] [cursor=pointer]:
+                    - img [ref=e262]
+                  - spinbutton [disabled] [ref=e266]: "10"
+              - button "一鍵優化" [ref=e267] [cursor=pointer]:
+                - generic [ref=e268]:
+                  - img [ref=e320]
+                  - text: 一鍵優化
+            - generic [ref=e271]:
+              - generic [ref=e272]:
+                - generic [ref=e273]:
+                  - generic [ref=e322]:
+                    - generic [ref=e323]: 契約對比
+                    - generic [ref=e324]:
+                      - generic [ref=e325]: 現況
+                      - generic [ref=e326]: 1000 / 100+0 / 50
+                    - img [ref=e328]
+                    - generic [ref=e330]:
+                      - generic [ref=e331]: 模擬
+                      - generic [ref=e332]: 940 / 0+0 / 0
+                    - generic [ref=e333]:
+                      - img [ref=e335]
+                      - text: 節省 NT$ 370,944 / 年
+                  - generic [ref=e274]:
+                    - generic [ref=e275]:
+                      - generic [ref=e276]: 預估年度基本電費
+                      - generic [ref=e337]: NT$ 2,561,520
+                      - generic [ref=e277]: NT$ 2,190,576
+                    - generic [ref=e279]:
+                      - generic [ref=e280]: 基本電費
+                      - generic [ref=e281]: NT$ 2,190,576
+                    - generic [ref=e285]:
+                      - generic [ref=e286]: 超約罰金
+                      - generic [ref=e287]: NT$ 0
+                - heading "需量曲線 vs 契約容量 (365 天 · 2025-05-01 ～ 2026-04-30)" [level=3] [ref=e291]:
+                  - img [ref=e293]
+                  - text: 需量曲線 vs 契約容量 (365 天 · 2025-05-01 ～ 2026-04-30)
+              - generic [ref=e299]:
+                - heading "每月電費成本結構 (基本電費 vs 超約罰金)" [level=3] [ref=e301]:
+                  - img [ref=e303]
+                  - text: 每月電費成本結構 (基本電費 vs 超約罰金)
+                - heading "每月最高需量紀錄 (Max Demand)" [level=3] [ref=e312]:
+                  - img [ref=e314]
+                  - text: 每月最高需量紀錄 (Max Demand)
+  - img
