@@ -292,6 +292,19 @@ ProposalOS 不是孤島、跟 3 層 ecosystem 配合運作：
 3. **每案重新研究 SUNON / 鼎新** → 該先查 proposal-intelligence/competitors/
 4. **proposal-intelligence 直接寫進 deck 引用** → 該標 unverified 或 manual cite source
 
+### 主檔命名規則（不是每案都叫 proposal.md）
+
+| 案件類型 | 主檔位置 |
+|---|---|
+| 客戶提案 | `proposal.md` |
+| 投資 pitch | `docs/pitch_v{N}_final.md` |
+| 聯名 / 合作 RFP | `source-documents/RFP_V{N}.md`（對方文件）+ 我方 audit / tracker |
+| 顧問報告 | `report.md` |
+| 政府標案 | `proposal.md` + `compliance-matrix.md` |
+| 內部立案 | `business-case.md` |
+
+完整產出位置 / 跨機器 sync 規則：[docs/output-locations.md](docs/output-locations.md)
+
 ### 一個案件 lifecycle 怎麼跑
 
 ```
