@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProposalOS — Conference Talk Deck</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,700;9..144,900&family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Methodology authority palette (per DESIGN.md) */
+            --color-background: #F8F4ED;
+            --color-surface: #FFFFFF;
+            --color-surface-2: #EFE9DE;
+            --color-primary: #3D348B;
+            --color-primary-light: #5448A5;
+            --color-accent: #C44536;
+            --color-accent-light: #DB6651;
+            --color-text: #1F1B2E;
+            --color-text-muted: #6B6478;
+            --color-border: rgba(61, 52, 139, 0.15);
+            --color-border-strong: rgba(61, 52, 139, 0.3);
+            --color-danger: #9B2226;
+            --color-success: #4A7C59;
+            --color-warning: #D68C45;
+            --gradient-primary: linear-gradient(135deg, #3D348B, #5448A5);
+            --gradient-accent: linear-gradient(135deg, #C44536, #DB6651);
+            --font-heading: 'Fraunces', 'Noto Serif TC', 'Source Han Serif', serif;
+            --font-body: 'Inter', 'Noto Sans TC', -apple-system, 'PingFang TC', sans-serif;
+            --font-mono: 'JetBrains Mono', 'Menlo', monospace;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--color-background); color: var(--color-text); font-family: var(--font-body); overflow: hidden; }
+        .slide-deck { position: relative; width: 100vw; height: 100vh; overflow: hidden; }
+        @media (min-width: 769px) {
+            .slide-deck { max-width: calc(100vh * 16 / 9); max-height: calc(100vw * 9 / 16); margin: auto; position: absolute; inset: 0; }
+        }
+        .slide {
+            position: absolute; width: 100%; height: 100%;
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
+            text-align: center; padding: 56px 72px;
+            opacity: 0; visibility: hidden;
+            transition: opacity 0.4s; background: var(--color-background); overflow: hidden;
+        }
+        .slide.active { opacity: 1; visibility: visible; }
+        .slide-content { width: 100%; max-width: 1200px; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 28px; }
+
+        /* === Cover / Hook === */
+        .hook-prelabel { font-family: var(--font-body); font-size: 14px; color: var(--color-text-muted); letter-spacing: 4px; text-transform: uppercase; font-weight: 500; }
+        .hook-title {
+            font-family: var(--font-heading);
+            font-size: clamp(56px, 8vw, 96px);
+            font-weight: 900;
+            font-variation-settings: "opsz" 144;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            max-width: 1100px;
+        }
+        .cover-product {
+            font-family: var(--font-heading);
+            font-size: clamp(32px, 4vw, 48px);
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-top: 36px;
+            font-variation-settings: "opsz" 144;
+        }
+        .cover-subtitle {
+            font-family: var(--font-heading);
+            font-size: clamp(20px, 2.2vw, 26px);
+            color: var(--color-accent);
+            font-weight: 500;
+            margin-top: 12px;
+            font-variation-settings: "opsz" 36;
+        }
+        .cover-tagline { font-size: clamp(16px, 1.6vw, 19px); color: var(--color-text); max-width: 900px; margin: 22px 0; line-height: 1.7; }
+        .cover-tagline strong { color: var(--color-primary); font-weight: 600; }
+        .cover-meta { display: flex; gap: 32px; margin-top: 36px; color: var(--color-text-muted); font-size: 13px; flex-wrap: wrap; justify-content: center; font-variant-numeric: tabular-nums; }
+
+        /* === Slide titles === */
+        .slide-title {
+            font-family: var(--font-heading);
+            font-size: clamp(36px, 4.5vw, 56px);
+            font-weight: 700;
+            color: var(--color-primary);
+            line-height: 1.2;
+            margin-bottom: 18px;
+            text-align: center;
+            letter-spacing: -0.02em;
+            font-variation-settings: "opsz" 96;
+        }
+        .slide-title .accent { color: var(--color-accent); }
+        .slide-subtitle { font-size: 15px; color: var(--color-text-muted); font-weight: 400; margin-top: 10px; }
+
+        /* === NEW Slide 2: Story quote === */
+        .story-quote {
+            font-family: var(--font-heading);
+            font-size: clamp(28px, 3.5vw, 40px);
+            color: var(--color-primary);
+            font-weight: 400;
+            font-style: italic;
+            line-height: 1.45;
+            max-width: 1000px;
+            text-align: center;
+            position: relative;
+            padding: 0 60px;
+            font-variation-settings: "opsz" 72;
+        }
+        .story-quote::before {
+            content: "“";
+            position: absolute;
+            left: 0;
+            top: -20px;
+            font-size: 120px;
+            color: var(--color-accent);
+            font-family: var(--font-heading);
+            opacity: 0.4;
+            line-height: 1;
+        }
+        .story-quote::after {
+            content: "”";
+            position: absolute;
+            right: 0;
+            bottom: -60px;
+            font-size: 120px;
+            color: var(--color-accent);
+            font-family: var(--font-heading);
+            opacity: 0.4;
+            line-height: 1;
+        }
+        .story-explain { display: flex; flex-direction: column; gap: 8px; margin-top: 64px; max-width: 800px; }
+        .story-explain p { font-size: 17px; color: var(--color-text); line-height: 1.65; }
+        .story-explain p strong { color: var(--color-accent); font-weight: 600; }
+
+        /* === NEW Slide 3: Failure modes grid (4) === */
+        .failure-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; width: 100%; max-width: 1100px; }
+        .failure-card {
+            background: linear-gradient(135deg, rgba(155, 34, 38, 0.06), var(--color-surface));
+            border: 1px solid var(--color-border);
+            border-left: 5px solid var(--color-danger);
+            border-radius: 6px;
+            padding: 28px 26px;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .failure-num { font-family: var(--font-mono); font-size: 13px; color: var(--color-danger); font-weight: 700; letter-spacing: 0.5px; }
+        .failure-headline {
+            font-family: var(--font-heading);
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--color-primary);
+            line-height: 1.3;
+            font-variation-settings: "opsz" 36;
+        }
+        .failure-detail { font-size: 14px; color: var(--color-text-muted); line-height: 1.65; }
+
+        /* === NEW Slide 4: Three pillars === */
+        .pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; width: 100%; max-width: 1150px; }
+        .pillar-card {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-top: 4px solid var(--color-primary);
+            border-radius: 6px;
+            padding: 32px 22px;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            min-height: 380px;
+        }
+        .pillar-card:nth-child(2) { border-top-color: var(--color-accent); }
+        .pillar-card:nth-child(3) { border-top-color: var(--color-success); }
+        .pillar-icon { font-size: 36px; line-height: 1; }
+        .pillar-label { font-family: var(--font-mono); font-size: 12px; color: var(--color-text-muted); letter-spacing: 1px; text-transform: uppercase; font-weight: 600; }
+        .pillar-name {
+            font-family: var(--font-heading);
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--color-primary);
+            line-height: 1.3;
+            font-variation-settings: "opsz" 48;
+        }
+        .pillar-detail { font-size: 13.5px; color: var(--color-text); line-height: 1.65; }
+        .pillar-emphasis { font-size: 13px; color: var(--color-accent); font-weight: 600; margin-top: 6px; padding: 8px 12px; background: rgba(196, 69, 54, 0.06); border-radius: 4px; border-left: 3px solid var(--color-accent); }
+
+        /* === NEW Slide 5: Phase flow horizontal === */
+        .phase-flow { width: 100%; max-width: 1180px; display: flex; flex-direction: column; gap: 24px; }
+        .phase-row { display: flex; gap: 16px; }
+        .phase-card {
+            flex: 1;
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 6px;
+            padding: 18px 16px;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            position: relative;
+        }
+        .phase-card.bonus { background: linear-gradient(135deg, rgba(74, 124, 89, 0.08), var(--color-surface)); border-color: var(--color-success); }
+        .phase-num { font-family: var(--font-mono); font-size: 11px; color: var(--color-accent); font-weight: 700; letter-spacing: 0.5px; }
+        .phase-name { font-family: var(--font-heading); font-size: 16px; font-weight: 700; color: var(--color-primary); line-height: 1.3; }
+        .phase-detail { font-size: 12px; color: var(--color-text-muted); line-height: 1.5; }
+        .phase-arrow {
+            position: absolute;
+            right: -18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--color-accent);
+            font-size: 18px;
+            font-weight: 700;
+            z-index: 1;
+        }
+        .phase-bonus-note {
+            font-size: 13px;
+            color: var(--color-text);
+            font-style: italic;
+            margin-top: 8px;
+            padding: 12px 18px;
+            background: var(--color-surface);
+            border-radius: 6px;
+            border-left: 4px solid var(--color-success);
+            line-height: 1.6;
+        }
+        .phase-bonus-note strong { color: var(--color-success); }
+
+        /* === Slide 6: 12 modules grid === */
+        .modules-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; width: 100%; max-width: 1180px; }
+        .module-card {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 4px;
+            padding: 16px 14px;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .module-num {
+            font-family: var(--font-heading);
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--color-accent);
+            line-height: 1;
+            font-variation-settings: "opsz" 48;
+        }
+        .module-name {
+            font-family: var(--font-heading);
+            font-size: 13.5px;
+            font-weight: 700;
+            color: var(--color-primary);
+            line-height: 1.3;
+            font-variation-settings: "opsz" 24;
+        }
+        .module-question { font-size: 11px; color: var(--color-text-muted); line-height: 1.5; }
+        .modules-footer {
+            font-size: 14px;
+            color: var(--color-text);
+            margin-top: 10px;
+            padding: 14px 22px;
+            background: var(--color-surface-2);
+            border-radius: 6px;
+            border-left: 4px solid var(--color-primary);
+            font-style: italic;
+            text-align: left;
+            max-width: 1180px;
+            line-height: 1.55;
+        }
+        .modules-footer strong { color: var(--color-primary); font-style: normal; }
+
+        /* === Slide 7: Evidence cases === */
+        .case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; width: 100%; max-width: 1180px; }
+        .case-card {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-top: 4px solid var(--color-success);
+            border-radius: 6px;
+            padding: 24px 22px;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .case-icon { font-size: 32px; }
+        .case-name {
+            font-family: var(--font-heading);
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--color-primary);
+            line-height: 1.3;
+            font-variation-settings: "opsz" 36;
+        }
+        .case-metric {
+            font-family: var(--font-heading);
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--color-accent);
+            line-height: 1.2;
+            font-variation-settings: "opsz" 48;
+        }
+        .case-detail { font-size: 13px; color: var(--color-text); line-height: 1.6; }
+        .case-type-tag {
+            display: inline-block;
+            font-size: 11px;
+            font-family: var(--font-mono);
+            padding: 3px 10px;
+            background: var(--color-surface-2);
+            color: var(--color-primary);
+            border-radius: 3px;
+            font-weight: 600;
+            align-self: flex-start;
+        }
+
+        /* === NEW Slide 8: Big stat hero === */
+        .stat-hero-big {
+            font-family: var(--font-heading);
+            font-size: clamp(120px, 18vw, 200px);
+            font-weight: 900;
+            color: var(--color-accent);
+            line-height: 1;
+            letter-spacing: -0.05em;
+            font-variation-settings: "opsz" 144;
+        }
+        .stat-hero-label {
+            font-family: var(--font-heading);
+            font-size: clamp(20px, 2.2vw, 26px);
+            color: var(--color-primary);
+            font-weight: 500;
+            margin-top: 8px;
+            font-variation-settings: "opsz" 48;
+        }
+        .stat-hero-sublabel { font-size: 14px; color: var(--color-text-muted); margin-top: 4px; }
+        .stat-detail-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; width: 100%; max-width: 1050px; margin-top: 24px; }
+        .stat-detail-card {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 5px;
+            padding: 16px 18px;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .stat-detail-icon { font-size: 22px; }
+        .stat-detail-title { font-family: var(--font-heading); font-size: 14px; font-weight: 700; color: var(--color-primary); }
+        .stat-detail-desc { font-size: 12px; color: var(--color-text-muted); line-height: 1.55; }
+        .ap-examples { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; justify-content: center; max-width: 1100px; }
+        .ap-chip { font-family: var(--font-mono); font-size: 11px; padding: 6px 12px; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 3px; color: var(--color-text); }
+        .ap-chip strong { color: var(--color-accent); }
+
+        /* === Slide 9: 2-col compare === */
+        .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; width: 100%; max-width: 1180px; }
+        .compare-card {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 6px;
+            padding: 28px 26px;
+            text-align: left;
+        }
+        .compare-card h3 {
+            font-family: var(--font-heading);
+            font-size: 22px;
+            color: var(--color-primary);
+            margin-bottom: 16px;
+            font-weight: 700;
+            font-variation-settings: "opsz" 48;
+        }
+        .compare-card ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+        .compare-card li {
+            font-size: 14px;
+            color: var(--color-text);
+            padding-left: 26px;
+            position: relative;
+            line-height: 1.6;
+        }
+        .compare-card.now li::before {
+            content: "▸";
+            color: var(--color-accent);
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+            font-size: 18px;
+            top: -2px;
+        }
+        .compare-card.us li.bad::before {
+            content: "✗";
+            color: var(--color-danger);
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+            font-size: 16px;
+            top: 0;
+        }
+        .compare-card.us li.good::before {
+            content: "✓";
+            color: var(--color-success);
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+            font-size: 16px;
+            top: 0;
+        }
+        .compare-card li strong { color: var(--color-primary); font-weight: 600; }
+
+        /* === Slide 10: Closing + CTA === */
+        .closing-quote {
+            font-family: var(--font-heading);
+            font-size: clamp(22px, 2.8vw, 30px);
+            color: var(--color-primary);
+            font-weight: 500;
+            font-style: italic;
+            line-height: 1.5;
+            max-width: 1050px;
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 22px 36px;
+            background: linear-gradient(135deg, rgba(61, 52, 139, 0.05), rgba(196, 69, 54, 0.05));
+            border-radius: 8px;
+            border-left: 5px solid var(--color-accent);
+            border-right: 5px solid var(--color-accent);
+            font-variation-settings: "opsz" 48;
+        }
+        .closing-quote strong { color: var(--color-accent); font-style: normal; font-weight: 700; }
+        .cta-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; width: 100%; max-width: 1100px; }
+        .cta-card {
+            background: var(--color-surface);
+            border: 2px solid var(--color-accent);
+            border-radius: 6px;
+            padding: 22px 20px;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .cta-num { font-family: var(--font-mono); font-size: 12px; color: var(--color-accent); font-weight: 700; }
+        .cta-title { font-family: var(--font-heading); font-size: 17px; font-weight: 700; color: var(--color-primary); line-height: 1.3; }
+        .cta-detail { font-size: 12.5px; color: var(--color-text); line-height: 1.55; }
+        .cta-detail code { font-family: var(--font-mono); font-size: 11px; background: var(--color-surface-2); padding: 2px 6px; border-radius: 3px; color: var(--color-primary); }
+        .speaker-contact { font-size: 12px; color: var(--color-text-muted); margin-top: 16px; font-family: var(--font-mono); }
+
+        /* === footer === */
+        .source-footer { position: absolute; bottom: 20px; left: 72px; right: 72px; display: flex; justify-content: space-between; font-size: 11px; color: var(--color-text-muted); font-family: var(--font-mono); }
+
+        /* === Nav === */
+        .progress-bar { position: fixed; top: 0; left: 0; height: 4px; background: var(--gradient-accent); transition: width 0.3s; z-index: 1000; width: 10%; }
+        .nav-controls { position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 14px; z-index: 1000; }
+        .nav-btn { background: var(--color-surface); border: 1px solid var(--color-border-strong); color: var(--color-primary); width: 38px; height: 38px; border-radius: 50%; cursor: pointer; font-size: 14px; box-shadow: 0 2px 6px rgba(61, 52, 139, 0.1); }
+        .nav-btn:hover { background: var(--color-surface-2); }
+        .slide-counter { color: var(--color-text-muted); font-size: 12px; font-variant-numeric: tabular-nums; font-family: var(--font-mono); }
+    </style>
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+    <div class="slide-deck">
+
+    <!-- ====== Slide 1 Cover / Hook ====== -->
+    <div class="slide active">
+        <div class="slide-content" style="gap: 16px;">
+            <div class="hook-prelabel">conference talk · 15 min · 2026</div>
+            <h1 class="hook-title">寫顧問式提案<br>為何 8 成都翻車？</h1>
+            <div class="cover-product">ProposalOS</div>
+            <div class="cover-subtitle">跨業顧問式系統提案作業系統</div>
+            <p class="cover-tagline">
+                <strong>12 模組 + 8 強制檢查項 + 結案 retrospect 累積機制</strong><br>
+                源於 GoodLinker、現開源跨產業適用
+            </p>
+            <div class="cover-meta">
+                <div>🥩 祥圃 NT$ 620 萬</div>
+                <div>🤝 Amafans 聯名</div>
+                <div>☁️ Goodlinker × GCP</div>
+                <div>📜 MIT License</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ====== Slide 2 Story Opening ====== -->
+    <div class="slide">
+        <div class="slide-content">
+            <div class="story-quote">
+                我寫過 N 份提案、每次都覺得有東西漏。<br>
+                客戶法務一問就破功、工程師說「這怎麼做」、老闆說「這值多少」 — 我答不出來。
+            </div>
+            <div class="story-explain">
+                <p>這不是個人問題、是 <strong>沒框架</strong>。</p>
+                <p>寫 code 有 design pattern、寫提案沒方法論。</p>
+                <p>ProposalOS 就是我自己造的方法論、開源給有同樣痛的人。</p>
+            </div>
+        </div>
+        <div class="source-footer">
+            <span>Source: README §為什麼需要 + personal story</span>
+            <span>2 / 10</span>
+        </div>
+    </div>
+
+    <!-- ====== Slide 3 4 失敗模式 ====== -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2 class="slide-title">
+                4 個經典 <span class="accent">失敗模式</span>
+                <div class="slide-subtitle">傳統系統提案翻車的 80% 場景都在這裡</div>
+            </h2>
+            <div class="failure-grid">
+                <div class="failure-card">
+                    <div class="failure-num">❌ 失敗 1</div>
+                    <div class="failure-headline">只寫功能、不寫商業價值</div>
+                    <div class="failure-detail">老闆看不懂、不買單。功能 list 5 頁、ROI 算式沒半個、KPI 跟功能對不起來。</div>
+                </div>
+                <div class="failure-card">
+                    <div class="failure-num">❌ 失敗 2</div>
+                    <div class="failure-headline">寫得很完整、但交付會爆炸</div>
+                    <div class="failure-detail">沒 RTM、沒回滾、沒退出機制。Phase 0 結束才發現「客戶資料怎麼移轉」沒寫。</div>
+                </div>
+                <div class="failure-card">
+                    <div class="failure-num">❌ 失敗 3</div>
+                    <div class="failure-headline">競品晚到、失去談判籌碼</div>
+                    <div class="failure-detail">等到簽約前才比較競品、已經被客戶套牢。應該訪談前就做。</div>
+                </div>
+                <div class="failure-card">
+                    <div class="failure-num">❌ 失敗 4</div>
+                    <div class="failure-headline">AI / ISO / 資安 / SBOM 全靠印象寫</div>
+                    <div class="failure-detail">「我們符合 SOC 2」— 客戶法務問細節就破功。沒書面證據、就是賭。</div>
+                </div>
+            </div>
+        </div>
+        <div class="source-footer">
+            <span>Source: README.md §為什麼需要</span>
+            <span>3 / 10</span>
+        </div>
+    </div>
+
+    <!-- ====== Slide 4 Aha — 3 大支柱 ====== -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2 class="slide-title">
+                ProposalOS 的 <span class="accent">3 大支柱</span>
+                <div class="slide-subtitle">不是 template、是可教 / 可學 / 可累積的方法論</div>
+            </h2>
+            <div class="pillars-grid">
+                <div class="pillar-card">
+                    <div class="pillar-icon">📚</div>
+                    <div class="pillar-label">Pillar 1</div>
+                    <div class="pillar-name">12 大模組</div>
+                    <div class="pillar-detail">
+                        產業 / 競品 / 問題 / 流程 / 角色 / 資料 / 合規 / 架構 / 方案 / 商務 / 驗收 / 風險
+                    </div>
+                    <div class="pillar-emphasis">不能少任何一個、少了就是 4 失敗模式之一</div>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon">🔒</div>
+                    <div class="pillar-label">Pillar 2</div>
+                    <div class="pillar-name">8 強制檢查項</div>
+                    <div class="pillar-detail">
+                        RTM / 溝通計畫 / 決策紀錄 / Secure SDLC / SBOM / RTO RPO / 退出機制 / 證據包
+                    </div>
+                    <div class="pillar-emphasis">容易被埋在模組裡漏掉、必獨立 check</div>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon">🔄</div>
+                    <div class="pillar-label">Pillar 3</div>
+                    <div class="pillar-name">結案 Retrospect 累積</div>
+                    <div class="pillar-detail">
+                        每結案 +1 anti-pattern、6 個月後框架自我演化、不靠人記
+                    </div>
+                    <div class="pillar-emphasis">已累積 145 條 anti-patterns（2026-05-28）</div>
+                </div>
+            </div>
+        </div>
+        <div class="source-footer">
+            <span>Source: CLAUDE.md §核心框架</span>
+            <span>4 / 10</span>
+        </div>
+    </div>
+
+    <!-- ====== Slide 5 How it works — 6 phase ====== -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2 class="slide-title">
+                <span class="accent">6 Phase</span> Workflow
+                <div class="slide-subtitle">從零到 ship、每 phase 自帶 checklist</div>
+            </h2>
+            <div class="phase-flow">
+                <div class="phase-row">
+                    <div class="phase-card">
+                        <div class="phase-num">Phase 1</div>
+                        <div class="phase-name">準備期</div>
+                        <div class="phase-detail">產業 + 競品 + 訪談 + WebSearch</div>
+                        <div class="phase-arrow">›</div>
+                    </div>
+                    <div class="phase-card">
+                        <div class="phase-num">Phase 2</div>
+                        <div class="phase-name">分析期</div>
+                        <div class="phase-detail">流程 + 角色 RACI + 資料治理</div>
+                        <div class="phase-arrow">›</div>
+                    </div>
+                    <div class="phase-card">
+                        <div class="phase-num">Phase 3</div>
+                        <div class="phase-name">設計期</div>
+                        <div class="phase-detail">合規 + 架構 + 方案 + NFR</div>
+                    </div>
+                </div>
+                <div class="phase-row">
+                    <div class="phase-card">
+                        <div class="phase-num">Phase 4</div>
+                        <div class="phase-name">商務期</div>
+                        <div class="phase-detail">報價 + 驗收 + 風險登記</div>
+                        <div class="phase-arrow">›</div>
+                    </div>
+                    <div class="phase-card">
+                        <div class="phase-num">Phase 5</div>
+                        <div class="phase-name">反方審查</div>
+                        <div class="phase-detail">法務 + IT + 老闆視角各 ≥ 10 題</div>
+                        <div class="phase-arrow">›</div>
+                    </div>
+                    <div class="phase-card">
+                        <div class="phase-num">Phase 6</div>
+                        <div class="phase-name">結案 Retrospect</div>
+                        <div class="phase-detail">Anti-pattern +1、累積進框架</div>
+                    </div>
+                </div>
+                <div class="phase-bonus-note">
+                    🎁 <strong>Phase 7（外掛）</strong>：用 <code>pitch-deck-builder</code> skill 把 proposal 視覺化成 ship-ready deck（HTML + PDF、含 anti-slop 12 rule 強制）。
+                </div>
+            </div>
+        </div>
+        <div class="source-footer">
+            <span>Source: framework/MATRIX.md + skills/proposal-os/SKILL.md</span>
+            <span>5 / 10</span>
+        </div>
+    </div>
+
+    <!-- ====== Slide 6 12 模組 ====== -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2 class="slide-title">
+                <span class="accent">12 模組</span> Framework
+                <div class="slide-subtitle">市場 / 競品 / 問題 / 流程 / 角色 / 資料 / 合規 / 架構 / 方案 / 商務 / 驗收 / 風險</div>
+            </h2>
+            <div class="modules-grid">
+                <div class="module-card"><div class="module-num">01</div><div class="module-name">產業與市場</div><div class="module-question">規模、趨勢、痛點</div></div>
+                <div class="module-card"><div class="module-num">02</div><div class="module-name">競品 / 替代方案</div><div class="module-question">不買我們會買誰</div></div>
+                <div class="module-card"><div class="module-num">03</div><div class="module-name">問題 + 經營目標</div><div class="module-question">真痛點、KPI</div></div>
+                <div class="module-card"><div class="module-num">04</div><div class="module-name">流程 / 服務藍圖</div><div class="module-question">As-Is / To-Be</div></div>
+                <div class="module-card"><div class="module-num">05</div><div class="module-name">RACI / 決策鏈</div><div class="module-question">誰用 / 誰買 / 誰擋</div></div>
+                <div class="module-card"><div class="module-num">06</div><div class="module-name">資料治理 / 整合</div><div class="module-question">從哪來 / 怎麼串</div></div>
+                <div class="module-card"><div class="module-num">07</div><div class="module-name">合規 / 資安 / AI</div><div class="module-question">法遵邊界</div></div>
+                <div class="module-card"><div class="module-num">08</div><div class="module-name">架構 + NFR</div><div class="module-question">業務 / 資料 / 應用 / 技術</div></div>
+                <div class="module-card"><div class="module-num">09</div><div class="module-name">方案 + 分階段</div><div class="module-question">2-3 方案、分階段</div></div>
+                <div class="module-card"><div class="module-num">10</div><div class="module-name">採購 + 報價</div><div class="module-question">怎麼買 / 怎麼報</div></div>
+                <div class="module-card"><div class="module-num">11</div><div class="module-name">驗收 + 維運</div><div class="module-question">怎麼算完成</div></div>
+                <div class="module-card"><div class="module-num">12</div><div class="module-name">風險 + 反方審查</div><div class="module-question">哪邊會炸</div></div>
+            </div>
+            <div class="modules-footer">
+                💡 業務功能盤點口訣：<strong>產銷人發財</strong>（生產 / 銷售 / 人資 / 研發 / 財務）— 跨產業通用、訪談覆蓋自我檢查、避免只挖到一個 function 的痛。
+            </div>
+        </div>
+        <div class="source-footer">
+            <span>Source: README.md §框架總覽 · framework/12-modules/</span>
+            <span>6 / 10</span>
+        </div>
+    </div>
+
+    <!-- ====== Slide 7 Evidence — 3 cases ====== -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2 class="slide-title">
+                3 個 <span class="accent">已驗</span> 案例
+                <div class="slide-subtitle">客戶提案 / 聯名合作 / 投資 pitch 三種案件類型都跑過</div>
+            </h2>
+            <div class="case-grid">
+                <div class="case-card">
+                    <div class="case-icon">🥩</div>
+                    <div class="case-type-tag">客戶提案</div>
+                    <div class="case-name">祥圃 MES</div>
+                    <div class="case-metric">NT$ 620 萬</div>
+                    <div class="case-detail">
+                        食品加工、9 個月導入<br>
+                        N=10 deck 含 RTM / Security / Risk<br>
+                        2027 CAS 評鑑 ready
+                    </div>
+                </div>
+                <div class="case-card">
+                    <div class="case-icon">🤝</div>
+                    <div class="case-type-tag">聯名合作 RFP</div>
+                    <div class="case-name">Amafans × GoodLinker</div>
+                    <div class="case-metric">2026-12 上線</div>
+                    <div class="case-detail">
+                        工業 IoT、開創新案件類型<br>
+                        21 待確認 / 7 阻塞項追蹤<br>
+                        雙方對等聯名
+                    </div>
+                </div>
+                <div class="case-card">
+                    <div class="case-icon">☁️</div>
+                    <div class="case-type-tag">投資 pitch</div>
+                    <div class="case-name">Goodlinker × GCP</div>
+                    <div class="case-metric">$350K / 2 年</div>
+                    <div class="case-detail">
+                        Cloud credit、N=7 deck<br>
+                        79 修正 + 9 ADR 方法論<br>
+                        AI Track 申請
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="source-footer">
+            <span>Source: examples/ · 3 case retrospective</span>
+            <span>7 / 10</span>
+        </div>
+    </div>
+
+    <!-- ====== Slide 8 Anti-patterns 累積 ====== -->
+    <div class="slide">
+        <div class="slide-content">
+            <div class="stat-hero-big">145</div>
+            <div class="stat-hero-label">Anti-patterns 累積條數</div>
+            <div class="stat-hero-sublabel">截至 2026-05-28、3 案 ship 後 + 持續成長中</div>
+            <div class="stat-detail-grid">
+                <div class="stat-detail-card">
+                    <div class="stat-detail-icon">📈</div>
+                    <div class="stat-detail-title">每結案 +1</div>
+                    <div class="stat-detail-desc">6 個月後 anti-pattern 庫從 7 條變 15-25 條、本案直線累積</div>
+                </div>
+                <div class="stat-detail-card">
+                    <div class="stat-detail-icon">🤖</div>
+                    <div class="stat-detail-title">AI 自我演化</div>
+                    <div class="stat-detail-desc">Retrospect 自動引導、不靠人記、skill trigger 自動跑</div>
+                </div>
+                <div class="stat-detail-card">
+                    <div class="stat-detail-icon">🔄</div>
+                    <div class="stat-detail-title">跨案傳承</div>
+                    <div class="stat-detail-desc">個人經驗 → community knowledge、開源讓教訓不私藏</div>
+                </div>
+            </div>
+            <div class="ap-examples">
+                <span class="ap-chip"><strong>AP-NEW-WRITE-1</strong>：寫提案前必跑 WebSearch（含小案）</span>
+                <span class="ap-chip"><strong>AP-NEW-WRITE-2</strong>：競品必寫、不可「待補」</span>
+                <span class="ap-chip"><strong>AP-NEW-WRITE-5</strong>：先判斷案件類型再套框架</span>
+            </div>
+        </div>
+        <div class="source-footer">
+            <span>Source: framework/anti-patterns.md（145 條）</span>
+            <span>8 / 10</span>
+        </div>
+    </div>
+
+    <!-- ====== Slide 9 Why now × Why ProposalOS ====== -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2 class="slide-title">Why Now <span class="accent">×</span> Why ProposalOS</h2>
+            <div class="compare-grid">
+                <div class="compare-card now">
+                    <h3>📅 Why Now（2026 業界 trend）</h3>
+                    <ul>
+                        <li><strong>Vibecoding 普及</strong>：AI 寫 code 普及、提案品質成為 SI 主要 differentiator</li>
+                        <li><strong>客戶採購 sophistication ↑</strong>：法務 / 資安 / 退出機制都會問</li>
+                        <li><strong>跨產業需求</strong>：一份提案要打老闆 + 工程師 + 法務三種人</li>
+                        <li><strong>顧問教不會新人</strong>：經驗變成 anti-pattern 才能傳承</li>
+                    </ul>
+                </div>
+                <div class="compare-card us">
+                    <h3>🎯 Why ProposalOS（跟既有不同）</h3>
+                    <ul>
+                        <li class="bad"><strong>RFP-tool（Loopio）</strong>：只管 RFP 回應、不管前期挖痛 / 競品</li>
+                        <li class="bad"><strong>SaaS proposal（Proposify）</strong>：管美編 / 簽核 / 模板、不管方法論</li>
+                        <li class="bad"><strong>顧問經驗法則</strong>：個人腦袋、教不會、離職就失傳</li>
+                        <li class="good"><strong>ProposalOS</strong>：方法論 + 強制檢查 + 累積機制三件事都管、開源跨產業</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="source-footer">
+            <span>Source: README.md §定位 · 業界對比</span>
+            <span>9 / 10</span>
+        </div>
+    </div>
+
+    <!-- ====== Slide 10 Closing + CTA ====== -->
+    <div class="slide">
+        <div class="slide-content">
+            <div class="closing-quote">
+                提案不是技術 dump、是同時打到 <strong>老闆 / 工程師 / 法務</strong> 三種人的藝術 —
+                ProposalOS 用方法論讓藝術可教、可學、可累積。
+            </div>
+            <div class="cta-grid">
+                <div class="cta-card">
+                    <div class="cta-num">⭐ 1 · Fork &amp; Try</div>
+                    <div class="cta-title">用 framework/MATRIX.md audit 你的下個案</div>
+                    <div class="cta-detail">
+                        <code>git clone github.com/{user}/ProposalOS</code><br>
+                        跑 kickoff、套 12 模組
+                    </div>
+                </div>
+                <div class="cta-card">
+                    <div class="cta-num">📝 2 · Contribute</div>
+                    <div class="cta-title">結案後提 PR 加 anti-pattern</div>
+                    <div class="cta-detail">
+                        你的失敗教訓 → 別人少踩雷<br>
+                        每結案 +1 條進累積庫
+                    </div>
+                </div>
+                <div class="cta-card">
+                    <div class="cta-num">🤝 3 · Community</div>
+                    <div class="cta-title">跨業 SI / 顧問 community</div>
+                    <div class="cta-detail">
+                        共用方法論<br>
+                        Discord / GitHub Discussions（建構中）
+                    </div>
+                </div>
+            </div>
+            <div class="speaker-contact">
+                📧 {speaker-email} · 🐙 @{handle} · 🔗 {slides-url}
+            </div>
+        </div>
+        <div class="source-footer">
+            <span>Source: README.md · CONTRIBUTING.md · MIT License</span>
+            <span>10 / 10</span>
+        </div>
+    </div>
+
+    </div>
+
+    <div class="nav-controls">
+        <button class="nav-btn" onclick="prevSlide()" aria-label="Previous">←</button>
+        <span class="slide-counter"><span id="current">1</span> / <span id="total">10</span></span>
+        <button class="nav-btn" onclick="nextSlide()" aria-label="Next">→</button>
+    </div>
+
+    <script>
+        let current = 1;
+        const total = document.querySelectorAll('.slide').length;
+        document.getElementById('total').textContent = total;
+        function showSlide(n) {
+            if (n < 1) n = 1;
+            if (n > total) n = total;
+            current = n;
+            document.querySelectorAll('.slide').forEach((s, i) => { s.classList.toggle('active', i === n - 1); });
+            document.getElementById('current').textContent = n;
+            document.getElementById('progressBar').style.width = (n / total * 100) + '%';
+        }
+        function nextSlide() { showSlide(current + 1); }
+        function prevSlide() { showSlide(current - 1); }
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); nextSlide(); }
+            if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); prevSlide(); }
+            if (e.key === 'Home') { e.preventDefault(); showSlide(1); }
+            if (e.key === 'End') { e.preventDefault(); showSlide(total); }
+        });
+        showSlide(1);
+    </script>
+</body>
+</html>
