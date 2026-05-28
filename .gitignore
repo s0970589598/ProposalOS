@@ -23,3 +23,12 @@ draft-*.md
 *.tmp
 *.log
 *.bak
+
+# Playwright MCP artifacts (browser exploration session traces)
+.playwright-mcp/
+*.playwright-mcp.json
+
+# Browser screenshots from explorations
+*-screenshot.png
+contract-sim-*.png
+page-*.png
