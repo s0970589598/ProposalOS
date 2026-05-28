@@ -2,20 +2,54 @@
 
 > 每案產出該放哪、跨案情報怎麼累積、不同案件類型主檔名稱不同。
 
-## 主檔命名規則（依案件類型）
+## 主檔命名規則（混合架構）
 
-⚠️ **不是每個案件都叫 `proposal.md`**。依案件類型主檔位置不同：
+每案 **必有 `proposal.md`**（我方視角 12 模組整理）、再依案件類型加對外 deliverable：
 
-| 案件類型 | 主檔位置 | 範例 |
+| 案件類型 | 內部主檔（必有）| 對外 deliverable（per 類型）|
 |---|---|---|
-| **客戶提案**（我方賣 / 客戶買）| `proposal.md` | `xiangpu-mes-proposal/proposal.md`（1298 行）|
-| **投資 pitch**（我方申請 / 投資方給）| `docs/pitch_v{N}_final.md` | `goodlinker-gcp-pitch/docs/pitch_v3_final.md` |
-| **聯名 / 合作 RFP**（雙方對等）| `source-documents/RFP_V{N}.md`（對方文件）+ 我方 `rfp-audit.md` / `pending-items-tracker.md` | `amafans-eaqs-proposal/source-documents/Amafans×GoodLinker_AIoTEAQS_服務規格書RFP_V.06.md` |
-| **顧問報告** | `report.md` 或 `consulting-report.md` | （TBD） |
-| **政府標案** | `proposal.md` + `compliance-matrix.md` | （TBD） |
-| **內部立案** | `business-case.md` | （TBD） |
+| **客戶提案**（我方賣 / 客戶買）| `proposal.md`（套 12 模組）| 同 `proposal.md`、直接交付 |
+| **投資 pitch**（我方申請 / 投資方給）| `proposal.md`（內部視角）| `docs/pitch_v{N}_final.md`（對外蒸餾版）|
+| **聯名 / 合作 RFP**（雙方對等）| `proposal.md`（我方 12 模組 audit view）| `source-documents/RFP_V{N}.md`（對方文件、cross-ref）+ `rfp-audit.md` / `pending-items-tracker.md` |
+| **顧問報告** | `proposal.md`（我方分析框架）| `report.md` 或 `consulting-report.md` |
+| **政府標案** | `proposal.md`（套 12 模組）| 同 `proposal.md` + `compliance-matrix.md` |
+| **內部立案** | `proposal.md`（內部視角）| `business-case.md`（對 leadership 簡化版）|
 
-→ 看不到 `proposal.md` 不代表沒主檔、可能是不同類型用不同檔名。先看 README.md §案件類型釐清。
+### proposal.md 的角色（每案統一）
+
+⚠️ **proposal.md 不一定是對外 deliverable**、是**我方思考的整理**：
+
+- **目的**：套 ProposalOS 12 模組 + 8 強制檢查項、確保框架完整
+- **誰看**：自己 / 內部 / Claude session（不是客戶 / 投資人 / 合作夥伴）
+- **形式**：可寫滿（如 xiangpu）或當 spine/index（cross-ref 既有檔、如聯名 RFP 案）
+- **何時寫**：案件 kickoff 後第一個產出、貫穿整個 lifecycle
+
+### proposal.md spine/index 模式（適用既有大量素材的案）
+
+當案件已有大量 source doc（RFP / pitch / audit / tracker）、不要重寫、用 spine 模式：
+
+```markdown
+# {Case Name} — Proposal（我方視角、套 12 模組）
+
+> 本檔是我方視角的方法論整理、不是對外 deliverable。
+> 對外交付物見 [{deliverable file}]。
+
+## §1. 執行摘要
+[Status / metric] — see also: `{source-file} §X`
+
+## §2. 產業與市場現況
+See: `proposal-intelligence/industries/{產業}.md`
+Key facts:
+- ...
+
+## §3. 客戶現況與痛點
+See: `{audit-file}` / `relationship-history.md`
+...
+```
+
+→ 雙寫成本 ≈ 0、proposal.md 變索引、實際內容仍在原檔。
+
+→ Pitch-deck-builder Phase 7 章節 mapping 永遠 work（§X 對應 12 模組固定）。
 
 ---
 
@@ -48,9 +82,9 @@
 ```
 
 **已落地範例**：
-- `~/code/xiangpu-mes-proposal/` — 客戶提案、proposal.md + rtm.md
-- `~/code/amafans-eaqs-proposal/` — 聯名 RFP、source-documents/RFP_V.06.md + audit + tracker
-- `~/code/goodlinker-gcp-pitch/` — 投資 pitch、docs/pitch_v3_final.md
+- `~/code/xiangpu-mes-proposal/` — 客戶提案、proposal.md（寫滿 1298 行）+ rtm.md
+- `~/code/amafans-eaqs-proposal/` — 聯名 RFP、proposal.md（spine 模式）+ RFP_V.06.md + audit + tracker
+- `~/code/goodlinker-gcp-pitch/` — 投資 pitch、proposal.md（spine 模式）+ docs/pitch_v3_final.md
 - `~/code/ProposalOS/docs/deck/` — ProposalOS 自介 conference talk deck
 
 ### Layer 2：跨案情報庫（一個 repo、累積用）
