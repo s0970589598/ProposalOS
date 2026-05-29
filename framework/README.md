@@ -1,5 +1,15 @@
 # framework/ — 框架核心
 
+⚠️ **Scope**：ProposalOS 是 **B2B-focused framework**（含 B2B2B / B2B2C 通路混合）、**不適用 B2C** 廣義消費品行銷（D2C / paid acquisition / brand / growth hacking）。「Proposal OS」名稱本身 = B2B 提案 OS。
+
+| 適用 | 不適用 |
+|---|---|
+| B2B 企業 / 政府 / NGO 提案 | B2C 消費品行銷 / D2C |
+| 客戶提案 RFP → Proposal | mass-market advertising |
+| 聯名合作 Joint Spec | growth hacking / SEO |
+| 投資 pitch / 顧問 / 系統提案 | brand / community |
+| 5-stage 接案流程 | trial → purchase 短週期 |
+
 ProposalOS 的本體。四層架構：
 
 ```

@@ -489,6 +489,19 @@
     - 翻車 #13：把「聯名」+「RFP」揉成一個 case type「聯名 RFP」— **錯方向 #1**。User 第一次 catch「聯名是商業合作模式、跟 RFP 文件類型是 orthogonal 2 dimension」、不要 collapse 成 1 term
     - 翻車 #14：reverse 過度 correction、一刀切把「聯名 RFP」全砍改「對等合作 RFP」— **錯方向 #2**。User 第二次 catch「這個案子是聯名沒錯」 — 本案 actually 是聯名、砍掉「聯名」反而 lose 重要 context、誤導對方「本案非聯名」。**正確 framing：「聯名」+「RFP」是 orthogonal 2 dimension、本案剛好 both yes、保留「聯名 RFP」accurate**、framework 加 2D matrix（商業關係 × 文件類型）標 generalization warning（不是所有聯名都有 RFP、不是所有 RFP 都是聯名）。AP-NEW-WRITE-5.e 已升級加 2D matrix。
     - **Meta lesson #14**：correction 不要 over-swing — 第一次 catch 修正後、不要 reverse 走另一極端、要找 middle ground（本案這條 lesson 對應 commit checkpoint #10「avoid pendulum over-correction」）
+    - 翻車 #18（per Amafans EAQS 2026-05-29 user 4th correction round）：framework 沒 explicit 標 **B2B-only scope**、缺 B2C 對照。User catch「B2B、B2C」短 query 暗示 framework gap。
+      - **ProposalOS 是 B2B-focused framework**（Proposal OS = 提案 OS、B2B concept）
+      - **不適用 B2C** 廣義消費品行銷（D2C / paid acquisition / brand / growth hacking）
+      - **B2B vs B2C 5-dimension 差別**：
+        | 維度 | B2B | B2C |
+        |---|---|---|
+        | 客戶 | 企業 / 政府 / NGO | 個人消費者 |
+        | 流程 | 5-stage 接案（初步提案 → 簽約 → 上線）| Marketing → 試用 → 購買（不用 Proposal）|
+        | 銷售週期 | 月 - 年 | 分 - 週 |
+        | 客單價 | 百萬 - 億 | 百 - 萬 |
+        | 文件 | RFP / Proposal / SA / SOW | landing page / 廣告 / D2C 平台 |
+      - **B2B2B / B2B2C 混合 case**：產品商透過 channel 賣終端、framework 仍用 B2B 流程（如 Amafans × GoodLinker = B2B2B、GoodLinker→Amafans→終端工廠 B2B 客戶）
+      - Framework correction：anti-patterns / methodologies 加 explicit「scope: B2B（含 B2B2B / B2B2C）」標籤、B2C 案件 redirect 其他 framework
     - 翻車 #17（per Amafans EAQS 2026-05-29 user 3rd correction round、跟翻車 #16 同 conceptual layer）：framework 用「台灣 SI」label 太狹窄、誤導 framework readership。User catch「不一定是 SI 啦、你指的 SI 是什麼」。
       - **SI = System Integrator** 嚴格定義：reseller + 整合他人 product 進客戶 IT 系統、不做自家 product（鼎新 / 精誠 / 凌群 / 緯軟）
       - **台灣 B2B 接案類型有 5 種、SI 只是其中一種**：
