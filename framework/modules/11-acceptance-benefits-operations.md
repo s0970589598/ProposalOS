@@ -125,6 +125,8 @@
 | [uat-script-template.md](../../templates/uat-script-template.md) | UAT 測試腳本（per RTM end-user R）| Phase 2 末 UAT 期 |
 | [uat-defect-template.md](../../templates/uat-defect-template.md) | UAT 期間 bug 回報 / 處理 ticket 格式 | 同上 |
 | [uat-signoff-template.md](../../templates/uat-signoff-template.md) | 雙方 UAT 完成簽收書 | Phase 2 末驗收 |
+| [smoke-test-plan-template.md](../../templates/smoke-test-plan-template.md) | 5-10 個 critical path、30 min 內跑完 | 每次 release / Phase 1 末 / Phase 3 Go-Live |
+| [deployment-runbook-template.md](../../templates/deployment-runbook-template.md) | 上線部署 + 回滾 step-by-step | 每次 release |
 
 **何時建立執行層 artifact**：
 
@@ -145,8 +147,8 @@
     ▼
 acceptance/（執行層 / 跑驗收用、per 案件）
     ├── uat-script.md      ← §1.2 L3 UAT 展開
-    ├── smoke-test-plan.md ← §1.2 L2 整合測試展開（TBD template）
-    ├── deployment-runbook.md ← §4.3 release 排程展開（TBD template）
+    ├── smoke-test-plan.md ← §1.2 L2 整合測試展開
+    ├── deployment-runbook.md ← §4.3 release 排程展開
     ├── uat-defect-template.md ← §4.1 incident management 簡化版
     └── uat-signoff.md      ← §1.3 雙方代表簽收書具現
 ```
