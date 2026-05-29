@@ -25,7 +25,7 @@ framework/
 
 ## 使用順序
 
-1. 先讀 `modules/` 確認 12 個面向有沒有大方向漏項
+1. 先讀 `modules/` 確認 13 個面向有沒有大方向漏項
 2. 用 `8-mandatory-checks/` 過 checklist，找出落地會爆炸的地方
 3. 依產業挑選 `industry-addons/` 補強
 
