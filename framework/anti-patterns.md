@@ -402,6 +402,32 @@
   - **git archaeology preflight**：寫 phrasing 引用既有 claim 前先 `git log -p` / `git log --all -p -- <file>` 找起源 commit
 - **對應模組**：[強制檢查項 C 決策紀錄](8-mandatory-checks/C-decision-log.md)
 
+### AP-NEW-ANTI-HALLUC-3：Evidence scope mismatch（單一 evidence 推到 over-scope claim、跳過 intermediate 層）
+
+- **發生**：從一個 narrow evidence（如 grep static code 沒找到）直接推到 scope 大很多的 claim（如「production 不存在 / 平台不收 / 沒人用」）、跳過 raw / process / aggregate / display / persist 中間層
+- **後果**：reviewer / user 有 production data 反證、claim 立刻破、loss of trust、信譽連鎖損
+- **根因**：未區分 evidence 跟 claim 的 scope match — 「absence of evidence ≠ evidence of absence」基本科學方法被忽略
+- **教訓**：
+  - 寫 claim 前自問「我的 evidence scope 涵蓋什麼層？claim scope 涵蓋什麼層？」— 兩者必須 match
+  - 「grep code 不到」evidence 只覆蓋「source code static reference」layer、**不覆蓋**：
+    - runtime data flow（raw payload 收）
+    - DB / time-series persist（資料落地）
+    - cache / dashboard / display（即時顯示）
+    - aggregation / report 邏輯（月報計算）
+  - 數據系統 5 層 checklist：
+    | 層 | grep 哪裡 |
+    |---|---|
+    | raw 收（MQTT / API 進）| MQTT subscribe / API endpoint code |
+    | persist（DDB / RDS / shadow）| DB schema / migration / model |
+    | process（backfill / cron）| Console Commands / Lambda handlers |
+    | aggregate（月報 / KPI）| controller / service 計算邏輯 |
+    | display（dashboard / chart）| frontend component / API response |
+  - 反例 dogfood（per Amafans EAQS 2026-05-29）：
+    - 我 grep `war_room app/` 沒找到 A/V/Vn/Hz/PF 處理邏輯 → claim「production 不處理」
+    - User 給實際 production sensor data 反證：EM01_PF=0.94 / EM01_V=125.3 / EM01_A=63.5 / EM01_Hz=60 / EM01_kW=77890 / EM01_kWh=51265.5 6 量全送
+    - 精準 stance 應是：「grep evidence 顯示 backfill / 月報計算邏輯不主用 A/V/Hz/PF、但 raw / persist / display 層**未驗**、不能 claim 平台不收」
+- **對應模組**：[強制檢查項 C 決策紀錄](8-mandatory-checks/C-decision-log.md) + [7 問 Sanity Check](anti-patterns.md#7-問-sanity-check從真實案例提煉) 第 6 問擴充
+
 ## 7 問 Sanity Check（從真實案例提煉）
 
 寫每個具體數字 / 主張前自問：

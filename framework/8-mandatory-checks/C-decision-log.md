@@ -147,6 +147,7 @@
 2. ⚠️ **attribution 有 cite 嗎？** 「per X 決策」必含 source / 日期 / 決策人（避免 AP-NEW-ANTI-HALLUC-2）
 3. ⚠️ **影響範圍列了嗎？** 不列 = 跨檔 propagation 必漏
 4. ⚠️ **trade-off table 有嗎？** 沒有 = 單選默認、無 evaluate alternatives 痕跡
+5. ⚠️ **evidence scope = claim scope 嗎？** 「grep code 不到 / 文件沒寫 / 我沒看到」evidence 只能 claim 對應狹窄 scope、不能 claim「不存在 / 平台不收 / 沒人用」（避免 AP-NEW-ANTI-HALLUC-3）— 數據系統至少 5 層 (raw 收 / persist / process / aggregate / display)、grep 一層不代表全層
 
 ### git archaeology preflight
 
