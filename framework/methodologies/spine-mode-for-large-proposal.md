@@ -6,7 +6,7 @@
 
 ## 為什麼需要
 
-大型 proposal（對等合作 RFP / 系統提案 / 顧問式提案）會產出：
+大型 proposal（聯名 RFP / 系統提案 / 顧問式提案）會產出：
 - 1 個主 proposal.md
 - 5-15 個 research / spec / draft / change-request file
 - 多個 mockup / diagram / data file
@@ -24,7 +24,7 @@
 - 跨多 author / 多 session 並行 work
 - 對外送（reviewer 要快 navigate）
 - 內部 ship 前 cross-doc review
-- 對等合作 RFP / 政府標案 / 顧問式提案 / 系統提案
+- 聯名 RFP / 政府標案 / 顧問式提案 / 系統提案
 
 ## 不適用
 
