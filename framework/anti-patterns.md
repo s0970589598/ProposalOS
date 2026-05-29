@@ -428,6 +428,41 @@
     - 精準 stance 應是：「grep evidence 顯示 backfill / 月報計算邏輯不主用 A/V/Hz/PF、但 raw / persist / display 層**未驗**、不能 claim 平台不收」
 - **對應模組**：[強制檢查項 C 決策紀錄](8-mandatory-checks/C-decision-log.md) + [7 問 Sanity Check](anti-patterns.md#7-問-sanity-check從真實案例提煉) 第 6 問擴充
 
+### AP-NEW-ANTI-HALLUC-4：Single-tool over-confidence（一個工具就下結論、不交叉、不 hedging）
+
+- **發生**：用一個工具（grep / Read / WebFetch / 對話脈絡）取得 evidence、就用「✅ verified」strong claim phrasing、沒交叉其他 layer authoritative source、也沒用 hedged language 反映 partial evidence
+- **後果**：reviewer / user 用其他 layer authoritative source（如 api-nexus / PROD query / 廠商官網）反證、claim 立刻破、累積 loss of trust
+- **根因（4 個 sub-cause 互相強化）**：
+  - **Speed bias**：搶答覆速度、跳過「evidence scope 是否 cover claim scope」自檢
+  - **Single-tool bias**：每次只用一個工具、漏掉其他 layer authoritative source（特別是 api-nexus / 文件平台 / PROD query 這類 abstraction-layer authoritative tool）
+  - **Claim scope creep**：evidence 1 層、claim 默默 inflate 到 10 層（grep 1 個 controller → claim「平台不處理」）
+  - **過度 confident phrasing**：default「✅ verified」、不 default「⚠️ partial-verified、[layer X] 未查」
+- **教訓**：
+  - **Multi-tool default sequence**（對「外部狀態事實主張」、≥ 2 個工具交叉）：
+    | Claim type | 預設工具 sequence |
+    |---|---|
+    | API 數量 / spec | api-nexus / 文件平台（authoritative 文件層）+ git branch + PHP grep（implementation 層）|
+    | production data state | PROD query / DDB 真實 traffic + DB schema grep |
+    | 既有 default state（region / stack / version）| git log first-commit + CLAUDE.md / README + user confirm |
+    | 業界 / 公司主張 | WebSearch / WebFetch 廠商官網 + 第三方 industry report 交叉 |
+  - **Single-tool answer 永遠標 partial-verified**、不能用「✅ verified」
+  - **Hedging language default**（per evidence 完整度）：
+    | 證據完整度 | phrasing |
+    |---|---|
+    | ≥ 2 tool 交叉 verified | ✅ 「per [source A] + [source B] verified」 |
+    | 1 tool verified、其他 layer 未查 | ⚠️ 「[source A] 顯示 X、[layer B] 未驗、需 [tool] 補」 |
+    | 推測 / 印象 | ❓ 「unverified、訓練資料印象、需 [tool] 查」 |
+  - **預檢 3 問**（寫 claim 前 30 秒問完）：
+    1. 我的 evidence 哪一層？（implementation / abstraction / runtime / doc）
+    2. 我的 claim 哪一層？（同上）
+    3. 兩者 scope match 嗎？不 match → claim scope 縮到 evidence 真涵蓋
+  - 案例（per Amafans EAQS 2026-05-29 retro、本 session 累計 4 次翻車）：
+    - 翻車 #1：「不存中國境內」用 7ac1ba6 既有 phrasing 不 git archaeology 驗起源（→ AP-NEW-ANTI-HALLUC-2 trigger）
+    - 翻車 #2：「Tokyo 確認」加日期戳當新決議、沒 user 確認是「today 真決議 vs 沿用既有」（→ AP-NEW-ANTI-HALLUC-1 trigger）
+    - 翻車 #3：grep code 0 推「production 不收 A/V/Hz/PF」、被 EM01 sensor data 反證（→ AP-NEW-ANTI-HALLUC-3 trigger）
+    - 翻車 #4：grep ElectricityController 4 支推「implementation 只 4 支」、被 api-nexus module 12 reveal 10 支 + 6 支共用 跨多 controller 反證（→ 本 AP-4 trigger）
+- **對應模組**：[methodologies/multi-tool-verification](methodologies/multi-tool-verification.md) + [強制檢查項 C 決策紀錄 checklist](8-mandatory-checks/C-decision-log.md)
+
 ## 7 問 Sanity Check（從真實案例提煉）
 
 寫每個具體數字 / 主張前自問：
