@@ -40,12 +40,17 @@
 
 | 順序 | 工具 | 目的 |
 |---|---|---|
-| **1st** | api-nexus / OpenAPI / Postman collection | authoritative for 文件層 / 公開 spec |
+| **1st** | api-nexus **search_apis** (`q=<keyword>`) / OpenAPI / Postman collection | **不知 module_id 時必先 search**、authoritative for 文件層 / 公開 spec |
+| **1st-alt** | api-nexus **list_module_apis** (`module_id=N`) | 已知 module 時用、完整 list |
 | **2nd** | git branch check + repo path（dev / uat-main / main） | 確認 implementation 對齊哪個 branch |
-| **3rd** | grep PHP / TypeScript / Lambda handler | implementation layer 細節 |
+| **3rd** | grep PHP / TypeScript / Lambda handler（用 api-nexus return 的 `lambda_handler` 字串、不要用印象 keyword） | implementation layer 細節 |
 | **4th**（optional）| PROD query / DDB scan | runtime 真實 traffic 確認 |
 
-**規則**：1st + 2nd 缺一 → claim 標「⚠️ partial-verified、需 [missing tool]」
+**規則**：
+- 1st + 2nd 缺一 → claim 標「⚠️ partial-verified、需 [missing tool]」
+- **search_apis 比 list_module_apis 廣**：search 涵蓋全 projects + 全 modules、適合「找某 keyword 對應 API」；list_module_apis 只 cover 指定 module
+- **grep PHP 時 keyword 用 api-nexus return 的 `lambda_handler`** 而非自己想的 method 名（避免 keyword 想錯 → grep 0 → 過度推論「實作不存在」）
+- 案例（per Amafans EAQS 2026-05-29 翻車 #4 + #6）：grep `energyMonthlyReport / meterKpis` 0 result、實際 controller 名 `EnergyMonthlyReportController` — api-nexus search_apis 才 reveal、grep 自己想的 keyword 必漏
 
 ### 2. Production data state（客戶 X 有 N 個 sensor / 平台收 Y 量）
 
