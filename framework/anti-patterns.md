@@ -489,6 +489,11 @@
     - 翻車 #13：把「聯名」+「RFP」揉成一個 case type「聯名 RFP」— **錯方向 #1**。User 第一次 catch「聯名是商業合作模式、跟 RFP 文件類型是 orthogonal 2 dimension」、不要 collapse 成 1 term
     - 翻車 #14：reverse 過度 correction、一刀切把「聯名 RFP」全砍改「對等合作 RFP」— **錯方向 #2**。User 第二次 catch「這個案子是聯名沒錯」 — 本案 actually 是聯名、砍掉「聯名」反而 lose 重要 context、誤導對方「本案非聯名」。**正確 framing：「聯名」+「RFP」是 orthogonal 2 dimension、本案剛好 both yes、保留「聯名 RFP」accurate**、framework 加 2D matrix（商業關係 × 文件類型）標 generalization warning（不是所有聯名都有 RFP、不是所有 RFP 都是聯名）。AP-NEW-WRITE-5.e 已升級加 2D matrix。
     - **Meta lesson #14**：correction 不要 over-swing — 第一次 catch 修正後、不要 reverse 走另一極端、要找 middle ground（本案這條 lesson 對應 commit checkpoint #10「avoid pendulum over-correction」）
+    - 翻車 #19（per Amafans EAQS 2026-05-29 user 5th correction round）：framework 用「hedged 範圍」當 jargon 對 user 不解釋、user catch「這是什麼？」。應該加 glossary：
+      - **Verified（已驗）** = 已 cross-check 多 source、有 evidence、可放心 ship
+      - **Hedged（保留條件）** = 有 draft / partial evidence、**但 NOT 100% ship-ready**、需補件 / sign-off 才能對外 release
+      - **Unverified（未驗）** = 純印象 / 推測、無 evidence、不可寫進對外文件
+      - 用「hedged」對 reviewer 必同段加 inline glossary、avoid jargon 困惑（per documentation clarity 維度）
     - 翻車 #18（per Amafans EAQS 2026-05-29 user 4th correction round）：framework 沒 explicit 標 **B2B-only scope**、缺 B2C 對照。User catch「B2B、B2C」短 query 暗示 framework gap。
       - **ProposalOS 是 B2B-focused framework**（Proposal OS = 提案 OS、B2B concept）
       - **不適用 B2C** 廣義消費品行銷（D2C / paid acquisition / brand / growth hacking）
