@@ -461,6 +461,7 @@
     - 翻車 #2：「Tokyo 確認」加日期戳當新決議、沒 user 確認是「today 真決議 vs 沿用既有」（→ AP-NEW-ANTI-HALLUC-1 trigger）
     - 翻車 #3：grep code 0 推「production 不收 A/V/Hz/PF」、被 EM01 sensor data 反證（→ AP-NEW-ANTI-HALLUC-3 trigger）
     - 翻車 #4：grep ElectricityController 4 支推「implementation 只 4 支」、被 api-nexus module 12 reveal 10 支 + 6 支共用 跨多 controller 反證（→ 本 AP-4 trigger）
+    - 翻車 #5：multi-step edit 加新 §4.0-4.5 但沒刪舊 §4.2/4.3、file 同主題重複多段、user catch redundancy（→ commit checkpoint #6: edit 後 `grep -n "^### " file` 驗 header 無重複 / `git diff --stat` 看 add line >>> delete line 表示舊段沒刪）
 - **對應模組**：[methodologies/multi-tool-verification](methodologies/multi-tool-verification.md) + [強制檢查項 C 決策紀錄 checklist](8-mandatory-checks/C-decision-log.md)
 
 ## 7 問 Sanity Check（從真實案例提煉）

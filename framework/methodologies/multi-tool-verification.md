@@ -120,15 +120,24 @@ Q3: 兩者 scope match 嗎？
 
 ## Commit 前 final checkpoint（對 user-facing deliverable）
 
-5 條自問必過：
+6 條自問必過：
 
 1. ✅ 這 claim 有 **≥ 2 個 evidence**？
 2. ✅ Evidence scope **match** claim scope？
 3. ✅ 數字 / 識別符 / 時序 / 引用都 cite **source 標籤**？
 4. ✅ Hedging language **對齊** evidence 完整度？
 5. ✅ 「per X 決策」phrasing 都含 **cite source + 日期 + 決策人**？
+6. ✅ **Multi-step edit 完無舊段殘留**（grep header count / search 關鍵字、避免 add new section 但忘刪 old section、造成 file 同主題重複多段、reviewer / future-you 不知哪個是 truth）— per Amafans EAQS 2026-05-29 翻車 #5
 
 任一 ❌ → 退回去驗、不 commit。
+
+**Tip for checkpoint #6**：
+```bash
+# Multi-step edit 後跑這些 quick check
+grep -c "^### " <file>                # header count 對嗎
+grep -n "^### " <file>                # 看是否有同 § 編號重複
+git diff --stat <file>                # add line >> delete line 表示舊段沒刪
+```
 
 ---
 
@@ -140,5 +149,6 @@ Q3: 兩者 scope match 嗎？
 | 2 | 「Tokyo 確認」當新決議 | user 一句話 | git log first-commit + CLAUDE.md 既有聲明 | 改「沿用既有」+ AP-NEW-ANTI-HALLUC-1 |
 | 3 | grep code 0 推「production 不收」 | grep ElectricityController PHP | PROD raw data query | hedged 改 + AP-NEW-ANTI-HALLUC-3 |
 | 4 | grep PHP 4 支推「implementation 只 4 支」| grep 1 controller | api-nexus MCP（module 12 reveal 17 支 / 10 warroom）+ user 補 dev branch context | api-nexus 解 + AP-NEW-ANTI-HALLUC-4（本檔） |
+| 5 | multi-step edit 加新 §4.0-4.5 但沒刪舊 §4.2/4.3、file 同主題重複多段 | 假設 Edit 是 in-place 替換 | edit 後 grep header count / file diff stat 驗無殘留 | commit checkpoint #6 + bash quick check |
 
-→ **預防 = multi-tool sequence + hedging default + Numbers cite + commit checkpoint**。Single-tool answer + confident phrasing = 高 risk anti-hallucination。
+→ **預防 = multi-tool sequence + hedging default + Numbers cite + commit checkpoint (6 條)**。Single-tool answer + confident phrasing + multi-step edit 沒 final cleanup = 高 risk anti-hallucination + redundancy。
