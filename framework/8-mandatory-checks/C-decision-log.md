@@ -148,6 +148,9 @@
 3. ⚠️ **影響範圍列了嗎？** 不列 = 跨檔 propagation 必漏
 4. ⚠️ **trade-off table 有嗎？** 沒有 = 單選默認、無 evaluate alternatives 痕跡
 5. ⚠️ **evidence scope = claim scope 嗎？** 「grep code 不到 / 文件沒寫 / 我沒看到」evidence 只能 claim 對應狹窄 scope、不能 claim「不存在 / 平台不收 / 沒人用」（避免 AP-NEW-ANTI-HALLUC-3）— 數據系統至少 5 層 (raw 收 / persist / process / aggregate / display)、grep 一層不代表全層
+6. ⚠️ **API / 系統元件 reference 用 implementation layer URL/path 作 single source of truth嗎？** 不要用 abstraction layer namespace（如 RPC dotted notation / API Gateway path / 文件分類名）作為承諾 source — abstraction layer 跟實作層常有 1-to-N mapping、容易產生 ghost number（per Amafans EAQS 2026-05 案例：CR-002 寫「27 支 electricitySetup API」用 API Nexus dotted namespace、war_room PHP grep `electricitySetup` = 0 個 result、實際 ElectricityController 只 4 支 HTTP route、「27 支」變 ghost number）
+   - ✅ implementation layer authoritative：`HTTP method + path` / file path / git commit / DB schema
+   - ⚠️ abstraction layer secondary：API Nexus dotted、RPC namespace、文件分類 — 可寫但需註明 maps to which implementation
 
 ### git archaeology preflight
 
