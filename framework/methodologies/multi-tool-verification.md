@@ -139,7 +139,7 @@ Q3: 兩者 scope match 嗎？
 9. ✅ **Dense claim / 抽象結論配「場景對比」level-appropriate example**（claim 寫完看是否 reviewer 一看就懂、不需回頭問「什麼意思」、dense claim 後一定配 inline example、讓 reviewer 直接 copy）— per Amafans EAQS 2026-05-29 翻車 #10 + #11（documentation clarity 維度）
    - **Level 1**（簡單 binary claim）：❌/✅ phrasing example（如「不能寫『業界唯一』、要寫『第一個公開 per-fan 訂閱』」）
    - **Level 2**（雙軌 case）：2×2 case table（如「對外送 vs 內部備查」）
-   - **Level 3**（multi-case 抽象結論）：3+ row 「場景比較」table + 每 row 具體 example phrasing（如「客戶提案 vs 聯名 RFP vs 內部 research」三 case）
+   - **Level 3**（multi-case 抽象結論）：3+ row 「場景比較」table + 每 row 具體 example phrasing（如「客戶提案 vs 對等合作 RFP vs 內部 research」三 case）
    - **規則**：dense claim 寫完想像 reviewer 讀完 → 想得到具體場景 + 用得到具體 phrasing？想不到 → upgrade example level（per 翻車 #11：user quote 同 row 第 2 次「什麼意思」、表示 Level 2 不夠、要 upgrade Level 3）
 
 任一 ❌ → 退回去驗、不 commit。
@@ -178,5 +178,7 @@ grep -r "<keyword>" <ground-truth-folder>/      # e.g. proposal-intelligence/cli
 | 9 | §7.1 hedge「sandbox 無 PROD access、未走 PROD 重 query」— default 假設「無 PROD access = 必 hedge」、實際 `proposal-intelligence/clients/amafans/2026-05-28_facts.md` 同事已 PROD pull verified + war_room production cron hard-coded thingName 雙重證明 active production、grep 一下就有 | hedge 前沒廣搜本機 ground truth folder、default「無 access = hedge」太保守 | `grep -r <keyword> <ground-truth-folder>/` 廣搜（如 `proposal-intelligence/clients/`、`<repo>/docs/case-studies/` 等）、找他人 PROD pull cached data | commit checkpoint #8「hedge 前先廣搜本機 ground truth folder」|
 | 10 | §2「無 peer 修正」/「模組 01-02 N/A」這類 dense claim 寫完、user 一句「什麼意思」trigger explain | dense claim 沒配 inline example、reviewer 必問 | dense claim 後一定加 ❌/✅ phrasing example or 2×2 table 拆 case | commit checkpoint #9 Level 1+2「dense claim 配 ❌/✅ phrasing example」|
 | 11 | §2 模組 01-02 N/A 已配 2×2 table、user 仍 quote 同 row 第 2 次「什麼意思」 | Level 2 例（binary case table）對 multi-case 抽象結論不夠、reviewer 仍想不到具體場景 | 升級 Level 3：「場景對比」3+ row table + 每 row 具體 example phrasing | checkpoint #9 升級 Level 3「multi-case 配場景對比 table」|
+| 12 | 「模組 01-02 對對等合作 RFP N/A」過度簡化成「不需做」、忽略 Intelligence 維度 | framework 抽象結論預設 1D、漏 sub-dimension | 抽象結論預設拆 2D（外向 / 內向、過去 / 現在、規格 / 實作、Marketing / Intelligence）| AP-NEW-WRITE-5.d「module 01-02 拆 2 重任務」|
+| 13 | 「聯名」+「RFP」揉成一個 case type | 兩個 orthogonal dimension 揉成一個 term | 拆「文件類型」(RFP / Pitch / ADR) × 「商業關係」(客戶提案 / 對等合作 / 聯名商務 / 內部) | AP-NEW-WRITE-5.e「聯名 ≠ RFP」+ rename「對等合作 RFP」|
 
 → **預防 = multi-tool sequence + hedging default + Numbers cite + commit checkpoint (9 條) + local-fallback-to-remote + 多 keyword 廣搜 + 回頭驗 hedged claim + 廣搜本機 ground truth folder + dense claim 配 example**。Single-tool answer + confident phrasing + multi-step edit 沒 final cleanup + 沒 fetch remote + 一個 keyword search 沒廣搜 + 早期 hedged claim 沒回頭驗 + hedge 前沒廣搜本機 ground truth + dense claim 沒配 example = 高 risk anti-hallucination + redundancy + 推測「在別處」+ 漏 register entry + 自己 file 內互相打架 + 過度保守 hedge + reviewer 必問。

@@ -351,30 +351,36 @@
   - 動作做完 = 你知道一切；輸出 = 客戶 / 團隊看的、不要過度
 - **對應模組**：[templates/capture-plan-template.md](../templates/capture-plan-template.md) 三層輸出格式段
 
-### AP-NEW-WRITE-5：用「客戶提案」框架套「聯名 / 合作 RFP」（套錯案件類型）
+### AP-NEW-WRITE-5：用「客戶提案」框架套「對等合作 RFP」（套錯案件類型）
 - **發生**：拿到雙方聯名合作 RFP（如 Amafans × GoodLinker EAQS）、直接套客戶提案 12 模組（含產業 / 競品 / 三方案 / 客戶引言）
 - **後果**：
-  - 競品分析多餘（聯名 RFP 是內部規格、不對外、不需打敗對手）
+  - 競品分析多餘（對等合作 RFP 是內部規格、不對外、不需打敗對手）
   - 客戶引言 placeholder（雙方都是客戶、無外部客戶引言概念）
   - 三方案不適用（聯名是單一規格、不是三選一）
   - 浪費時間在不適用的章節
-- **根因**：ProposalOS 預設「客戶提案」案件類型、未覆蓋「聯名 / 合作 RFP」
+- **根因**：ProposalOS 預設「客戶提案」案件類型、未覆蓋「對等合作 RFP」
 - **教訓**：
   - **不同案件類型用不同框架子集**：
     | 案件類型 | 適用框架 |
     |---|---|
     | **客戶提案** | 完整 12 模組 + 8 強制檢查項 |
     | **投資 / partnership pitch** | 12 模組部分 + 部分強制檢查（Capture Plan + Win Themes 重）|
-    | **聯名 / 合作 RFP** | 模組 03/04/06/07/08/11/12 + 強制檢查項 A/B/C/D/E/F + 17 待確認追蹤 |
+    | **對等合作 RFP** | 模組 03/04/06/07/08/11/12 + 強制檢查項 A/B/C/D/E/F + 17 待確認追蹤 |
     | **顧問報告** | 模組 03/04/06/07/08/11/12 + 強制檢查項 A/B/C/H |
     | **政府標案** | 完整 + Compliance Matrix + Shipley 全套 |
   - 開案前必先**判斷案件類型**、不要 default 客戶提案
   - 真實案例：Amafans EAQS 案、若直接套客戶提案會浪費 30% 工作量在不適用章節
-  - **聯名 RFP sub-anti-patterns**（per Amafans EAQS 2026-05 真實案例累積）：
-    - **AP-NEW-WRITE-5.a**：聯名 RFP §10 商務照 client-proposal 模板寫具體報價 / 三方案 — 聯名商務在合約 / appendix、RFP 主文不該包（per Amafans EAQS、商業條款延後另案）
+  - **對等合作 RFP sub-anti-patterns**（per Amafans EAQS 2026-05 真實案例累積）：
+    - **AP-NEW-WRITE-5.a**：對等合作 RFP §10 商務照 client-proposal 模板寫具體報價 / 三方案 — 聯名商務在合約 / appendix、RFP 主文不該包（per Amafans EAQS、商業條款延後另案）
     - **AP-NEW-WRITE-5.b**：跨檔差異追蹤只分「Demo vs RFP」2 維、漏「內部決議」第 3 維 — 例「智能控制移除」是 2026-05-29 內部決議、不在 Demo 也不在 RFP v0.6、要分 3 維追蹤
     - **AP-NEW-WRITE-5.c**：聯名雙方「對方確認」≠「我方內部決議」≠「外部已決」— 例會議只 confirm「用標準 Energy Data Panel」但電表 scope（整廠 / 分路）未明示、要在 pending tracker 列「對方未確認 vs 我方未決 vs 雙方未談」分開
-    - **AP-NEW-WRITE-5.d**（per Amafans EAQS 翻車 #12、2026-05-29 user catch）：把「模組 01-02 對聯名 RFP N/A」過度簡化成「不需做」— **錯**。模組 01-02 有 **2 重任務**：(A) Marketing（外向、說服客戶）→ 聯名 RFP N/A；(B) Intelligence（內向、產業 / 競品 / 客戶 deployment / 應用情境 / 文章報導 / 法規動態作為規格設計輸入）→ 聯名 RFP **仍 mandatory**、寫進 research/ 不寫進 RFP 本文。實際本 session 已產 8+ 份 Intelligence research (對手監控 inventory / 客戶 deployment 案例 / 跨類別對標 / TAM / 節能 benchmark / sensor brand / 法規 / GoodLinker 電力規格) — 全屬模組 01-02 Intelligence 維度
+    - **AP-NEW-WRITE-5.d**（per Amafans EAQS 翻車 #12、2026-05-29 user catch）：把「模組 01-02 對對等合作 RFP N/A」過度簡化成「不需做」— **錯**。模組 01-02 有 **2 重任務**：(A) Marketing（外向、說服客戶）→ 對等合作 RFP N/A；(B) Intelligence（內向、產業 / 競品 / 客戶 deployment / 應用情境 / 文章報導 / 法規動態作為規格設計輸入）→ 對等合作 RFP **仍 mandatory**、寫進 research/ 不寫進 RFP 本文。實際本 session 已產 8+ 份 Intelligence research (對手監控 inventory / 客戶 deployment 案例 / 跨類別對標 / TAM / 節能 benchmark / sensor brand / 法規 / GoodLinker 電力規格) — 全屬模組 01-02 Intelligence 維度
+    - **AP-NEW-WRITE-5.e**（per Amafans EAQS 翻車 #13、2026-05-29 user catch）：把「聯名」+「RFP」揉成一個 term「聯名 RFP」— **錯**。這是 orthogonal 2 dimension：
+      - **文件類型**（RFP / Pitch deck / ADR / 規格書 / 顧問報告 / 政府標案）
+      - **商業關係**（客戶提案 = 賣家→客戶 / 對等合作 = B2B 雙方 / 聯名商務 = co-sell + 分潤 / 內部 review）
+      - Amafans × GoodLinker 案：文件 = RFP；Phase 1 商業關係 = **對等合作專案**（計畫案合約 + 開發 + 驗收）；Phase 2 才談**聯名商務** (co-sell / 分潤、待後續另案、per 2026-05-28 會議決議)
+      - 正確 case type 命名 = **「對等合作 RFP」**（強調對等性、區隔 Phase 2 聯名商務）
+      - 「聯名 RFP」phrasing 誤導 — 「聯名」是商業模式、不是文件類型、Phase 1 RFP 不該以「聯名」命名
 - **對應模組**：[SKILL.md 案件類型判斷段](../skills/proposal-os/SKILL.md)
 
 ### AP-NEW-ANTI-HALLUC-1：Temporal attribution drift（日期戳隱含新決議、實則 inherit）
@@ -469,7 +475,8 @@
     - 翻車 #9：§7.1 hedge「sandbox 無 PROD access、未走 PROD 重 query」— default 假設「無 PROD access = 必 hedge」、實際本機 `proposal-intelligence/clients/amafans/2026-05-28_facts.md` 已有同事 PROD pull verified data + war_room production cron hard-coded thingName 雙重證明 active production、grep 一下就有、不需 hedge。User 一句 quote 後 grep 才發現（→ commit checkpoint #8：hedge「需 PROD / 需外部資料」前先 `grep -r <keyword> <ground-truth-folder>/` 看本機是否已有他人 pull 過的 cached verified data、再決定 hedge level）
     - 翻車 #10：§2「無 peer 修正」/「模組 01-02 N/A」這類 dense claim 寫完、user 一句「什麼意思」就 trigger explain — dense claim 沒配 inline example、reviewer 必問（→ commit checkpoint #9 Level 1+2：dense claim 後一定加 ❌/✅ phrasing example or 2×2 table 拆 case、documentation clarity 默認姿態）
     - 翻車 #11：§2 模組 01-02 N/A 已配 2×2 table、user 仍 quote 同 row 第 2 次「什麼意思」— Level 2 例（binary case table）對 multi-case 抽象結論不夠、reviewer 仍想不到具體場景（→ checkpoint #9 升級 Level 3：multi-case 抽象結論配「場景對比」3+ row table + 每 row 具體 example phrasing、讓 reviewer 看到具體什麼場景對應什麼 action / phrasing）
-    - 翻車 #12：把「模組 01-02 對聯名 RFP N/A」過度簡化成 marketing 任務、忽略 Intelligence 維度 — user catch「同類型公司 / 客戶工廠 / 監控 / 產品分析 / 文章報導」這些 Intelligence 工作算不算？實際上**全算 module 01-02 Intelligence 任務、聯名 RFP 仍 mandatory（寫 research/ 不寫 RFP 本文）**。本 session 已產 8+ 份 Intelligence research、但 §2 phrasing 沒精確描述、誤導對方以為「N/A = 不需做」（→ AP-NEW-WRITE-5.d：module 01-02 永遠拆「Marketing 外向 + Intelligence 內向」2 重任務、聯名 RFP N/A 限 Marketing、Intelligence 仍 mandatory）
+    - 翻車 #12：把「模組 01-02 對對等合作 RFP N/A」過度簡化成 marketing 任務、忽略 Intelligence 維度 — user catch「同類型公司 / 客戶工廠 / 監控 / 產品分析 / 文章報導」這些 Intelligence 工作算不算？實際上**全算 module 01-02 Intelligence 任務、對等合作 RFP 仍 mandatory（寫 research/ 不寫 RFP 本文）**。本 session 已產 8+ 份 Intelligence research、但 §2 phrasing 沒精確描述、誤導對方以為「N/A = 不需做」（→ AP-NEW-WRITE-5.d：module 01-02 永遠拆「Marketing 外向 + Intelligence 內向」2 重任務、對等合作 RFP N/A 限 Marketing、Intelligence 仍 mandatory）
+    - 翻車 #13：把「聯名」+「RFP」揉成一個 case type「聯名 RFP」— **錯**。User catch「聯名是商業合作模式、跟 RFP 文件類型是 orthogonal 2 dimension」。Phase 1 本案 = 對等合作 RFP（計畫案合約 + 開發 + 驗收）；Phase 2 才談聯名商務（co-sell / 分潤、另案）。Framework 17 處「聯名 RFP」phrasing 全 sweep 改「對等合作 RFP」、新加 AP-NEW-WRITE-5.e「2 dimension orthogonal、不要揉一起」
 - **對應模組**：[methodologies/multi-tool-verification](methodologies/multi-tool-verification.md) + [強制檢查項 C 決策紀錄 checklist](8-mandatory-checks/C-decision-log.md)
 
 ## 7 問 Sanity Check（從真實案例提煉）
