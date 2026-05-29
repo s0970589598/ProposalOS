@@ -464,6 +464,7 @@
     - 翻車 #5：multi-step edit 加新 §4.0-4.5 但沒刪舊 §4.2/4.3、file 同主題重複多段、user catch redundancy（→ commit checkpoint #6: edit 後 `grep -n "^### " file` 驗 header 無重複 / `git diff --stat` 看 add line >>> delete line 表示舊段沒刪）
     - 翻車 #6：local grep `EnergyMonthlyReportController` / `ElectricitySetupController` 0 result → claim「local 沒有、可能在 Lambda repo」、user catch「沒有要看 remote？」、`git fetch origin && git grep origin/dev` reveal controller 在 `origin/dev` remote、local 跟 origin/dev 不 sync（→ multi-tool sequence 加 3rd-fallback「local grep 0 → 必驗 remote」）
     - 翻車 #7：`search_apis(q=energyMonthlyReport)` return 6 支、漏 `markHandled`（api_key 是 `anomalyEvent.markHandled` 不是 `energyMonthlyReport.markHandled`）、claim「沒 register / 可能 internal use」、user catch「這是什麼功」後 `search_apis(q=markHandled)` reveal api_id=620 manual_verified 是正式 customer-facing API（PDCA 閉環關鍵）（→ multi-tool sequence 加 1st 規則「search_apis 用多 keyword 廣搜、不要只 query 1 個 namespace」）
+    - 翻車 #8：本檔 §4.0 寫「API Nexus dotted namespace 是 abstraction、不一定 1-to-1 對應 PHP route、可能含 generic Tag CRUD 加總」— stale claim、是 翻車 #4 single-tool over-confidence 時寫的、後續 search_apis verified 證明 dotted namespace 跟 HTTP route 永遠 1-to-1、但我沒回頭 fix §4.0、user 讀到「什麼意思」問才發現（→ commit checkpoint #7：multi-step session 結束前 **回頭重讀自己早段寫過的 hedged claim**、看後續 evidence 是否已 verify 反證）
 - **對應模組**：[methodologies/multi-tool-verification](methodologies/multi-tool-verification.md) + [強制檢查項 C 決策紀錄 checklist](8-mandatory-checks/C-decision-log.md)
 
 ## 7 問 Sanity Check（從真實案例提煉）
