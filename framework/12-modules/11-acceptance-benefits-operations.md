@@ -101,13 +101,55 @@
 - ❌ SLA 沒寫例外 → 不可抗力、第三方故障要免責
 - ❌ 維運費用單獨算 → 沒含在報價會被砍
 
-## 輸出物
+## 輸出物（規格層 — 寫進提案）
 
 1. **驗收 Checklist**（含測試方式、通過條件）
 2. **效益追蹤計畫**（基線、目標、量測、負責人）
 3. **變革管理計畫**（ADKAR 五步驟活動）
 4. **維運服務目錄 + SLA**
 5. **上線後 30/60/90 天回顧計畫**
+
+## 執行層展開（簽約後 / Phase 2-3 真的跑驗收用）
+
+⚠️ **執行層 ≠ 規格層**：
+
+| 層 | 目的 | 何時產 | 範例 |
+|---|---|---|---|
+| **規格層**（本模組 §1-5）| 寫進提案、合約簽署用、雙方對齊 AC + SLA + 變革 | 提案 / 投標期 | 5 級驗收層級、效益指標公式、ITIL service catalogue、P1-P4 SLA |
+| **執行層**（templates/uat-*）| 簽約後 / Phase 2-3 實際照著跑的 artifact | 規格定版後 | UAT N case + entry/exit、defect ticketing、簽收書 |
+
+執行層 template（filled per 案件）：
+
+| Template | 用途 | 何時用 |
+|---|---|---|
+| [uat-script-template.md](../../templates/uat-script-template.md) | UAT 測試腳本（per RTM end-user R）| Phase 2 末 UAT 期 |
+| [uat-defect-template.md](../../templates/uat-defect-template.md) | UAT 期間 bug 回報 / 處理 ticket 格式 | 同上 |
+| [uat-signoff-template.md](../../templates/uat-signoff-template.md) | 雙方 UAT 完成簽收書 | Phase 2 末驗收 |
+
+**何時建立執行層 artifact**：
+
+| 案件 status | 是否寫執行層？| 為何 |
+|---|---|---|
+| 投標 / 提案中 | ❌ 不寫 | 規格未定、寫死簽約後客戶不認 / 規格定版後全改 |
+| 簽約後 + 規格定版 | ✅ 寫**完整版** | Phase 2 跑 UAT 用 |
+| **規格定版前、但已預判可寫 baseline** | ⚠️ 寫**預備版**（v0.1）| 規格未定 step 用 ⚠️ 標 + 簽約後對齊 deadline、其餘照寫 |
+
+預備版好處：規格層 ready 跟簽約後就能跑、不浪費 Phase 0-1 對齊時間。
+
+**執行層 vs 規格層 cross-ref 關係**：
+
+```
+模組 11（規格層 / 寫進提案）
+    │
+    │ 簽約後展開成
+    ▼
+acceptance/（執行層 / 跑驗收用、per 案件）
+    ├── uat-script.md      ← §1.2 L3 UAT 展開
+    ├── smoke-test-plan.md ← §1.2 L2 整合測試展開（TBD template）
+    ├── deployment-runbook.md ← §4.3 release 排程展開（TBD template）
+    ├── uat-defect-template.md ← §4.1 incident management 簡化版
+    └── uat-signoff.md      ← §1.3 雙方代表簽收書具現
+```
 
 ## 推薦方法論
 
