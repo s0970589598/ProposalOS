@@ -555,6 +555,123 @@
       - 案件描述 phrasing 對齊嚴格 def：本案 = 「**聯名 Spec**（借用 RFP 名）」、不是「聯名 RFP」嚴格意義
 - **對應模組**：[methodologies/multi-tool-verification](methodologies/multi-tool-verification.md) + [強制檢查項 C 決策紀錄 checklist](8-mandatory-checks/C-decision-log.md)
 
+## Sensor Scheme 相關 Anti-Patterns（per Module 13 §9 Decision Matrix）
+
+源自 Amafans EAQS 2026-05-29 顧問案 dogfood（HVLS fan + IAQ sensor placement、see `amafans-eaqs-proposal/research/09-sensor-placement-consultancy.md`）、generalize 跨產業 IoT / data-collection 案件。
+
+### AP-NEW-SENSOR-1：「1 device 1 組 5 sensor 全配」over-deploy
+- **產業**：IIoT / 智慧建築 / IoT / 資料採集
+- **階段**：架構 / 商務 / 提案
+- **發生**：每 device 配 ambient + asset-local + process + safety 全 5+ 類 sensor、1:1 全配
+- **後果**：
+  - BOM 推高 2-3× 推薦 mixed 解（per Amafans M 廠 case 估算 ~NT$ 420k-760k vs C mixed ~NT$ 200k-370k）
+  - Ambient sensor placement 錯（集中在 device 不在 breathing zone、PM2.5 受 fan 氣流 noise）
+  - 維護成本爆炸（年度校正 / 清潔 PM laser）
+- **根因**：把「精細」誤當「準確」、忽略物理量空間特性差異
+- **教訓**：套 [模組 13 §9.5 Option C mixed](modules/13-system-design-mvp.md#95-trade-off-framework--三種錯解-vs-推薦解)、Layer 1 走 site grid 不走 per-device、Layer 2 才走 per-asset
+- **對應模組**：[模組 13 §9.2 4-layer 分類](modules/13-system-design-mvp.md#92-物理量四層分類4-layer-physical-quantity-classification)
+
+### AP-NEW-SENSOR-2：「1 場域 1 組 5 sensor」under-deploy
+- **產業**：IIoT / 智慧建築 / IoT / 資料採集
+- **階段**：架構 / 商務 / 提案
+- **發生**：整場域 1 組 5 類 sensor，asset-local sensor 也只 1 點
+- **後果**：
+  - Asset-local 量測 representativeness 失敗（per-asset 失準、device variation 量不出）
+  - ROI / 節能 quantify 失敗（無 device-level baseline vs delta）
+  - 告警 false negative（PM grid 單點漏異常 source）
+- **根因**：cost-cutting 過頭、忽略 asset-local 需 1:1 or 抽樣
+- **教訓**：套 [模組 13 §9.5 Option C mixed](modules/13-system-design-mvp.md#95-trade-off-framework--三種錯解-vs-推薦解)、Layer 2 至少抽樣 30-50%
+- **對應模組**：[模組 13 §9.2 + §9.3 decision matrix](modules/13-system-design-mvp.md#93-decision-matrix--physical-quantity--placement--density--regulatory--sampling--cost)
+
+### AP-NEW-SENSOR-3：從 vendor 默認 sensor scheme copy-paste、不對齊客戶廠房 layout
+- **產業**：IIoT / 智慧建築 / IoT / 資料採集
+- **階段**：架構 / 商務 / Phase 0 onboarding
+- **發生**：照 vendor reference design / 同行案例 copy-paste sensor BOM、跳過客戶 site survey
+- **後果**：
+  - Phase 0 site survey 才發現 layout mismatch（樓層 / 分區 / 既有 sensor 殘留）
+  - Onboarding 工時 + 50-100%
+  - 客戶端不信任（「你連我廠房都沒看過怎麼報價」）
+- **根因**：把「reference design」當「one-size-fits-all」、忽略客戶 layout 異質性
+- **教訓**：Phase 0 必跑 [模組 13 §9.6.1 9-point site survey](modules/13-system-design-mvp.md#961-site-survey-checklist共通-9-點)、tier 套 §9.4 S/M/L preset、然後再客製
+- **對應模組**：[模組 13 §9.4 + §9.6](modules/13-system-design-mvp.md#94-bom-tier-framework--s--m--l-presetgeneralized)
+
+### AP-NEW-SENSOR-4：Sensor placement 當 RFP / proposal 後補的 afterthought
+- **產業**：IIoT / 智慧建築 / IoT / 資料採集
+- **階段**：提案 / 商務 / RFP draft
+- **發生**：RFP V0.1-V0.5 寫到 sensor 章節用「5 類感測器整合」一句話帶過、V0.6+ 才補 placement 細節
+- **後果**：
+  - 簽約前 BOM 沒對齊（sensor 數量 / placement 都待補）
+  - 報價 ±50% drift（per Amafans M 廠 case、不同 placement scheme 差 NT$ 100k-300k）
+  - 安裝期間客戶 CR 滿天飛（per-fan vs per-site / 抽樣 vs 1:1 反覆改）
+- **根因**：把 sensor scheme 當「實作細節」放後期、忽略它是商務報價 + 量測準確度雙因子的 critical input
+- **教訓**：Phase 1 訪談階段即啟動 [模組 13 §9.2 4-layer 分類](modules/13-system-design-mvp.md#92-物理量四層分類4-layer-physical-quantity-classification)、§9.4 tier 預估、Phase 2 鎖定 BOM、RFP V0.1 就含 sensor scheme draft
+- **對應模組**：[模組 13 §9.1 + §9.6](modules/13-system-design-mvp.md#91-何時適用本節trigger-condition) + [強制檢查項 H sensor coverage verification](8-mandatory-checks/H-evidence-pack.md)
+
+### AP-NEW-SENSOR-5：法規 anchor 用 training-data 印象寫進 RFP、未 verify
+- **產業**：IIoT / 智慧建築 / 醫療 / 食品 / 跨產業
+- **階段**：提案 / 法務 review
+- **發生**：在 RFP / proposal 直接寫「per ASHRAE 62.1 §6.1」/「per NFPA 72 §17.7.3」/「per OSHA 1910.1000 Table Z-1」等 clause 編號、未跑 WebSearch verify 該 clause 確切版本是否仍有效
+- **後果**：
+  - 客戶法務 / 工安 catch、信譽損
+  - 真實 audit 對不上（法規版本更新 / clause 編號重排）
+  - 重寫返工、簽約延遲
+- **根因**：違反 [methodologies/multi-tool-verification.md](methodologies/multi-tool-verification.md) — Single-tool over-confidence（用訓練資料印象當 evidence）
+- **教訓**：
+  - 任何 clause 編號 ⚠️ 標 unverified、site survey / RFP draft 期 WebSearch + 客戶 jurisdiction 確切版本驗
+  - phrasing pattern：
+    - ❌ 「per ASHRAE 62.1-2022 §6.1.1 breathing zone」（confident but unverified）
+    - ✅ 「per ASHRAE 62.1-2022 §6 ventilation rate procedure（breathing zone 規範、確切 sub-clause ⚠️ 待 deployment 期 verify per [methodologies/multi-tool-verification.md]）」
+  - cross-ref: [模組 13 §9.10 + §9.11](modules/13-system-design-mvp.md#910-open-question--boundarygeneralization-限制) 法規 anchor cited + hedging 規則
+- **對應模組**：[模組 13 §9.11](modules/13-system-design-mvp.md#911-verification-status--websearch-sources) + [methodologies/multi-tool-verification.md](methodologies/multi-tool-verification.md) + [AP-NEW-ANTI-HALLUC-4 Single-tool over-confidence](#ap-new-anti-halluc-4single-tool-over-confidence一個工具就下結論不交叉不-hedging)
+
+## Session Retrospective 相關 Anti-Patterns
+
+源自 [methodologies/session-retrospective.md](methodologies/session-retrospective.md) — framework 自我演化方法論本身的失敗模式（meta-anti-pattern、retrospective process 怎麼會踩雷）。
+
+⚠️ 本框架原創 per Amafans EAQS 2026-05 case dogfood 累計、未在業界 retrospective methodology 文獻找到等同設計。
+
+### AP-NEW-SESSION-RETRO-1：Retro 結束不 spawn upgrade agent
+
+- **發生**：跑完 session retrospective、寫了 framework upgrade proposal、但沒 spawn agent 執行、proposal 變 dead doc / 進 backlog 永不執行
+- **後果**：framework 沒進步、下次 same gap 又出現、retro 變形式主義
+- **根因**：retro 報告寫完當 deliverable、忘記「retro 真正 value 是 framework 升級執行、不是報告本身」
+- **教訓**：retro §4 upgrade proposal **必含 Status 欄**、Immediate 項必同 session spawn agent 跑完、Near-term 開 issue 進 backlog、Long-term 入 v2 RFC。每筆 upgrade commit message 帶「per <case> retrospective」便於追蹤
+- **對應模組**：[methodologies/session-retrospective.md §3 Step 5](methodologies/session-retrospective.md) + [強制檢查項 C 決策紀錄](8-mandatory-checks/C-decision-log.md)
+
+### AP-NEW-SESSION-RETRO-2：Cross-session learning 散落、無 consolidation
+
+- **發生**：每 case retrospective 自己跑、anti-patterns / framework upgrade 沒跨 case 整合、N case 後 anti-patterns.md 600 條雜亂、reviewer / new author 找不到 pattern
+- **後果**：framework 名義上有 retrospective、實際上每案重新學、framework 沒長期 leverage
+- **根因**：retro 預設「per-case scope」、沒設計 cross-case consolidation hook
+- **教訓**：每 N case（每 5 case 或每季）跑一次 **cross-case consolidation retrospective**、把零散 AP 歸納成 pattern、framework 整體升級。配套未來 `/cross-case-consolidate` skill
+- **對應模組**：[methodologies/session-retrospective.md §8 AP-RETRO-6](methodologies/session-retrospective.md)
+
+### AP-NEW-SESSION-RETRO-3：Framework upgrade 沒 dogfood example、變抽象規範
+
+- **發生**：升級 framework 加新 methodology / module / AP、但沒 cite 真實 case dogfood、變抽象「應該這樣做」條款
+- **後果**：framework reader 看不懂「為何加這條」、抽象難內化、執行率低
+- **根因**：upgrade 寫 author 知道原因、但沒寫進 file、傳給 reader 時 context 漏
+- **教訓**：每 framework upgrade **必含 dogfood case cite**（commit hash + case name + 日期 + 翻車 # 編號）、無 dogfood → 標 hypothesis / draft、不入 main framework
+- **範例**：本檔 AP-NEW-WRITE-5.e 含「per Amafans EAQS 2026-05 真實案例累積」cite + 翻車 #13/14 編號 = 對的 dogfood example；不要寫純抽象「proposal type should be classified by 2D matrix」without dogfood
+- **對應模組**：[methodologies/session-retrospective.md §8 AP-RETRO-4](methodologies/session-retrospective.md)
+
+### AP-NEW-SESSION-RETRO-4：Pendulum over-correction（per Amafans 翻車 #14、retro layer）
+
+- **發生**：retrospective catch 第 1 個 gap、修正後 reverse 走另一極端、產生新 gap、user 再 catch 第 2 次
+- **後果**：correction loop 跑兩次以上、user 累、framework upgrade 來回擺盪、信譽損
+- **根因**：correction 第 1 次的 push 把心理錨點打到另一端、failed to find middle ground
+- **教訓**：correction 後尋找 **middle ground**、不要 reverse 走另一極端、保留 user 第 1 次 correction 對的部分。寫 correction commit 前自問「我是不是 over-correct 砍掉 user 認可的部分？」
+- **範例**：Amafans 翻車 #14：user catch「聯名 ≠ RFP」第一次 → 我全砍「聯名」改「對等合作 RFP」、user 第二次 catch「本案 actually 是聯名」、middle ground 應是「保留聯名 RFP 描述 + 加 2D matrix note + 標 generalization warning」
+- **對應模組**：[methodologies/multi-tool-verification.md commit checkpoint #10](methodologies/multi-tool-verification.md) + [methodologies/session-retrospective.md §8 AP-RETRO-5](methodologies/session-retrospective.md)
+
+### AP-NEW-SESSION-RETRO-5：Retro 不在 session end 跑、累到下案才跑
+
+- **發生**：session 結束沒跑 retrospective、deliverable ship 完直接結案、user-push gap 沒系統化 capture、下案 kickoff 才嘗試回想
+- **後果**：gap 細節遺失（user 原句、framework miss 具體點、root cause）、retrospective 失去 80% leverage、變「印象總結」
+- **根因**：retro 沒 schedule 進 session-end ritual、被當「有空才做」optional task
+- **教訓**：retrospective **必在 session end natural trigger 點立即跑**（deliverable ship 完 / case milestone 到 / 連續 work 段落結束）、不等下案 kickoff。配套 proposal-os Phase 6 結尾 auto trigger retrospective、verify-pipeline 結束 trigger、wiki-lint 跑出 contradiction trigger
+- **對應模組**：[methodologies/session-retrospective.md §2 Retrospective 觸發條件](methodologies/session-retrospective.md) + [skills/proposal-os SKILL.md Phase 6 結尾](../skills/proposal-os/SKILL.md)
+
 ## 7 問 Sanity Check（從真實案例提煉）
 
 寫每個具體數字 / 主張前自問：
@@ -580,6 +697,7 @@
 | 合規 | AP-13、AP-14、AP-15、AP-16 |
 | 交付 | AP-17、AP-18、AP-19、AP-20 |
 | 法律 | AP-21、AP-22、AP-23 |
+| Sensor / IoT 部署（模組 13 §9）| AP-NEW-SENSOR-1、AP-NEW-SENSOR-2、AP-NEW-SENSOR-3、AP-NEW-SENSOR-4、AP-NEW-SENSOR-5 |
 
 ## 紅線提醒
 
