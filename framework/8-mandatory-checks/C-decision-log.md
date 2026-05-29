@@ -98,3 +98,63 @@
 - CR 流程合約寫了嗎？答覆 SLA 多久？
 - 沒走 CR 就做的工作，誰付錢？
 - 半年後爭執時，這些紀錄拿得出來嗎？
+
+---
+
+## 決議紀錄標準格式（per Amafans EAQS 2026-05-29 retro）
+
+避免 [AP-NEW-ANTI-HALLUC-1 temporal attribution drift](../anti-patterns.md) + [AP-NEW-ANTI-HALLUC-2 ghost attribution](../anti-patterns.md)、每個重大內部決議**必含 4 元素 + 1 影響範圍 list**：
+
+### 4 元素
+
+| 元素 | 內容 | 範例 |
+|---|---|---|
+| **日期** | YYYY-MM-DD（today 真決議的日期、不是 confirm 沿用既有的日期）| 2026-05-29 |
+| **決策人** | 具體個人或角色（不是「內部共識」這類 ghost 模糊）| GoodLinker Ethan (GM) |
+| **決議內容** | 1-2 句、可驗 / 可重現 | EAQS 控制邏輯只保留全開 / 全關、移除「智能控制」mode |
+| **理由** | 為何這樣決（避免半年後忘）| Demo 5/13 列「智能控制」是 Phase 2 想法、Phase 1 範圍精簡優先 |
+
+### 影響範圍 list（cross-doc sweep checklist）
+
+決議產生時必列要 update 的 file（避免「一個決議跨 5-10 file 漏更」、配套 wiki-lint / decision-propagation skill 跑 sweep）：
+
+```
+範例 — 「智能控制移除」決議影響範圍（per Amafans EAQS）：
+- pending-items-tracker.md A.2 / P1-1 / 跨檔差異 row
+- rfp-audit.md A1 row
+- rfp-v07-draft-additions.md Phase 0 task + R-04 risk
+- system-design/data-schema.md ModeProfile
+- system-design/data-fields.md ENUM + condition_json
+- ai-handoff/spec.md out-of-scope row
+```
+
+### Trade-off table 範例（per Amafans EAQS CR-002.a 電表 scope）
+
+重大決議必含「方案 trade-off table」、避免單選默認、強制 evaluate alternatives：
+
+| 方案 | 內容 | 優點 | 缺點 | 適用 |
+|---|---|---|---|---|
+| A | 只接電扇分路電表 | BOM 最小、100% 歸因 Amafans | 無法對標台電帳單 | 客戶無總電表 / 最小 BOM 場域 |
+| B | 客戶整廠總電表 | 對標台電帳單、完整 EMS | 風扇 vs 其他設備混在一起 | 客戶有總電表、看整廠 |
+| C | 總 + 分路（推薦）| 既歸因 Amafans、又對台電帳單、雙視圖 | BOM 較多、onboarding 步驟多 | 多數客戶情境 |
+
+→ trade-off table **必含 3 列以上**、避免單選默認
+
+### 反 anti-pattern checklist
+
+寫決議紀錄前自問：
+1. ⚠️ **日期戳對嗎？** today 真決議？還是 confirm 沿用既有？（避免 AP-NEW-ANTI-HALLUC-1）
+2. ⚠️ **attribution 有 cite 嗎？** 「per X 決策」必含 source / 日期 / 決策人（避免 AP-NEW-ANTI-HALLUC-2）
+3. ⚠️ **影響範圍列了嗎？** 不列 = 跨檔 propagation 必漏
+4. ⚠️ **trade-off table 有嗎？** 沒有 = 單選默認、無 evaluate alternatives 痕跡
+
+### git archaeology preflight
+
+寫 phrasing 引用既有 claim 前先驗起源：
+```bash
+git log -p -- <file>          # 看 file 全 commit 史
+git log --all -p -- <path>    # 所有 branch 找
+git log --oneline --grep="<keyword>"   # 按 keyword 找 commit
+```
+
+找不到 git source → 標 ⚠️ unverified、不要寫「per X 決策」攬功。

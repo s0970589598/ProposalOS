@@ -370,7 +370,37 @@
     | **政府標案** | 完整 + Compliance Matrix + Shipley 全套 |
   - 開案前必先**判斷案件類型**、不要 default 客戶提案
   - 真實案例：Amafans EAQS 案、若直接套客戶提案會浪費 30% 工作量在不適用章節
+  - **聯名 RFP sub-anti-patterns**（per Amafans EAQS 2026-05 真實案例累積）：
+    - **AP-NEW-WRITE-5.a**：聯名 RFP §10 商務照 client-proposal 模板寫具體報價 / 三方案 — 聯名商務在合約 / appendix、RFP 主文不該包（per Amafans EAQS、商業條款延後另案）
+    - **AP-NEW-WRITE-5.b**：跨檔差異追蹤只分「Demo vs RFP」2 維、漏「內部決議」第 3 維 — 例「智能控制移除」是 2026-05-29 內部決議、不在 Demo 也不在 RFP v0.6、要分 3 維追蹤
+    - **AP-NEW-WRITE-5.c**：聯名雙方「對方確認」≠「我方內部決議」≠「外部已決」— 例會議只 confirm「用標準 Energy Data Panel」但電表 scope（整廠 / 分路）未明示、要在 pending tracker 列「對方未確認 vs 我方未決 vs 雙方未談」分開
 - **對應模組**：[SKILL.md 案件類型判斷段](../skills/proposal-os/SKILL.md)
+
+### AP-NEW-ANTI-HALLUC-1：Temporal attribution drift（日期戳隱含新決議、實則 inherit）
+
+- **發生**：寫「✅ YYYY-MM-DD 內部決議：[既有 default state]」、但該 state 是更早既有 production / framework 沿用、user 只是 confirm 沿用、不是 today 才決定
+- **後果**：被 user 質疑「有這個決議嗎」、需 git archaeology 驗起源、loss of trust、文件被當「過度宣示」
+- **根因**：寫文件時自動加日期戳當「彰顯時效」、忘了區分「today 真決議」vs「today confirm 沿用既有」
+- **教訓**：
+  - 日期戳前必驗 — 真的 today 才決定的？還是 confirm 沿用？
+  - phrasing 對齊：
+    - ✅ 「2026-X-XX 確認」（today 真做決議）
+    - ✅ 「沿用 [system X] 既有 production 架構（[version Y]）」（既有 inherit）
+    - ❌ 「2026-X-XX 內部決議」+ 既有 default state（attribution drift）
+  - 案例：Amafans EAQS 2026-05-29 — 「2026-05-29 GoodLinker 確認 Tokyo 主」phrasing 錯（AWS Tokyo 是 warroom v3.17 既有 production 架構沿用）、改「沿用 GoodLinker 既有 production 架構（warroom v3.17）」OK
+- **對應模組**：[強制檢查項 C 決策紀錄](8-mandatory-checks/C-decision-log.md)
+
+### AP-NEW-ANTI-HALLUC-2：Ghost attribution（「per X 決策」無 cite、變 ghost 起點）
+
+- **發生**：寫「per [某決策]」附 claim 但無 cite source / 日期 / 決策人、claim 流傳到下游 file、後來被質疑時找不到起源
+- **後果**：claim 變成 ghost、影響範圍擴散後無法 retract、anti-hallucination gate 在源頭失守
+- **根因**：起草 draft 時 attribute「per 目標市場決策」「per 內部共識」這類含糊 phrasing、沒留 cite、半年後自己也忘是誰決定
+- **教訓**：
+  - 每個 attribution 必含 4 元素：**cite source（file path / commit hash）+ 日期 + 決策人 + 簽核狀態**
+  - 找不到 source 就標 ⚠️ unverified、不要編造 attribute
+  - 案例：Amafans EAQS rfp-v07-draft 既有「不存中國境內 per 目標市場決策」commit `7ac1ba6` 寫的 draft 構想、user 不記得有此決議、變 mis-attribution 起點、跨 11 個 file propagate
+  - **git archaeology preflight**：寫 phrasing 引用既有 claim 前先 `git log -p` / `git log --all -p -- <file>` 找起源 commit
+- **對應模組**：[強制檢查項 C 決策紀錄](8-mandatory-checks/C-decision-log.md)
 
 ## 7 問 Sanity Check（從真實案例提煉）
 
