@@ -10,7 +10,7 @@
 
 - `scripts/end-proposal.sh`：結案時跑、自動建：
   - `proposals/<案>/END_STATUS.md`（含日期 / outcome / 結案類型對應動作）
-  - `proposals/<案>/retrospect.md`（5-step + 12 模組 + 8 強制檢查項對照 template）
+  - `proposals/<案>/retrospect.md`（5-step + 13 模組 + 8 強制檢查項對照 template）
 - `scripts/extract-antipatterns.sh`：從填好的 retrospect 自動抽 AP 候選
   - 輸出 `proposals/<案>/anti-patterns-candidates.md`（含去敏感 checklist）
   - 用 Python 解析 markdown、抓 ### AP-NEW- block、過濾未填的 template
@@ -39,7 +39,7 @@
 ### Added — 第一份真實案件 retrospective（含 7 個真實 anti-patterns）
 
 - `examples/goodlinker-gcp-pitch-retrospective.md`：Goodlinker × GCP Pitch 真實案件回溯（去敏感版）
-  - 12 模組對照 + 8 強制檢查項對照
+  - 13 模組對照 + 8 強制檢查項對照
   - 7 個 Good Patterns（71 修正方法論、Karpathy 三層架構、Schema propagation、7 問 sanity check、Cohort baseline + 跨產業驗證、Parking Lot、Human Review Gate）
   - 7 個真實 Anti-Patterns（AP-NEW-01 ~ 07）
   - 客戶端視角（Google Cloud 評委視角預測）
@@ -166,8 +166,8 @@
 
 ### Changed
 - `playbook/proposal-flow.md`：18 階段重組為 4 大段（準備 / 提案 / 商務 / 交付）
-- `framework/12-modules/10-procurement-pricing.md`：加定價心理學（Anchor / Decoy / Bundle）
-- `framework/12-modules/12-risk-assumptions-red-team.md`：釐清 vs 模組 05 RACI 的概念差異
+- `framework/modules/10-procurement-pricing.md`：加定價心理學（Anchor / Decoy / Bundle）
+- `framework/modules/12-risk-assumptions-red-team.md`：釐清 vs 模組 05 RACI 的概念差異
 
 ### Fixed
 - 修正 `framework/industry-addons/manufacturing.md` Purdue Model 分層錯誤（PLC、SCADA、MES、ERP 各層位置修正）
@@ -178,7 +178,7 @@
 ### Added
 初始版本，V12 收斂自 11 版討論：
 
-- 12 大模組（產業 / 競品 / 問題 / 流程 / 角色 / 資料 / 合規 / 架構 / 方案 / 商務 / 落地 / 風險）
+- 12 大模組（產業 / 競品 / 問題 / 流程 / 角色 / 資料 / 合規 / 架構 / 方案 / 商務 / 落地 / 風險）— **後續擴成 13 模組（加 13 系統設計 + MVP 交付包、2026-05-29）**
 - 8 強制檢查項（RTM / 溝通 / 決策 / SDLC / SBOM / RTO-RPO / 退出 / 證據）
 - 7 產業加掛（製造 / 醫療 / 政府教育 / 金融 / 零售 / 能源 ESG / 食品物流）
 - 5 提案範本（提案書 / RTM / 架構圖 / 前後差異 / 報價拆項）
@@ -193,4 +193,4 @@ V3 AI 雙重角色 + V9 能力建構獨立 + V10 競品前移 + V1 視覺產出
 - 產銷人發財框架升級為跨產業業務功能盤點（不再綁在製造業）
 - SaaS / AI Token / API 用量上限與成本控管段落
 - 跨產業通用議題交叉索引（無障礙、多語、資料主權、稽核留痕等 8 項）
-- 12 模組口訣補進 README
+- 13 模組口訣補進 README

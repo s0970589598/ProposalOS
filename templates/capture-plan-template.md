@@ -322,7 +322,7 @@ Layer 2 + Win Themes 詳述 + Discriminators 可驗證 + 多輪 Pink/Red/Gold Te
 
 ### 8.3 提案內容重點
 
-對應 [模組 09 方案](../framework/12-modules/09-solution-options-phased-rollout.md)：
+對應 [模組 09 方案](../framework/modules/09-solution-options-phased-rollout.md)：
 
 | 章節 | 重點 | Win Theme 對應 |
 |---|---|---|

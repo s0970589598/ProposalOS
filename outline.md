@@ -10,7 +10,7 @@
 
 - **Hook 大字**：「**寫顧問式提案、為何 8 成都翻車？**」
 - Subtitle: ProposalOS — 跨業顧問式系統提案作業系統
-- Tagline: 12 模組 + 8 強制檢查項 + 結案 retrospect 累積機制
+- Tagline: 13 模組 + 8 強制檢查項 + 結案 retrospect 累積機制
 - Footer meta: 3 案已驗（祥圃 NT$ 620 萬 / Amafans 聯名 / Goodlinker × GCP）· MIT License · 2026
 
 ## Slide 2 — Story Opening
@@ -50,7 +50,7 @@ Source: README.md §為什麼需要
 
 ProposalOS 的 3 大支柱（並排顯示、each pillar 高 visual weight）：
 
-### 📚 Pillar 1：12 大模組
+### 📚 Pillar 1：13 大模組
 產業 / 競品 / 問題 / 流程 / 角色 / 資料 / 合規 / 架構 / 方案 / 商務 / 驗收 / 風險
 
 **不能少任何一個**、少了就是 4 失敗模式之一。
@@ -83,9 +83,9 @@ Phase 4 商務期      → Phase 5 反方審查  → Phase 6 結案 retrospect
 
 Source: framework/MATRIX.md + skills/proposal-os/SKILL.md
 
-## Slide 6 — Framework Deep Dive：12 模組
+## Slide 6 — Framework Deep Dive：13 模組
 
-3×4 grid（12 模組、each 一個 emoji + 一句話）：
+3×4 grid（13 模組、each 一個 emoji + 一句話）：
 
 | # | 模組 | 核心問題 |
 |---|---|---|
@@ -104,7 +104,7 @@ Source: framework/MATRIX.md + skills/proposal-os/SKILL.md
 
 **業務功能盤點口訣：產銷人發財**（生產 / 銷售 / 人資 / 研發 / 財務）— 跨產業通用、訪談覆蓋自我檢查。
 
-Source: README.md §框架總覽 + framework/12-modules/
+Source: README.md §框架總覽 + framework/modules/
 
 ## Slide 7 — Evidence：3 已驗案例
 

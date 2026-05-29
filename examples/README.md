@@ -26,8 +26,8 @@
 | `README.md`（案例背景） | 模組 01-05 |
 | `01-interview-notes.md` | [playbook/interview-script.md](../playbook/interview-script.md) |
 | `02-rtm.md` | [templates/rtm-template.md](../templates/rtm-template.md) + [8-mandatory-checks/A-rtm.md](../framework/8-mandatory-checks/A-rtm.md) |
-| `03-architecture.md` | [模組 08](../framework/12-modules/08-architecture-functional-nfr.md) + [templates/architecture-diagram-checklist.md](../templates/architecture-diagram-checklist.md) |
-| `04-pricing.md` | [模組 10](../framework/12-modules/10-procurement-pricing.md) + [templates/pricing-breakdown-template.md](../templates/pricing-breakdown-template.md) |
+| `03-architecture.md` | [模組 08](../framework/modules/08-architecture-functional-nfr.md) + [templates/architecture-diagram-checklist.md](../templates/architecture-diagram-checklist.md) |
+| `04-pricing.md` | [模組 10](../framework/modules/10-procurement-pricing.md) + [templates/pricing-breakdown-template.md](../templates/pricing-breakdown-template.md) |
 | `05-red-team-review.md` | [playbook/red-team-questions.md](../playbook/red-team-questions.md) |
 
 ## 注意

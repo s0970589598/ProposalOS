@@ -14,18 +14,18 @@ ProposalOS 的本體。四層架構：
 
 ```
 framework/
-├── 12-modules/              ← 必選骨幹（每案都要過一次）— WHAT
+├── modules/              ← 必選骨幹（每案都要過一次）— WHAT
 ├── 8-mandatory-checks/      ← 強制檢查項（容易被埋的細節）— WHAT
 ├── industry-addons/         ← 產業加掛（依案件選用）
 ├── methodologies/           ← 跨領域方法論（業界成熟框架）— HOW
 └── MATRIX.md                ← 12 × 8 對應矩陣
 ```
 
-**WHAT vs HOW**：12 模組 / 8 檢查項 / Add-ons = **要寫什麼**；methodologies = **用什麼方法寫**。
+**WHAT vs HOW**：13 模組 / 8 檢查項 / Add-ons = **要寫什麼**；methodologies = **用什麼方法寫**。
 
 ## 使用順序
 
-1. 先讀 `12-modules/` 確認 12 個面向有沒有大方向漏項
+1. 先讀 `modules/` 確認 12 個面向有沒有大方向漏項
 2. 用 `8-mandatory-checks/` 過 checklist，找出落地會爆炸的地方
 3. 依產業挑選 `industry-addons/` 補強
 

@@ -139,9 +139,9 @@ Compliance Matrix 是**逐條對應**：
 
 GoodLinker 中型案件通常**業務 = Capture、PM = Proposal Manager + Production、Tech Lead = Architect**。
 
-## 跟 ProposalOS 12 模組怎麼對應
+## 跟 ProposalOS 13 模組怎麼對應
 
-| ProposalOS 12 模組 | Shipley 對應 |
+| ProposalOS 13 模組 | Shipley 對應 |
 |---|---|
 | 01-02 產業 + 競品 | Capture Plan 的客戶 + 對手分析 |
 | 03 問題目標 | 客戶痛點 + KPI（同） |
@@ -156,7 +156,7 @@ GoodLinker 中型案件通常**業務 = Capture、PM = Proposal Manager + Produc
 
 | 案件規模 | Shipley 採用程度 |
 |---|---|
-| < 50 萬（Short）| 跳過 Shipley、只用 ProposalOS 12 模組 |
+| < 50 萬（Short）| 跳過 Shipley、只用 ProposalOS 13 模組 |
 | 50-500 萬（Standard）| 借 Win Themes + Discriminators + Pink/Red Team |
 | 500 萬+ / 政府 / 大標 | **整套用**：Capture Plan + Win Themes + Compliance Matrix + Pink/Red/Gold |
 

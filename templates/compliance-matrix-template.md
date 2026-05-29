@@ -108,7 +108,7 @@
 
 ## 範本對照
 
-對應 [模組 07 合規](../framework/12-modules/07-compliance-security-ai-risk.md) 中的法規對應表、但 Compliance Matrix 更**逐條對應**、**Shipley 標準格式**。
+對應 [模組 07 合規](../framework/modules/07-compliance-security-ai-risk.md) 中的法規對應表、但 Compliance Matrix 更**逐條對應**、**Shipley 標準格式**。
 
 ---
 

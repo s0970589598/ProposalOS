@@ -5,8 +5,8 @@
 ## 訪談前準備
 
 - [ ] 讀過客戶官網、年報、新聞（30 分鐘）
-- [ ] 完成產業簡報（[12-modules/01](../framework/12-modules/01-industry-market.md)）
-- [ ] 完成競品功課（[12-modules/02](../framework/12-modules/02-competitors-alternatives.md)）
+- [ ] 完成產業簡報（[modules/01](../framework/modules/01-industry-market.md)）
+- [ ] 完成競品功課（[modules/02](../framework/modules/02-competitors-alternatives.md)）
 - [ ] 知道受訪者職位、背景
 - [ ] 準備錄音 / 記錄工具，並徵詢同意
 - [ ] 準備 1 頁公司介紹（只在被問才拿出來）
@@ -28,7 +28,7 @@
 
 5 個都沒問到 → 安排第二輪訪談 / 換受訪者補。
 
-→ 詳見 [模組 03 業務功能盤點](../framework/12-modules/03-problem-business-goals.md)
+→ 詳見 [模組 03 業務功能盤點](../framework/modules/03-problem-business-goals.md)
 
 ## 訪談類型
 

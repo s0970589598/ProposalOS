@@ -1,6 +1,6 @@
 # UAT 測試腳本 Template — {案件名稱}
 
-> **層級**：L3 UAT（per [模組 11 §1.2](../framework/12-modules/11-acceptance-benefits-operations.md)）
+> **層級**：L3 UAT（per [模組 11 §1.2](../framework/modules/11-acceptance-benefits-operations.md)）
 > **執行期**：{Phase 2 末 / 簽約後幾月}
 > **主責**：{客戶 / 我方 / 雙方} 測試人員 + 我方配合
 > **狀態**：v0.1 預備版（簽約 + 規格未定項對齊後實際定版）
@@ -68,7 +68,7 @@
 
 ### 4.1 UAT 角色
 
-從 [模組 05](../framework/12-modules/05-stakeholders-raci.md) 抽 end-user 角色：
+從 [模組 05](../framework/modules/05-stakeholders-raci.md) 抽 end-user 角色：
 
 | 角色 | 對應實際 user | 跑 UAT case |
 |---|---|---|

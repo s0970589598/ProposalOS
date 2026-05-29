@@ -4,22 +4,22 @@
 
 ## 主檔命名規則（混合架構）
 
-每案 **必有 `proposal.md`**（我方視角 12 模組整理）、再依案件類型加對外 deliverable：
+每案 **必有 `proposal.md`**（我方視角 13 模組整理）、再依案件類型加對外 deliverable：
 
 | 案件類型 | 內部主檔（必有）| 對外 deliverable（per 類型）|
 |---|---|---|
-| **客戶提案**（我方賣 / 客戶買）| `proposal.md`（套 12 模組）| 同 `proposal.md`、直接交付 |
+| **客戶提案**（我方賣 / 客戶買）| `proposal.md`（套 13 模組）| 同 `proposal.md`、直接交付 |
 | **投資 pitch**（我方申請 / 投資方給）| `proposal.md`（內部視角）| `docs/pitch_v{N}_final.md`（對外蒸餾版）|
-| **聯名 / 合作 RFP**（雙方對等）| `proposal.md`（我方 12 模組 audit view）| `source-documents/RFP_V{N}.md`（對方文件、cross-ref）+ `rfp-audit.md` / `pending-items-tracker.md` |
+| **聯名 / 合作 RFP**（雙方對等）| `proposal.md`（我方 13 模組 audit view）| `source-documents/RFP_V{N}.md`（對方文件、cross-ref）+ `rfp-audit.md` / `pending-items-tracker.md` |
 | **顧問報告** | `proposal.md`（我方分析框架）| `report.md` 或 `consulting-report.md` |
-| **政府標案** | `proposal.md`（套 12 模組）| 同 `proposal.md` + `compliance-matrix.md` |
+| **政府標案** | `proposal.md`（套 13 模組）| 同 `proposal.md` + `compliance-matrix.md` |
 | **內部立案** | `proposal.md`（內部視角）| `business-case.md`（對 leadership 簡化版）|
 
 ### proposal.md 的角色（每案統一）
 
 ⚠️ **proposal.md 不一定是對外 deliverable**、是**我方思考的整理**：
 
-- **目的**：套 ProposalOS 12 模組 + 8 強制檢查項、確保框架完整
+- **目的**：套 ProposalOS 13 模組 + 8 強制檢查項、確保框架完整
 - **誰看**：自己 / 內部 / Claude session（不是客戶 / 投資人 / 合作夥伴）
 - **形式**：可寫滿（如 xiangpu）或當 spine/index（cross-ref 既有檔、如聯名 RFP 案）
 - **何時寫**：案件 kickoff 後第一個產出、貫穿整個 lifecycle
@@ -29,7 +29,7 @@
 當案件已有大量 source doc（RFP / pitch / audit / tracker）、不要重寫、用 spine 模式：
 
 ```markdown
-# {Case Name} — Proposal（我方視角、套 12 模組）
+# {Case Name} — Proposal（我方視角、套 13 模組）
 
 > 本檔是我方視角的方法論整理、不是對外 deliverable。
 > 對外交付物見 [{deliverable file}]。
@@ -49,7 +49,7 @@ See: `{audit-file}` / `relationship-history.md`
 
 → 雙寫成本 ≈ 0、proposal.md 變索引、實際內容仍在原檔。
 
-→ Pitch-deck-builder Phase 7 章節 mapping 永遠 work（§X 對應 12 模組固定）。
+→ Pitch-deck-builder Phase 7 章節 mapping 永遠 work（§X 對應 13 模組固定）。
 
 ---
 
@@ -115,7 +115,7 @@ See: `{audit-file}` / `relationship-history.md`
 ```
 ~/code/ProposalOS/
 ├── framework/
-│   ├── 12-modules/                  ← 12 大模組逐項
+│   ├── modules/                  ← 13 大模組逐項
 │   ├── 8-mandatory-checks/          ← 8 強制檢查項
 │   ├── anti-patterns.md             ← 145 條（持續累積、跨案傳承）
 │   ├── industry-addons/             ← 產業加掛

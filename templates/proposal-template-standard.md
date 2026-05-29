@@ -65,7 +65,7 @@
 
 ## 2. 產業與市場現況
 
-> 對應 [12-modules/01-industry-market.md](../framework/12-modules/01-industry-market.md)
+> 對應 [modules/01-industry-market.md](../framework/modules/01-industry-market.md)
 
 ### 2.1 產業趨勢
 
@@ -73,7 +73,7 @@
 
 ### 2.3 競品與替代方案
 
-> 對應 [12-modules/02-competitors-alternatives.md](../framework/12-modules/02-competitors-alternatives.md)
+> 對應 [modules/02-competitors-alternatives.md](../framework/modules/02-competitors-alternatives.md)
 
 | 選項 | 優點 | 缺點 | 價格區間 |
 |---|---|---|---|
@@ -87,13 +87,13 @@
 
 ## 3. 客戶現況與痛點
 
-> 對應 [12-modules/03-problem-business-goals.md](../framework/12-modules/03-problem-business-goals.md)
+> 對應 [modules/03-problem-business-goals.md](../framework/modules/03-problem-business-goals.md)
 
 ### 3.1 經營目標
 
 ### 3.2 現況流程（As-Is）
 
-> 對應 [12-modules/04-as-is-to-be-service-blueprint.md](../framework/12-modules/04-as-is-to-be-service-blueprint.md)
+> 對應 [modules/04-as-is-to-be-service-blueprint.md](../framework/modules/04-as-is-to-be-service-blueprint.md)
 
 [As-Is 流程圖]
 
@@ -105,7 +105,7 @@
 
 ### 3.4 角色與決策鏈
 
-> 對應 [12-modules/05-stakeholders-raci.md](../framework/12-modules/05-stakeholders-raci.md)
+> 對應 [modules/05-stakeholders-raci.md](../framework/modules/05-stakeholders-raci.md)
 
 ---
 
@@ -121,7 +121,7 @@
 
 ### 4.3 三方案比較
 
-> 對應 [12-modules/09-solution-options-phased-rollout.md](../framework/12-modules/09-solution-options-phased-rollout.md)
+> 對應 [modules/09-solution-options-phased-rollout.md](../framework/modules/09-solution-options-phased-rollout.md)
 
 | 方案 | 範圍 | 時程 | 價格 | 適合 |
 |---|---|---|---|---|
@@ -135,7 +135,7 @@
 
 ## 5. 系統範圍與架構
 
-> 對應 [12-modules/08-architecture-functional-nfr.md](../framework/12-modules/08-architecture-functional-nfr.md)
+> 對應 [modules/08-architecture-functional-nfr.md](../framework/modules/08-architecture-functional-nfr.md)
 
 ### 5.1 系統範圍
 
@@ -181,7 +181,7 @@
 
 ## 7. 資料整合與治理
 
-> 對應 [12-modules/06-data-integration-governance.md](../framework/12-modules/06-data-integration-governance.md)
+> 對應 [modules/06-data-integration-governance.md](../framework/modules/06-data-integration-governance.md)
 
 ### 7.1 資料來源
 
@@ -198,7 +198,7 @@
 
 ## 8. 資安與法規遵循
 
-> 對應 [12-modules/07-compliance-security-ai-risk.md](../framework/12-modules/07-compliance-security-ai-risk.md)
+> 對應 [modules/07-compliance-security-ai-risk.md](../framework/modules/07-compliance-security-ai-risk.md)
 
 ### 8.1 適用法規與標準
 
@@ -237,13 +237,13 @@
 
 ### 9.4 變革管理
 
-> 對應 [12-modules/11-acceptance-benefits-operations.md](../framework/12-modules/11-acceptance-benefits-operations.md)
+> 對應 [modules/11-acceptance-benefits-operations.md](../framework/modules/11-acceptance-benefits-operations.md)
 
 ---
 
 ## 10. 報價與付款
 
-> 對應 [12-modules/10-procurement-pricing.md](../framework/12-modules/10-procurement-pricing.md)
+> 對應 [modules/10-procurement-pricing.md](../framework/modules/10-procurement-pricing.md)
 
 ### 10.1 報價拆項
 
@@ -262,7 +262,7 @@
 
 ## 11. 驗收標準與效益追蹤
 
-> 對應 [12-modules/11-acceptance-benefits-operations.md](../framework/12-modules/11-acceptance-benefits-operations.md)
+> 對應 [modules/11-acceptance-benefits-operations.md](../framework/modules/11-acceptance-benefits-operations.md)
 
 ### 11.1 驗收標準
 
@@ -298,7 +298,7 @@
 
 ## 13. 風險、假設、責任邊界
 
-> 對應 [12-modules/12-risk-assumptions-red-team.md](../framework/12-modules/12-risk-assumptions-red-team.md)
+> 對應 [modules/12-risk-assumptions-red-team.md](../framework/modules/12-risk-assumptions-red-team.md)
 
 ### 13.1 風險登記表
 

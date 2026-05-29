@@ -109,8 +109,8 @@
 ### 階段 1.1-1.2：依 Phase 1.0 蒐集寫產業 + 競品
 
 對應：
-- [framework/12-modules/01-industry-market.md](../framework/12-modules/01-industry-market.md)
-- [framework/12-modules/02-competitors-alternatives.md](../framework/12-modules/02-competitors-alternatives.md)
+- [framework/modules/01-industry-market.md](../framework/modules/01-industry-market.md)
+- [framework/modules/02-competitors-alternatives.md](../framework/modules/02-competitors-alternatives.md)
 
 輸出：
 - **Capture Plan**（事實版、必有檔、per AP-NEW-WRITE-3）
@@ -145,9 +145,9 @@
 
 對應：
 - [interview-script.md](interview-script.md)
-- [framework/12-modules/03-problem-business-goals.md](../framework/12-modules/03-problem-business-goals.md)
-- [framework/12-modules/04-as-is-to-be-service-blueprint.md](../framework/12-modules/04-as-is-to-be-service-blueprint.md)
-- [framework/12-modules/05-stakeholders-raci.md](../framework/12-modules/05-stakeholders-raci.md)
+- [framework/modules/03-problem-business-goals.md](../framework/modules/03-problem-business-goals.md)
+- [framework/modules/04-as-is-to-be-service-blueprint.md](../framework/modules/04-as-is-to-be-service-blueprint.md)
+- [framework/modules/05-stakeholders-raci.md](../framework/modules/05-stakeholders-raci.md)
 
 訪談對象：
 
@@ -161,7 +161,7 @@
 
 ## 階段 5：資料盤點
 
-對應：[framework/12-modules/06-data-integration-governance.md](../framework/12-modules/06-data-integration-governance.md)
+對應：[framework/modules/06-data-integration-governance.md](../framework/modules/06-data-integration-governance.md)
 
 要拿到的：
 
@@ -173,8 +173,8 @@
 ## 階段 6：合規 + 風險識別
 
 對應：
-- [framework/12-modules/07-compliance-security-ai-risk.md](../framework/12-modules/07-compliance-security-ai-risk.md)
-- [framework/12-modules/12-risk-assumptions-red-team.md](../framework/12-modules/12-risk-assumptions-red-team.md)
+- [framework/modules/07-compliance-security-ai-risk.md](../framework/modules/07-compliance-security-ai-risk.md)
+- [framework/modules/12-risk-assumptions-red-team.md](../framework/modules/12-risk-assumptions-red-team.md)
 
 跟客戶法務 / 資安溝通：
 
@@ -186,9 +186,9 @@
 ## 階段 7：架構 + 方案 + 報價
 
 對應：
-- [framework/12-modules/08-architecture-functional-nfr.md](../framework/12-modules/08-architecture-functional-nfr.md)
-- [framework/12-modules/09-solution-options-phased-rollout.md](../framework/12-modules/09-solution-options-phased-rollout.md)
-- [framework/12-modules/10-procurement-pricing.md](../framework/12-modules/10-procurement-pricing.md)
+- [framework/modules/08-architecture-functional-nfr.md](../framework/modules/08-architecture-functional-nfr.md)
+- [framework/modules/09-solution-options-phased-rollout.md](../framework/modules/09-solution-options-phased-rollout.md)
+- [framework/modules/10-procurement-pricing.md](../framework/modules/10-procurement-pricing.md)
 
 不要只給一個方案。給 3 個。
 
@@ -255,7 +255,7 @@
 
 ## 階段 13-16：簽約 → 上線
 
-對應：[framework/12-modules/11-acceptance-benefits-operations.md](../framework/12-modules/11-acceptance-benefits-operations.md)
+對應：[framework/modules/11-acceptance-benefits-operations.md](../framework/modules/11-acceptance-benefits-operations.md)
 
 ## 階段 18：上線後回顧
 

@@ -54,7 +54,7 @@
 ### 1. 「為什麼選你不選 A 公司？」
 
 客戶**心裡一定有對手**。提案內如果沒處理競品差異、客戶會自己 fill in 認知。
-→ 對應[模組 02 競品分析](12-modules/02-competitors-alternatives.md)前移。
+→ 對應[模組 02 競品分析](modules/02-competitors-alternatives.md)前移。
 
 ### 2. 「萬一你公司倒了我怎麼辦？」
 
@@ -69,7 +69,7 @@
 ### 4. 「這個風險你怎麼處理？」
 
 客戶會盤點所有風險、想看我方是否預想到。
-→ 對應[模組 12 風險](12-modules/12-risk-assumptions-red-team.md)、寫**前 5 大風險 + 對策**。
+→ 對應[模組 12 風險](modules/12-risk-assumptions-red-team.md)、寫**前 5 大風險 + 對策**。
 
 ### 5. 「我不續約怎麼辦？」
 
@@ -175,7 +175,7 @@
 
 ## 與其他文件的關係
 
-- [模組 12 反方審查](12-modules/12-risk-assumptions-red-team.md)：我方扮敵人模擬客戶
+- [模組 12 反方審查](modules/12-risk-assumptions-red-team.md)：我方扮敵人模擬客戶
 - [playbook/red-team-questions.md](../playbook/red-team-questions.md)：實際反方題庫
 - 本檔：**從客戶視角反向理解**、補上「客戶心裡真實的想法」
 

@@ -68,7 +68,7 @@ proposal-name/
 
 ---
 
-## proposal.md spine 結構（per ProposalOS 12 模組）
+## proposal.md spine 結構（per ProposalOS 13 模組）
 
 每 §N 模組節寫法：
 

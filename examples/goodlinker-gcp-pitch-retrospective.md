@@ -34,7 +34,7 @@
 
 ---
 
-## 12 模組對照
+## 13 模組對照
 
 ### 01 產業市場
 - **當時做到**：完整 ✅
@@ -206,7 +206,7 @@ CLAUDE.md    ← schema（meta、規則）
 - **後果**：不知道 Google PM 簽核流程、會跟哪些 stakeholder 講
 - **根因**：投資 / partnership pitch 容易忽略對方組織
 - **教訓**：投資 / partnership pitch 也要做對方端 stakeholder mapping
-- **對應模組**：[模組 05 stakeholders-raci](../framework/12-modules/05-stakeholders-raci.md)
+- **對應模組**：[模組 05 stakeholders-raci](../framework/modules/05-stakeholders-raci.md)
 
 ### AP-NEW-03：累積 71 修正、其中大半發生在 v1/v2
 
@@ -238,7 +238,7 @@ CLAUDE.md    ← schema（meta、規則）
 - **後果**：競品段缺最關鍵的「真實對手」資訊
 - **根因**：沒做業務員訪談、台灣中小 IIoT 公開資訊有限
 - **教訓**：競品分析不能只靠 WebSearch、**必訪業務員拉真實 deal-loss 紀錄**
-- **對應模組**：[模組 02 competitors-alternatives](../framework/12-modules/02-competitors-alternatives.md)
+- **對應模組**：[模組 02 competitors-alternatives](../framework/modules/02-competitors-alternatives.md)
 
 ### AP-NEW-07：時序 hero stat 沒標日期（「971 hr」漂移成 733 hr）
 
@@ -295,12 +295,12 @@ CLAUDE.md    ← schema（meta、規則）
 3. **Karpathy 三層架構**：[examples/](.) 分 raw / synthesis 兩層、raw 不上 git
 4. **Schema-content propagation list**：跨檔關鍵主張變動時必傳檔案清單
 5. **Investor / Partnership pitch 範本**：[templates/](../templates/) 加新模板（跟客戶提案不同的子類別）
-6. **「emerging-tech 自建」競品類別**：[模組 02](../framework/12-modules/02-competitors-alternatives.md) 補 Vibecoding / AI agent 自建威脅
+6. **「emerging-tech 自建」競品類別**：[模組 02](../framework/modules/02-competitors-alternatives.md) 補 Vibecoding / AI agent 自建威脅
 
 ### 應該改
 
 1. [anti-patterns.md](../framework/anti-patterns.md) 改用 4 段格式
-2. [模組 02](../framework/12-modules/02-competitors-alternatives.md) 加「業務員 deal-loss 訪談」強制步驟
+2. [模組 02](../framework/modules/02-competitors-alternatives.md) 加「業務員 deal-loss 訪談」強制步驟
 3. [client-perspective.md](../framework/client-perspective.md) 加 investor / partnership pitch 視角（不只客戶採購）
 
 ### 應該刪

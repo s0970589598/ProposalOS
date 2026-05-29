@@ -27,8 +27,8 @@ V10 把這個視角修正成「需求探索工具」。
 
 ## 對應到 V12
 
-→ ISO 與法規進入 [模組 07](../../framework/12-modules/07-compliance-security-ai-risk.md)
-→ 競品進入 [模組 02](../../framework/12-modules/02-competitors-alternatives.md)，但**位置前移**
+→ ISO 與法規進入 [模組 07](../../framework/modules/07-compliance-security-ai-risk.md)
+→ 競品進入 [模組 02](../../framework/modules/02-competitors-alternatives.md)，但**位置前移**
 
 ## 為什麼被 V10 修正
 

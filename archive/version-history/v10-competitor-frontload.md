@@ -37,7 +37,7 @@ V12 模組 02 完整保留這個分類。
 
 ## 對應到 V12
 
-→ [模組 02](../../framework/12-modules/02-competitors-alternatives.md) 全本承襲 V10
+→ [模組 02](../../framework/modules/02-competitors-alternatives.md) 全本承襲 V10
 → [playbook/proposal-flow.md](../../playbook/proposal-flow.md) 流程順序按 V10
 → [playbook/ai-assistance.md](../../playbook/ai-assistance.md) 「階段 1 產業研究」階段做競品
 

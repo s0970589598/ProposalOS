@@ -127,7 +127,7 @@
 是 RFP：
    → Bid/No-Bid 評分
    → No Bid：婉拒、留印象
-   → Bid：跑完整 ProposalOS 12 模組
+   → Bid：跑完整 ProposalOS 13 模組
    → 政府 RFP 必含 Compliance Matrix
 
 是 RFQ：

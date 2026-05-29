@@ -52,7 +52,7 @@ V2 把人機料法環當「5M1E 中文版」是誤稱，已修正。
 
 ## 保留的價值
 
-- **產銷人發財**（跨產業）→ 升級到 [模組 03 業務功能盤點](../../framework/12-modules/03-problem-business-goals.md)
+- **產銷人發財**（跨產業）→ 升級到 [模組 03 業務功能盤點](../../framework/modules/03-problem-business-goals.md)
 - **人機料法環**（製造業）→ 留在 [industry-addons/manufacturing.md](../../framework/industry-addons/manufacturing.md)
 - AI 的清單成為 V12 模組 07 的 AI 風險子題基礎
 

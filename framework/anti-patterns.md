@@ -42,12 +42,12 @@
 
 - **典型**：客戶說「我要 dashboard」→ 我們做 dashboard → 上線後客戶說「不是這個 dashboard」
 - **根因**：沒用 5 次「為什麼」、沒用 JTBD 找真需求
-- **教訓**：[模組 03](12-modules/03-problem-business-goals.md) + [JTBD](methodologies/jtbd.md)
+- **教訓**：[模組 03](modules/03-problem-business-goals.md) + [JTBD](methodologies/jtbd.md)
 
 #### AP-02：只訪一個窗口
 
 - **典型**：只跟 PM 訪、上線後第一線員工抗拒
-- **根因**：沒覆蓋 [產銷人發財](12-modules/03-problem-business-goals.md) + 沒做 [stakeholder mapping](12-modules/05-stakeholders-raci.md)
+- **根因**：沒覆蓋 [產銷人發財](modules/03-problem-business-goals.md) + 沒做 [stakeholder mapping](modules/05-stakeholders-raci.md)
 - **教訓**：訪談必含 ≥ 3 種角色（高層 / 主管 / 第一線）
 
 #### AP-03：訪談後沒紀錄就動工
@@ -67,7 +67,7 @@
 #### AP-05：以為客戶沒有替代方案
 
 - **典型**：客戶有「維持現狀」或「自己做」的選項、我們完全不處理
-- **根因**：[模組 02](12-modules/02-competitors-alternatives.md) 三類選項沒寫到「替代方案」
+- **根因**：[模組 02](modules/02-competitors-alternatives.md) 三類選項沒寫到「替代方案」
 - **教訓**：替代方案必入競品矩陣
 
 ### 類別 3：架構 / 方案
@@ -81,13 +81,13 @@
 #### AP-07：NFR 全部不寫 / 全部寫超嚴
 
 - **典型**：客戶問效能、答不出來；或承諾 99.99% 結果做不到
-- **根因**：[模組 08 NFR](12-modules/08-architecture-functional-nfr.md) 段未認真量化
+- **根因**：[模組 08 NFR](modules/08-architecture-functional-nfr.md) 段未認真量化
 - **教訓**：NFR 數字必須有依據、能量測、能違約
 
 #### AP-08：一律 Big Bang 上線
 
 - **典型**：一次切換、失敗風險高、客戶不敢簽
-- **根因**：[模組 09](12-modules/09-solution-options-phased-rollout.md) 沒給分階段選項
+- **根因**：[模組 09](modules/09-solution-options-phased-rollout.md) 沒給分階段選項
 - **教訓**：分階段是預設、Big Bang 是例外
 
 ### 類別 4：商務 / 報價
@@ -95,25 +95,25 @@
 #### AP-09：整套報一個價
 
 - **典型**：報 500 萬、客戶覺得貴、無法挑配減項
-- **根因**：[模組 10](12-modules/10-procurement-pricing.md) 沒拆項
+- **根因**：[模組 10](modules/10-procurement-pricing.md) 沒拆項
 - **教訓**：拆 5+ 項、可選 / 必選分明
 
 #### AP-10：沒寫「不包含」
 
 - **典型**：簽約後客戶說「我以為含這項」、無限追加
-- **根因**：[模組 09](12-modules/09-solution-options-phased-rollout.md) + [模組 10](12-modules/10-procurement-pricing.md) 邊界不清
+- **根因**：[模組 09](modules/09-solution-options-phased-rollout.md) + [模組 10](modules/10-procurement-pricing.md) 邊界不清
 - **教訓**：「不含」清單寫出來、合約附錄
 
 #### AP-11：給折扣不交換條件
 
 - **典型**：客戶說「太貴」我方砍 10%、客戶下次再砍
-- **根因**：[模組 10](12-modules/10-procurement-pricing.md) 商務策略沒抓
+- **根因**：[模組 10](modules/10-procurement-pricing.md) 商務策略沒抓
 - **教訓**：折扣必須交換（合約期、付款、case 使用權、reference 同意）
 
 #### AP-12：用量上限沒設
 
 - **典型**：AI Token / API call 沒上限、客戶端 bug 跑迴圈、月帳單炸 10 倍
-- **根因**：[模組 10 用量上限](12-modules/10-procurement-pricing.md) 段沒做
+- **根因**：[模組 10 用量上限](modules/10-procurement-pricing.md) 段沒做
 - **教訓**：所有按用量計費項都設 Hard Limit
 
 ### 類別 5：合規 / 資安
@@ -139,7 +139,7 @@
 #### AP-16：AI 沒寫評估方式
 
 - **典型**：客戶問「AI 多準」答不出來
-- **根因**：[模組 07 AI 治理](12-modules/07-compliance-security-ai-risk.md) + [MLOps](methodologies/mlops-and-ai-governance.md) 沒寫
+- **根因**：[模組 07 AI 治理](modules/07-compliance-security-ai-risk.md) + [MLOps](methodologies/mlops-and-ai-governance.md) 沒寫
 - **教訓**：每個 AI 功能都要 accuracy / hallucination / bias 指標
 
 ### 類別 6：交付 / 驗收 / 維運
@@ -147,13 +147,13 @@
 #### AP-17：驗收標準寫「客戶滿意」
 
 - **典型**：上線後客戶說「不夠好」、無客觀標準
-- **根因**：[模組 11](12-modules/11-acceptance-benefits-operations.md) 驗收沒量化
+- **根因**：[模組 11](modules/11-acceptance-benefits-operations.md) 驗收沒量化
 - **教訓**：每個驗收項可測、可重現、有時限
 
 #### AP-18：基線數字沒量
 
 - **典型**：上線後算不出「省了多少」、ROI 變吵架
-- **根因**：[模組 11 效益追蹤](12-modules/11-acceptance-benefits-operations.md) 沒做基線
+- **根因**：[模組 11 效益追蹤](modules/11-acceptance-benefits-operations.md) 沒做基線
 - **教訓**：簽約前**必量基線**
 
 #### AP-19：RTO 寫 5min 但實際 8hr
@@ -165,7 +165,7 @@
 #### AP-20：上線後沒人接
 
 - **典型**：客戶端沒指定接手人、3 個月後沒人在用
-- **根因**：[模組 11 變革管理](12-modules/11-acceptance-benefits-operations.md) + [強制檢查項 B 溝通計畫](8-mandatory-checks/B-communication-plan.md) 沒做
+- **根因**：[模組 11 變革管理](modules/11-acceptance-benefits-operations.md) + [強制檢查項 B 溝通計畫](8-mandatory-checks/B-communication-plan.md) 沒做
 - **教訓**：簽約前確認客戶端接手人 + 訓練計畫
 
 ### 類別 7：法律 / 退場
@@ -238,7 +238,7 @@
 ### AP-NEW-02：對方端決策鏈不明（RACI 空白）
 - **發生**：寫了我方 RACI、對方 RACI 0 個角色
 - **教訓**：投資 / partnership pitch 也要做對方端 stakeholder mapping
-- **對應模組**：[模組 05](12-modules/05-stakeholders-raci.md)
+- **對應模組**：[模組 05](modules/05-stakeholders-raci.md)
 
 ### AP-NEW-03：累積大量修正、多半發生早期版本
 - **發生**：v1 → v2 → v3 累積 71 修正、大半早期就該驗
@@ -255,7 +255,7 @@
 ### AP-NEW-06：deal-loss 對手寫不出（只靠 WebSearch）
 - **發生**：競品段對「真實 deal-loss 對手」無法填
 - **教訓**：競品分析**必訪業務員拉真實 deal-loss 紀錄**
-- **對應模組**：[模組 02](12-modules/02-competitors-alternatives.md)
+- **對應模組**：[模組 02](modules/02-competitors-alternatives.md)
 
 ### AP-NEW-07：時序 hero stat 沒標日期（漂移）
 - **發生**：「過去 30d X = 971」是 sliding window、同 30d 已變 733
@@ -307,7 +307,7 @@
   - 客戶通路（B2B 客戶誰）
   - 業界競品（同產業 MES / SaaS 廠商）
   - 法規 / 認證現況（CAS / HACCP / ISO）
-- **對應模組**：[模組 01](12-modules/01-industry-market.md) + [模組 02](12-modules/02-competitors-alternatives.md) + [模組 03](12-modules/03-problem-business-goals.md) + Capture Plan
+- **對應模組**：[模組 01](modules/01-industry-market.md) + [模組 02](modules/02-competitors-alternatives.md) + [模組 03](modules/03-problem-business-goals.md) + Capture Plan
 
 ### AP-NEW-WRITE-2：競品分析「待補」、不是真寫
 - **發生**：proposal §2 競品段標「待 user 內部補」、自己給自己 4/10 低分
@@ -318,7 +318,7 @@
   - 流程：WebSearch → 公開資料整理 → SWOT 每個競品 → 客戶選擇樹
   - 標 confidence：高（多家媒體 / 官網）/ 中（推論）/ 低（無公開資料）
   - **業務 deal-loss 訪談是補強、不是替代**
-- **對應模組**：[模組 02](12-modules/02-competitors-alternatives.md) + [methodologies/shipley-apmp.md](methodologies/shipley-apmp.md)
+- **對應模組**：[模組 02](modules/02-competitors-alternatives.md) + [methodologies/shipley-apmp.md](methodologies/shipley-apmp.md)
 
 ### AP-NEW-WRITE-3：Capture Plan 當「大標案才用」、跳過
 - **發生**：寫中型案（NT$ 500-1000 萬）proposal、跳過 Capture Plan、直接寫主提案書
@@ -352,7 +352,7 @@
 - **對應模組**：[templates/capture-plan-template.md](../templates/capture-plan-template.md) 三層輸出格式段
 
 ### AP-NEW-WRITE-5：用「客戶提案」框架套「聯名 RFP」（套錯案件類型）
-- **發生**：拿到雙方聯名合作 RFP（如 Amafans × GoodLinker EAQS）、直接套客戶提案 12 模組（含產業 / 競品 / 三方案 / 客戶引言）
+- **發生**：拿到雙方聯名合作 RFP（如 Amafans × GoodLinker EAQS）、直接套客戶提案 13 模組（含產業 / 競品 / 三方案 / 客戶引言）
 - **後果**：
   - 競品分析多餘（聯名 RFP 是內部規格、不對外、不需打敗對手）
   - 客戶引言 placeholder（雙方都是客戶、無外部客戶引言概念）
@@ -363,8 +363,8 @@
   - **不同案件類型用不同框架子集**：
     | 案件類型 | 適用框架 |
     |---|---|
-    | **客戶提案** | 完整 12 模組 + 8 強制檢查項 |
-    | **投資 / partnership pitch** | 12 模組部分 + 部分強制檢查（Capture Plan + Win Themes 重）|
+    | **客戶提案** | 完整 13 模組 + 8 強制檢查項 |
+    | **投資 / partnership pitch** | 13 模組部分 + 部分強制檢查（Capture Plan + Win Themes 重）|
     | **聯名 RFP** | 模組 03/04/06/07/08/11/12 + 強制檢查項 A/B/C/D/E/F + 17 待確認追蹤 |
     | **顧問報告** | 模組 03/04/06/07/08/11/12 + 強制檢查項 A/B/C/H |
     | **政府標案** | 完整 + Compliance Matrix + Shipley 全套 |

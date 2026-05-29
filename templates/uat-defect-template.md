@@ -1,7 +1,7 @@
 # UAT Defect Template
 
 > UAT 期間發現問題 → 開 ticket（Jira / Linear / 雙方共用工具、簽約後確定）。
-> 對應 [uat-script-template.md §6 缺陷管理](uat-script-template.md) + [模組 11 §4 維運 SLA](../framework/12-modules/11-acceptance-benefits-operations.md)。
+> 對應 [uat-script-template.md §6 缺陷管理](uat-script-template.md) + [模組 11 §4 維運 SLA](../framework/modules/11-acceptance-benefits-operations.md)。
 
 ---
 

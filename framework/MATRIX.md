@@ -1,6 +1,6 @@
-# 12 × 8 對應矩陣
+# 13 × 8 對應矩陣
 
-12 大模組 × 8 強制檢查項的對應關係。
+13 大模組 × 8 強制檢查項的對應關係。
 **每個檢查項都跨多個模組**，所以容易被埋。這張矩陣可以一眼看出每個模組要過哪些檢查。
 
 ## 主矩陣
@@ -21,6 +21,7 @@
 | **10 商務報價** | ✅ | ⭕ | ✅ | | | | ✅ | |
 | **11 驗收維運** | ✅ | ✅ | | ✅ | ⭕ | ✅ | ⭕ | |
 | **12 風險反方** | | ✅ | ✅ | ⭕ | ⭕ | ⭕ | ⭕ | ✅ |
+| **13 系統設計 MVP** | ✅ | | ✅ | ⭕ | ⭕ | | | |
 
 ## 用法
 
@@ -55,7 +56,7 @@
 
 ## 與其他索引的關係
 
-- 從**模組**看細節 → [framework/12-modules/](12-modules/)
+- 從**模組**看細節 → [framework/modules/](modules/)
 - 從**檢查項**看細節 → [framework/8-mandatory-checks/](8-mandatory-checks/)
 - 從**產業**看擴充 → [framework/industry-addons/](industry-addons/)
 - 從**模組看哪些 add-on 擴充它** → [industry-addons/MODULE-INDEX.md](industry-addons/MODULE-INDEX.md)

@@ -63,7 +63,7 @@ ProposalOS 把 AI 定位成**提案顧問**，不只是被提案物。
 | 模擬法務質疑 | 給合約條款，AI 扮演客戶法務挑刺 |
 | 模擬資安質疑 | 給資安章節，AI 扮演 CISO 提問 |
 | 模擬老闆質疑 | 給效益章節，AI 扮演老闆 ROI 算盤 |
-| 找漏洞 | 給整份提案，AI 對照 12 模組找缺漏 |
+| 找漏洞 | 給整份提案，AI 對照 13 模組找缺漏 |
 
 → 詳見 [red-team-questions.md](red-team-questions.md)
 
@@ -173,7 +173,7 @@ ProposalOS 把 AI 定位成**提案顧問**，不只是被提案物。
 
 ## 與其他文件的關係
 
-- → [framework/12-modules/07-compliance-security-ai-risk.md](../framework/12-modules/07-compliance-security-ai-risk.md)
+- → [framework/modules/07-compliance-security-ai-risk.md](../framework/modules/07-compliance-security-ai-risk.md)
   - 如果客戶系統含 AI，那是「被提案物」章節
 - → [red-team-questions.md](red-team-questions.md)
   - AI 是執行反方審查的工具

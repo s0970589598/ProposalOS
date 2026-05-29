@@ -1,6 +1,6 @@
 # 快速決策樹 — 我這案該用哪些工具？
 
-ProposalOS 有 12 模組 + 8 強制檢查項 + 15 方法論 + 7 add-on + 8 template = **太多選項**。
+ProposalOS 有 13 模組 + 8 強制檢查項 + 15 方法論 + 7 add-on + 8 template = **太多選項**。
 這份決策樹用 5-7 個問題、5 分鐘**告訴你該用哪些**。
 
 ---
@@ -68,9 +68,9 @@ RFQ（純報價）    → 對規格報價、別寫顧問論述
 
 | 必用 | 來自 |
 |---|---|
-| 12 模組（深淺依規模）| [framework/12-modules/](framework/12-modules/) |
+| 13 模組（深淺依規模）| [framework/modules/](framework/modules/) |
 | 8 強制檢查項 | [framework/8-mandatory-checks/](framework/8-mandatory-checks/) |
-| [產銷人發財](framework/12-modules/03-problem-business-goals.md) | 訪談覆蓋自查 |
+| [產銷人發財](framework/modules/03-problem-business-goals.md) | 訪談覆蓋自查 |
 | [Pyramid Principle / SCQA](framework/methodologies/pyramid-principle.md) | 執行摘要寫作 |
 | [Kano Model](framework/methodologies/kano-model.md) | 需求分類（取代 P0/P1/P2）|
 
@@ -87,7 +87,7 @@ RFQ（純報價）    → 對規格報價、別寫顧問論述
 | 情境 | 加 |
 |---|---|
 | Simple | 不加方法論、用 Short template |
-| **Complicated（預設）** | 完整 ProposalOS 12 模組 |
+| **Complicated（預設）** | 完整 ProposalOS 13 模組 |
 | **Complex** | + [PoC/Pilot Pricing](templates/poc-pilot-pricing-template.md) + [JTBD](framework/methodologies/jtbd.md) + [Service Design](framework/methodologies/service-design.md) |
 | Chaotic | 別寫完整提案、用 LOI 先行 |
 
@@ -110,7 +110,7 @@ RFQ（純報價）    → 對規格報價、別寫顧問論述
 | RFI | 1-2 頁簡介、無提案 |
 | RFP（小）| Tier 對應 template |
 | RFP（政府 / 大）| + [Compliance Matrix](templates/compliance-matrix-template.md) + Shipley 全套 |
-| RFQ | 純報價單、無 ProposalOS 12 模組 |
+| RFQ | 純報價單、無 ProposalOS 13 模組 |
 
 ### 依 Q5 加方法論 / add-on
 
@@ -138,7 +138,7 @@ RFQ（純報價）    → 對規格報價、別寫顧問論述
 | Q5 含 | IoT |
 
 **配方**：
-- 12 模組 + 8 檢查項（必）
+- 13 模組 + 8 檢查項（必）
 - 產銷人發財、Pyramid、Kano（必）
 - proposal-template-standard.md
 - JTBD + SWOT（Tier M 加）
@@ -158,7 +158,7 @@ RFQ（純報價）    → 對規格報價、別寫顧問論述
 | Q5 含 | AI + 高資安 + 跨國集團（如為國際集團）|
 
 **配方**：
-- 12 模組 + 8 檢查項（必）
+- 13 模組 + 8 檢查項（必）
 - 產銷人發財、Pyramid、Kano（必）
 - proposal-template-enterprise.md
 - 完整 Shipley + Capture Plan + Compliance Matrix
@@ -182,7 +182,7 @@ RFQ（純報價）    → 對規格報價、別寫顧問論述
 | Q5 含 | 資安（資通安全責任等級 B 級）|
 
 **配方**：
-- 12 模組 + 8 檢查項（必）
+- 13 模組 + 8 檢查項（必）
 - 產銷人發財、Pyramid、Kano（必）
 - proposal-template-enterprise.md
 - **Shipley 全套**（含 Win Themes、Ghosting、Pink/Red/Gold Team）
@@ -205,7 +205,7 @@ RFQ（純報價）    → 對規格報價、別寫顧問論述
 
 **配方**：
 - proposal-template-short.md（精簡）
-- 12 模組（簡寫）+ 8 檢查項（部分簡化）
+- 13 模組（簡寫）+ 8 檢查項（部分簡化）
 - **不需要**：Shipley、Compliance Matrix、PoC Pricing、Service Design、大部分方法論
 
 → Short template 就夠、別 over-engineering。

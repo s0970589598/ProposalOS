@@ -1,7 +1,7 @@
 # UAT 驗收簽收書 Template
 
 > UAT 期結束、雙方簽收用。
-> 對應 [模組 11 §1.3](../framework/12-modules/11-acceptance-benefits-operations.md) 驗收成功判定 + [uat-script-template.md §3 Exit Criteria](uat-script-template.md)。
+> 對應 [模組 11 §1.3](../framework/modules/11-acceptance-benefits-operations.md) 驗收成功判定 + [uat-script-template.md §3 Exit Criteria](uat-script-template.md)。
 
 ---
 
@@ -12,7 +12,7 @@
 **案件**：{案件名稱}
 **Phase**：{Phase X 末 / Phase X 起跑前 Go/No-Go gate}
 **驗收期間**：{YYYY-MM-DD ~ YYYY-MM-DD}（共 {N} 週）
-**驗收層級**：L3 UAT（per [模組 11 §1.2](../framework/12-modules/11-acceptance-benefits-operations.md)）
+**驗收層級**：L3 UAT（per [模組 11 §1.2](../framework/modules/11-acceptance-benefits-operations.md)）
 
 ---
 

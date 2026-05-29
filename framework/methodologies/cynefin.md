@@ -45,7 +45,7 @@ Dave Snowden 1999 提出，IBM、Cognitive Edge 推廣。
 | 情境 | 客戶範例 | 提案策略 |
 |---|---|---|
 | Simple | 客戶說「就照 A 公司做的」、有 SOP | 用標準 template、報價快 |
-| Complicated | 客戶要做 ERP、有專家可問 | 用 12 模組完整跑、用標準框架 |
+| Complicated | 客戶要做 ERP、有專家可問 | 用 13 模組完整跑、用標準框架 |
 | Complex | 客戶要做新 AI 應用、誰都不知怎麼弄 | 不要 over-promise、先 PoC 再展開 |
 | Chaotic | 客戶剛爆食安事件、要立刻救 | 別寫完整提案、直接動手解 |
 
@@ -67,7 +67,7 @@ Dave Snowden 1999 提出，IBM、Cognitive Edge 推廣。
 | 特徵 | 對應 |
 |---|---|
 | 因果可分析 | 用 Standard / Enterprise template |
-| 需要專家評估 | 完整 12 模組跑過 |
+| 需要專家評估 | 完整 13 模組跑過 |
 | 有多選項 | 給三方案 |
 | 風險可估算 | 風險登記表 |
 

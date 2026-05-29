@@ -74,7 +74,7 @@ Spec 沒寫「用 Vue 3」→ AI 隨意給 React / Svelte / Next.js 混用。
 **對策**：
 - Spec §「Tech stack（必用、不可換）」段
 - 每層**精確版本**：Vue 3.x / Vite x.y / Element Plus x.y
-- 明列「不選 X 因為 Y」（per [tech-stack template](../12-modules/13-system-design-mvp.md)）
+- 明列「不選 X 因為 Y」（per [tech-stack template](../modules/13-system-design-mvp.md)）
 
 ### 🚫 Anti-pattern 5：未限抽象層級
 

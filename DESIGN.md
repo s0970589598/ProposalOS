@@ -85,9 +85,9 @@
 | 1 | Cover / Hook | `01-cover` 變體（大標題、大字）| Conference 開場要 punch、tagline 比 title 重要 |
 | 2 | Story opening | 新 `story-quote` | Personal story / why I built this（建立 emotional connection）|
 | 3 | Problem — 4 失敗模式 | 新 `failure-modes-grid`（4 卡 danger themed）| 痛點 framing |
-| 4 | Aha moment | 新 `three-pillars`（3 大支柱）| 12 模組 / 8 檢查項 / retrospect 三件事 |
+| 4 | Aha moment | 新 `three-pillars`（3 大支柱）| 13 模組 / 8 檢查項 / retrospect 三件事 |
 | 5 | How it works | 新 `phase-flow`（6 phase horizontal）| 視覺化整套 workflow |
-| 6 | Framework deep dive | `03-use-case-grid` 變體（12 模組）| 12 模組一次列 |
+| 6 | Framework deep dive | `03-use-case-grid` 變體（13 模組）| 13 模組一次列 |
 | 7 | Evidence — 3 cases | `05-stats-customer` 變體（3 cohort cards + metrics）| 3 個 ship 過案例 |
 | 8 | Anti-patterns 累積 | 新 `stat-hero` | 145 條 anti-patterns 累積、continuous learning |
 | 9 | Why now × Why ProposalOS | `04-2-col-compare` | RFP-tool / SaaS 都做不到 |
