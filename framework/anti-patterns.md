@@ -489,6 +489,19 @@
     - 翻車 #13：把「聯名」+「RFP」揉成一個 case type「聯名 RFP」— **錯方向 #1**。User 第一次 catch「聯名是商業合作模式、跟 RFP 文件類型是 orthogonal 2 dimension」、不要 collapse 成 1 term
     - 翻車 #14：reverse 過度 correction、一刀切把「聯名 RFP」全砍改「對等合作 RFP」— **錯方向 #2**。User 第二次 catch「這個案子是聯名沒錯」 — 本案 actually 是聯名、砍掉「聯名」反而 lose 重要 context、誤導對方「本案非聯名」。**正確 framing：「聯名」+「RFP」是 orthogonal 2 dimension、本案剛好 both yes、保留「聯名 RFP」accurate**、framework 加 2D matrix（商業關係 × 文件類型）標 generalization warning（不是所有聯名都有 RFP、不是所有 RFP 都是聯名）。AP-NEW-WRITE-5.e 已升級加 2D matrix。
     - **Meta lesson #14**：correction 不要 over-swing — 第一次 catch 修正後、不要 reverse 走另一極端、要找 middle ground（本案這條 lesson 對應 commit checkpoint #10「avoid pendulum over-correction」）
+    - 翻車 #15：framework 用「客戶提案 RFP」當 case type、忽略 **RFP procurement 嚴格 definition**。User catch「向客戶提案、我們也會產 RFP 嗎？」答案：**不會**。
+      - **RFP = Request for Proposal = 客戶 (甲方) 出**、徵求供應商 (乙方) 提案
+      - 流程：**客戶寫 RFP → 供應商寫 Proposal Response → 簽 SOW / MSA**
+      - 「客戶提案案件」實際包含 2 個 doc：**客戶 RFP** + **我方 Proposal**、不是「客戶提案 RFP」單一 doc
+      - 本案 GoodLinker 寫的「RFP V0.6」**technically 不是 RFP** — 雙方對等、無甲乙方、無 procurement 流程、actually 是 **「聯名技術規格書 (Joint Spec)」informal 借用 RFP 命名**
+      - Framework 該分清：
+        - **客戶 RFP**：甲方（客戶）出
+        - **我方 Proposal**：乙方（供應商）寫、回應 RFP
+        - **Joint Spec**：雙方對等規格書（聯名案件常用、informally 也叫 RFP）
+        - **Pitch deck**：無 RFP 時的提案（投資、聯名 pitch、客戶簡報）
+        - **ADR**：內部架構決策紀錄
+        - **SOW / MSA**：簽約 doc
+      - 案件描述 phrasing 對齊嚴格 def：本案 = 「**聯名 Spec**（借用 RFP 名）」、不是「聯名 RFP」嚴格意義
 - **對應模組**：[methodologies/multi-tool-verification](methodologies/multi-tool-verification.md) + [強制檢查項 C 決策紀錄 checklist](8-mandatory-checks/C-decision-log.md)
 
 ## 7 問 Sanity Check（從真實案例提煉）
