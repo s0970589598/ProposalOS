@@ -489,14 +489,26 @@
     - 翻車 #13：把「聯名」+「RFP」揉成一個 case type「聯名 RFP」— **錯方向 #1**。User 第一次 catch「聯名是商業合作模式、跟 RFP 文件類型是 orthogonal 2 dimension」、不要 collapse 成 1 term
     - 翻車 #14：reverse 過度 correction、一刀切把「聯名 RFP」全砍改「對等合作 RFP」— **錯方向 #2**。User 第二次 catch「這個案子是聯名沒錯」 — 本案 actually 是聯名、砍掉「聯名」反而 lose 重要 context、誤導對方「本案非聯名」。**正確 framing：「聯名」+「RFP」是 orthogonal 2 dimension、本案剛好 both yes、保留「聯名 RFP」accurate**、framework 加 2D matrix（商業關係 × 文件類型）標 generalization warning（不是所有聯名都有 RFP、不是所有 RFP 都是聯名）。AP-NEW-WRITE-5.e 已升級加 2D matrix。
     - **Meta lesson #14**：correction 不要 over-swing — 第一次 catch 修正後、不要 reverse 走另一極端、要找 middle ground（本案這條 lesson 對應 commit checkpoint #10「avoid pendulum over-correction」）
-    - 翻車 #16：framework 過度 emphasize「RFP」當 case type、忽略 **台灣 SI / 中小企業案件實際慣用流程**。User catch「業界當用 RFP 嗎？我接案流程是初步提案 → 需求訪談 → 完整提案 → 簽約 → 施工 → 驗收 → 上線、完整提案含 SA 文件 + 功能模組」。
-      - **台灣 SI 案件 5-stage 慣用流程**（user 自己接案 SOP、是台灣中小企業 typical）：
+    - 翻車 #17（per Amafans EAQS 2026-05-29 user 3rd correction round、跟翻車 #16 同 conceptual layer）：framework 用「台灣 SI」label 太狹窄、誤導 framework readership。User catch「不一定是 SI 啦、你指的 SI 是什麼」。
+      - **SI = System Integrator** 嚴格定義：reseller + 整合他人 product 進客戶 IT 系統、不做自家 product（鼎新 / 精誠 / 凌群 / 緯軟）
+      - **台灣 B2B 接案類型有 5 種、SI 只是其中一種**：
+        | 類型 | 自家 product? | 範例 |
+        |---|---|---|
+        | SI 系統整合商 | ❌ | 鼎新 / 精誠 |
+        | SaaS 平台 + 接案 | ✅ | GoodLinker (warroom PaaS) |
+        | 顧問公司 | △ | KPMG / Deloitte |
+        | 產品公司 / 新創 | ✅ | 多數新創 |
+        | 接案 freelance | ❌ | 個人 / 小團隊 |
+      - **「5-stage 接案流程」是 B2B 軟體 / 顧問接案通用、不限 SI**（SaaS + 接案 hybrid / 顧問 / 產品公司 / 工作室 都用）
+      - Framework correction：「台灣 SI」全 sweep 改「**台灣 B2B 軟體 / 顧問接案**」廣義 phrasing
+    - 翻車 #16：framework 過度 emphasize「RFP」當 case type、忽略 **台灣 B2B 軟體 / 顧問接案 / 中小企業案件實際慣用流程**。User catch「業界當用 RFP 嗎？我接案流程是初步提案 → 需求訪談 → 完整提案 → 簽約 → 施工 → 驗收 → 上線、完整提案含 SA 文件 + 功能模組」。
+      - **台灣 B2B 軟體 / 顧問接案 案件 5-stage 慣用流程**（user 自己接案 SOP、是台灣中小企業 typical）：
         1. **初步提案**（brief pitch / 簡報、~5-10 slide）
         2. **需求訪談**（requirements discovery / 多輪會議）
         3. **完整提案**（Full Proposal = **SA spec + 功能模組 + 報價** 一起、不分開）
         4. **簽約**（SOW / MSA / 合約附件）
         5. **施工 / 測試 / 驗收 / 上線**（implementation / UAT / go-live）
-      - **RFP 不是台灣 SI 慣用 term**：
+      - **RFP 不是台灣 B2B 軟體 / 顧問接案 慣用 term**：
         | 場景 | 用 RFP 嗎？|
         |---|---|
         | 大型企業 procurement department | ✅ 常用 |
@@ -504,12 +516,12 @@
         | 跨國 US/EU 企業 IT 採購 | ✅ 常用 |
         | 上市櫃公司 > 千萬預算 | ✅ 可能 |
         | **台灣中小企業 / 一般 SI** | ❌ **不常用**（老闆 / IT 主管直接決策、走「完整提案」流程）|
-      - **本案 GoodLinker × Amafans「RFP V0.6」對齊台灣 SI 流程位置**：
+      - **本案 GoodLinker × Amafans「RFP V0.6」對齊台灣 B2B 軟體 / 顧問接案 流程位置**：
         - 西式 / 大企業 procurement vocabulary 借用
         - 嚴格意義不是 RFP（無甲乙方、雙方對等）
-        - 對應台灣 SI 流程 = **完整提案的 SA 文件部分**（雙方共擬版）
+        - 對應台灣 B2B 軟體 / 顧問接案 流程 = **完整提案的 SA 文件部分**（雙方共擬版）
         - 跟「完整提案」+「SA 文件」+「功能模組」同層級
-      - Framework correction：ProposalOS 應該 default 台灣 SI 5-stage 流程、RFP 作為 sub-stage doc（只大型企業 / 政府用）、不是 main case type axis
+      - Framework correction：ProposalOS 應該 default 台灣 B2B 軟體 / 顧問接案 5-stage 流程、RFP 作為 sub-stage doc（只大型企業 / 政府用）、不是 main case type axis
     - 翻車 #15：framework 用「客戶提案 RFP」當 case type、忽略 **RFP procurement 嚴格 definition**。User catch「向客戶提案、我們也會產 RFP 嗎？」答案：**不會**。
       - **RFP = Request for Proposal = 客戶 (甲方) 出**、徵求供應商 (乙方) 提案
       - 流程：**客戶寫 RFP → 供應商寫 Proposal Response → 簽 SOW / MSA**
