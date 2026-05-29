@@ -136,7 +136,11 @@ Q3: 兩者 scope match 嗎？
 6. ✅ **Multi-step edit 完無舊段殘留**（grep header count / search 關鍵字、避免 add new section 但忘刪 old section、造成 file 同主題重複多段、reviewer / future-you 不知哪個是 truth）— per Amafans EAQS 2026-05-29 翻車 #5
 7. ✅ **回頭重讀自己早段寫過的 hedged claim**（multi-step session 結束前、看早期寫的「⚠️ 可能 / 推測 / 不一定」這類 hedged claim、後續 evidence 是否已 verify 反證該 claim、但忘了回頭 fix）— per Amafans EAQS 2026-05-29 翻車 #8
 8. ✅ **Hedge「需 PROD / 需外部資料」前先廣搜本機 ground truth folder**（不要 default 假設「無 PROD access = 必 hedge」、本機可能已有同事 PROD pull 過的 cached verified data、grep 一下就有）— per Amafans EAQS 2026-05-29 翻車 #9
-9. ✅ **Dense claim / 抽象結論配 ❌/✅ phrasing example**（claim 寫完看是否 reviewer 一看就懂、不需回頭問「什麼意思」、dense claim 後一定配 inline example、讓 reviewer 直接 copy）— per Amafans EAQS 2026-05-29 翻車 #10（documentation clarity 維度）
+9. ✅ **Dense claim / 抽象結論配「場景對比」level-appropriate example**（claim 寫完看是否 reviewer 一看就懂、不需回頭問「什麼意思」、dense claim 後一定配 inline example、讓 reviewer 直接 copy）— per Amafans EAQS 2026-05-29 翻車 #10 + #11（documentation clarity 維度）
+   - **Level 1**（簡單 binary claim）：❌/✅ phrasing example（如「不能寫『業界唯一』、要寫『第一個公開 per-fan 訂閱』」）
+   - **Level 2**（雙軌 case）：2×2 case table（如「對外送 vs 內部備查」）
+   - **Level 3**（multi-case 抽象結論）：3+ row 「場景比較」table + 每 row 具體 example phrasing（如「客戶提案 vs 聯名 RFP vs 內部 research」三 case）
+   - **規則**：dense claim 寫完想像 reviewer 讀完 → 想得到具體場景 + 用得到具體 phrasing？想不到 → upgrade example level（per 翻車 #11：user quote 同 row 第 2 次「什麼意思」、表示 Level 2 不夠、要 upgrade Level 3）
 
 任一 ❌ → 退回去驗、不 commit。
 
@@ -172,6 +176,7 @@ grep -r "<keyword>" <ground-truth-folder>/      # e.g. proposal-intelligence/cli
 | 7 | `search_apis(q=energyMonthlyReport)` 6 支 return、漏 `markHandled`（api_key 是 `anomalyEvent.markHandled` 不是 `energyMonthlyReport.markHandled`）、claim「沒 register / internal use」、其實 api_id=620 manual_verified | 一個 keyword search、沒廣搜相關 namespace | 多 keyword 廣搜（method name / controller name / 子主題 keyword 都 try）`search_apis(q=markHandled)` / `q=anomaly` / `q=<controller-method>` | sequence 加 1st 規則「search_apis 用多 keyword 廣搜、不要只 query 1 個 namespace」 |
 | 8 | §4.0 寫「API Nexus dotted namespace 不一定 1-to-1 對應 PHP route、可能含 generic Tag CRUD 加總」— stale claim、是翻車 #4 時寫的、後續 search_apis verified 證明 A↔B 永遠 1-to-1、但沒回頭 fix §4.0、user 讀到「什麼意思」才發現 | session 早期寫的 hedged claim、後續 verify 反證但沒回頭 fix | session 結束前 grep file 的 `⚠️\|可能\|推測\|不一定` keyword、每個 hedged claim 回頭驗 | commit checkpoint #7「回頭重讀早段 hedged claim」|
 | 9 | §7.1 hedge「sandbox 無 PROD access、未走 PROD 重 query」— default 假設「無 PROD access = 必 hedge」、實際 `proposal-intelligence/clients/amafans/2026-05-28_facts.md` 同事已 PROD pull verified + war_room production cron hard-coded thingName 雙重證明 active production、grep 一下就有 | hedge 前沒廣搜本機 ground truth folder、default「無 access = hedge」太保守 | `grep -r <keyword> <ground-truth-folder>/` 廣搜（如 `proposal-intelligence/clients/`、`<repo>/docs/case-studies/` 等）、找他人 PROD pull cached data | commit checkpoint #8「hedge 前先廣搜本機 ground truth folder」|
-| 10 | §2「無 peer 修正」/「模組 01-02 N/A」這類 dense claim 寫完、user 一句「什麼意思」trigger explain | dense claim 沒配 inline example、reviewer 必問 | dense claim 後一定加 ❌/✅ phrasing example or 2×2 table 拆 case | commit checkpoint #9「dense claim 配 ❌/✅ phrasing example」|
+| 10 | §2「無 peer 修正」/「模組 01-02 N/A」這類 dense claim 寫完、user 一句「什麼意思」trigger explain | dense claim 沒配 inline example、reviewer 必問 | dense claim 後一定加 ❌/✅ phrasing example or 2×2 table 拆 case | commit checkpoint #9 Level 1+2「dense claim 配 ❌/✅ phrasing example」|
+| 11 | §2 模組 01-02 N/A 已配 2×2 table、user 仍 quote 同 row 第 2 次「什麼意思」 | Level 2 例（binary case table）對 multi-case 抽象結論不夠、reviewer 仍想不到具體場景 | 升級 Level 3：「場景對比」3+ row table + 每 row 具體 example phrasing | checkpoint #9 升級 Level 3「multi-case 配場景對比 table」|
 
 → **預防 = multi-tool sequence + hedging default + Numbers cite + commit checkpoint (9 條) + local-fallback-to-remote + 多 keyword 廣搜 + 回頭驗 hedged claim + 廣搜本機 ground truth folder + dense claim 配 example**。Single-tool answer + confident phrasing + multi-step edit 沒 final cleanup + 沒 fetch remote + 一個 keyword search 沒廣搜 + 早期 hedged claim 沒回頭驗 + hedge 前沒廣搜本機 ground truth + dense claim 沒配 example = 高 risk anti-hallucination + redundancy + 推測「在別處」+ 漏 register entry + 自己 file 內互相打架 + 過度保守 hedge + reviewer 必問。
