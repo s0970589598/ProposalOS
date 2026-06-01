@@ -791,11 +791,18 @@
   2. **不夠 → ASK user**：「Yitsen 是 Amafans 法務還是商務？」「Bruce 是 GoodLinker 還是 Amafans？」明問、不猜
   3. **session 累積 file（raci.md / minutes / proposal.md）不能 default verified**、引用前必 cross-check external source
 - **對應模組**：`~/.claude/CLAUDE.md` Protocol A + 外部狀態事實主張 checklist 第 6 類「人名 / role / actor」 + FW#17
-- **Dogfood**：Amafans EAQS 2026-06-01 W3 同 session 4 處 person/role 翻車：
-  * Yitsen 標「法務」、actually Amafans **商務**
-  * Bruce 標「Amafans Bruce」、actually **GoodLinker** PM
+- **Dogfood**：Amafans EAQS 2026-06-01 W3 同 session 5 處 person/role 翻車：
+  * Yitsen 標「法務」→「商務」→ actually Amafans **計畫案補助案承辦**（identification round 3、per 5/28 Microsoft Teams transcript 2:09 自介「我這邊主要是負責計畫案補助案這一部分的一些流程」直接 quote verified、前 2 輪靠 session 印象 / generic「商務」label 都錯）
+  * Bruce 標「Amafans Bruce」、actually **GoodLinker** PM / BD
   * Eric 標「老闆」（over-generic）、actually Amafans **業務 GM（決策窗口）**
   * 李茂碷 標乙方、actually **甲方 Amafans 董事長**
+  * Ethan 標單一「GM」、actually **GoodLinker 創辦人兼 GM、最終決策**（per user 6/01 authoritative）
+  * **Bruce/Sara role swap mis-attribution（W3-A sweep 漏 4 places、user catch）**：uat-signoff L85-86 + acceptance-benefits-ops L38 / L91 / L131 4 處互換、W3-A sweep agent 漏網、原因 = sweep 不 catch 所有 instances、需 user spot check + Protocol A 必每 mention 都 verify、不可只 sample sweep
+- **Lesson reinforced (per 5/28 transcript dogfood)**：
+  1. **Transcript / authoritative external source archive 必入 source-documents/**（per Protocol A T1 tier、5/28 Teams transcript archive 入 `source-documents/2026-05-28_meeting-transcript.md` after user explicit 提供）
+  2. **ASR misrecognition 校正必註**（5/28 transcript ASR 識「一輪/一辰/義程」、actual 義倫；引用 raw transcript 必先 cross-reference 校正對照表）
+  3. **Role identification round N（N≥2）即標 verification source**：「per [transcript] [timestamp] 自介 verified」、不是 session-derived 印象
+  4. **Sweep agent 完必 user spot check**：W3-A sweep agent 漏 4 處 Bruce/Sara swap、root cause = sweep 不 catch 所有 instances（grep + Edit replace-all 漏部分 phrasing variation）、user manual catch 仍 essential
 
 ### AP-NEW-ANTI-HALLUC-X2：Source file 本身可能 fabricated、不能 double-down 當 verified
 
