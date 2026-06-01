@@ -393,6 +393,31 @@
       - **正確 framing**：保留「聯名 RFP」描述本案、framework 加 2D matrix note、強調 orthogonal、提醒 generalization warning（不是所有聯名都有 RFP）
 - **對應模組**：[SKILL.md 案件類型判斷段](../skills/proposal-os/SKILL.md)
 
+### AP-NEW-WRITE-6：Engineering symbols（`+` / `&` / `==`）寫進中文顧問報告體（per Amafans EAQS 2026-06-01 翻車）
+
+- **發生**：寫中文商業 / 顧問 / 對客戶文件、要表達「同時擔任多角色」/「同時包含多項目」compound concept、用 engineering / programming symbols 表達
+  - ❌「Ethan 創辦人 + GM」
+  - ❌「Phase 1 + Phase 2」
+  - ❌「PM & 對接」
+  - ❌「BD + 整合」
+- **後果**：對中文 reader 看起來 awkward、像 code 不像正式商業文件、降低 deliverable 顧問體 credibility、user catch「這樣寫會很怪嗎」
+- **根因**：把 engineering 符號習慣帶進中文敘述段落、忘了區分 register（敘述段落 vs 圖表 cell vs ASCII art）
+- **教訓**：中文 compound concept 用 native 連接詞：
+
+| Situation | 推薦用法 | 範例 |
+|---|---|---|
+| 一人多角色（同等重要、強調並擔）| **「兼」** | Ethan 創辦人兼 GM、BD 兼整合工作 |
+| 一人多角色（list 並列、無主次）| **「、」** or **「 / 」** | Ethan（創辦人、GM、最終決策） |
+| 多概念並列（formal、書面）| **「與」** / **「暨」** | 規格與架構 / 中華民國暨歐盟 |
+| 多概念並列（口語、書面皆可）| **「及」** / **「以及」** | 風扇及空品 sensor |
+| Tech doc 圖表 / mermaid / ASCII art | `+` / `&` / `→` OK 用 | A → B 流向圖、cells: `kW + kWh` |
+| 表格 cell 簡寫（空間有限）| `+` / `&` 可用、但能用兼 / 與 更好 | — |
+
+- **dogfood**: Amafans EAQS 2026-06-01：我寫「Ethan 創辦人 + GM」→ user catch「這樣寫會很怪嗎」→ 改「Ethan 創辦人兼 GM」、跨 3 file（raci / proposal / DESIGN）sweep
+- **判斷 register key**：敘述段落 / table cell 內中文敘述 → 用中文連接詞；圖表 / ASCII / mermaid syntax → 符號 OK
+- **跨案 generalization**：所有「人多角色」/「多概念並列」/「list and」/「compound noun」中文 reference 都套這個 rule、不限角色
+- **對應模組**：`~/.claude/CLAUDE.md`「Chinese 顧問報告體 style」note
+
 ### AP-NEW-ANTI-HALLUC-1：Temporal attribution drift（日期戳隱含新決議、實則 inherit）
 
 - **發生**：寫「✅ YYYY-MM-DD 內部決議：[既有 default state]」、但該 state 是更早既有 production / framework 沿用、user 只是 confirm 沿用、不是 today 才決定
@@ -756,6 +781,54 @@
 - **對應模組**：[methodologies/multi-tool-verification.md commit checkpoint #11](methodologies/multi-tool-verification.md) + FW#16
 - **Dogfood**：Amafans EAQS 2026-05-30 check I 加入後 4 industry-addon + phase-0-discovery internal phrasing stale at 「8」、W2-L1 sweep agent 才一致
 
+### AP-NEW-ANTI-HALLUC-X1：Person / role / actor attribution 必驗、不 default session 記憶
+
+- **發生**：寫人名 / role / 指動者 / actor / RACI / stakeholder claim 時、default 用 session 累積印象 / 之前 fill 的 file / generic assumption、而非查 authoritative source（5/13 開案 PDF + 合約 binary + user explicit）
+- **後果**：ghost attribution（虛構 role 給真實人）、mis-attribution（A 公司的人標成 B 公司）、over-generic（「老闆」蓋過具體 role / 決策窗口）、cross-company role swap（甲方標乙方 / 反之）— 對外文件信任崩、reviewer catch 後需 retro + 全 doc sweep
+- **根因**：人名 / role / authority chain 屬 **「外部狀態事實主張」第 6 類**（在原 5 類「行為 / 識別符 / 時序 / 配置 / 存在性」之外、過去 framework 沒明列）、跟程式碼行為一樣是外部事實、不是內在推理；session 累積文件 ≠ verified source（見 X2）
+- **教訓**：寫人名 / role / actor claim 必過 3 階段：
+  1. **驗 authoritative source**：external PDF / 合約 binary / 對方提供 doc / 名片 / LinkedIn
+  2. **不夠 → ASK user**：「Yitsen 是 Amafans 法務還是商務？」「Bruce 是 GoodLinker 還是 Amafans？」明問、不猜
+  3. **session 累積 file（raci.md / minutes / proposal.md）不能 default verified**、引用前必 cross-check external source
+- **對應模組**：`~/.claude/CLAUDE.md` Protocol A + 外部狀態事實主張 checklist 第 6 類「人名 / role / actor」 + FW#17
+- **Dogfood**：Amafans EAQS 2026-06-01 W3 同 session 4 處 person/role 翻車：
+  * Yitsen 標「法務」、actually Amafans **商務**
+  * Bruce 標「Amafans Bruce」、actually **GoodLinker** PM
+  * Eric 標「老闆」（over-generic）、actually Amafans **業務 GM（決策窗口）**
+  * 李茂碷 標乙方、actually **甲方 Amafans 董事長**
+
+### AP-NEW-ANTI-HALLUC-X2：Source file 本身可能 fabricated、不能 double-down 當 verified
+
+- **發生**：cite session 內部累積 file（raci.md / meeting-minutes.md / internal notes / proposal.md spine）當 evidence 時、把 file 內 reference 當 100% verified、再用該 reference build 更多 claim、形成 **circular fabrication**（我自己寫的 file → 我自己 cite 自己 → claim 越疊越多 / 都沒驗證 external source）
+- **後果**：ghost attribution 越疊越深、reviewer catch 第 1 處 mis-attribution、追下去發現整 chain（meeting-minutes ← raci.md ← proposal.md）source 都是 session 內部循環、external evidence = 0
+- **根因**：未區分 **source authority tier**、把所有 internal file 跟 external source 等價當 evidence
+- **教訓**：source authority **3-tier 區分**：
+  | Tier | 範例 | 可否 default verified |
+  |---|---|---|
+  | **T1 external source-documents** | 對方 PDF / 合約 binary / 開案文件 / 對方提供 doc | ✅ 可 default verified（仍需內部 cross-check 但 baseline 高）|
+  | **T2 external 業界 standard** | ISO / NIST / GDPR / IEC / industry whitepaper | ✅ 可 default verified（cite source 必含）|
+  | **T3 session 累積 internal file** | raci.md / meeting-minutes.md / proposal.md spine / 我之前寫的任何 doc | ❌ **不能 default verified**、可能 fabricated / ghost attribution、cite 前必 cross-check T1/T2 source |
+- **對應模組**：`~/.claude/CLAUDE.md` Protocol A + FW#18
+- **Dogfood**：Amafans EAQS 2026-06-01「Yitsen 整理會議記錄 per L12 + L148」claim — 兩條 reference (`raci.md L12` + `meeting-minutes L148`) 都在我自己 session 寫的 file、circular fabrication、actual 整理人是 Sara、reviewer catch 後追整 chain 都 T3 source 互引
+
+### AP-NEW-DECISION-CHAIN-1：重大 scope change / CR retraction 必 explicit 雙向 sync audit trail
+
+- **發生**：CR retract / 合約 amendment / 重大 scope change 時、決策 audit trail 只寫「X 決議」單一 actor naming、不 trace 雙方 GM 是否 sync、何時、phone / email / meeting、內部 informed chain
+- **後果**：對外正式 cite 時被質疑「對方知道嗎」「對方同意嗎」「誰跟對方 sync 過」、reviewer 無法 verify 雙方 commitment、CR 看起來像單方 push 而非雙方 confirmed
+- **根因**：decision audit trail 過簡、缺 cross-party sync chain 結構化欄位、未 capture phone confirm / internal informed 的 timestamp + 對象
+- **教訓**：重大 CR audit trail 必含 **5 欄結構化 chain**：
+  1. **WHO initiated** decision（提案人 + 組織 + role）
+  2. **WHEN** decision finalized（date + time if relevant）
+  3. **WHO ↔ WHO sync** before 決定（phone / meeting / written、含對方 GM）— 取得對方 side commitment
+  4. **WHO informed AFTER** decision（internal sync chain、雙方各自內部 informed）
+  5. **對方 side commitment** 是否 also confirmed（phone confirm = 雙方 commitment trace、可對外正式 cite）
+- **對應模組**：`~/.claude/CLAUDE.md` Protocol A + cr-handling-protocol.md + FW#19
+- **Dogfood**：Amafans EAQS 2026-06-01 CR-003 撤回電力監測：
+  * **Step 1**: Ethan (GoodLinker GM) ↔ Eric 李承德 (Amafans 業務 GM、決策窗口) **電話 (phone confirm)** before 最終決定 — Amafans 側 commitment 取得
+  * **Step 2**: Ethan → Bruce + Sara（GoodLinker 內部 informed）
+  * **Step 3**: Eric → Neko + Yitsen（Amafans 內部 informed）
+  * **比較**：原本「Ethan 決議撤回」單一 actor naming → 看似單方 push；改 5 欄 chain 後 → 雙方 GM phone confirm + 雙方內部 informed close、對外正式 cite 不被質疑
+
 ## 7 問 Sanity Check（從真實案例提煉）
 
 寫每個具體數字 / 主張前自問：
@@ -784,6 +857,7 @@
 | Sensor / IoT 部署（模組 13 §9）| AP-NEW-SENSOR-1、AP-NEW-SENSOR-2、AP-NEW-SENSOR-3、AP-NEW-SENSOR-4、AP-NEW-SENSOR-5 |
 | Session Retrospective（methodology 自身）| AP-NEW-SESSION-RETRO-1、AP-NEW-SESSION-RETRO-2、AP-NEW-SESSION-RETRO-3、AP-NEW-SESSION-RETRO-4、AP-NEW-SESSION-RETRO-5 |
 | Deck / Sub-Agent Tooling（skill template 規範）| AP-NEW-DECK-PDF-1、AP-NEW-DECK-PDF-2、AP-NEW-AGENT-TIMEOUT-1、AP-NEW-DECK-MULTI-FORK-1、AP-NEW-CASCADE-PHRASING-1 |
+| Person / Role / Decision Chain Attribution（Protocol A）| AP-NEW-ANTI-HALLUC-X1、AP-NEW-ANTI-HALLUC-X2、AP-NEW-DECISION-CHAIN-1 |
 
 ## 紅線提醒
 
