@@ -10,7 +10,7 @@
 
 ### 痛點 — fill-the-template vs interrogate-the-case 反向工作
 
-ProposalOS 13 模組 / 8 強制檢查項 / industry-addons / methodologies 4 層架構**已經很完整**、但實際使用 default 直接「填 modules/」、跳過「先理解 case 本質」步驟：
+ProposalOS 13 模組 / 9 強制檢查項 / industry-addons / methodologies 4 層架構**已經很完整**、但實際使用 default 直接「填 modules/」、跳過「先理解 case 本質」步驟：
 
 | 反向工作（錯）| 正向工作（對）|
 |---|---|
@@ -56,7 +56,7 @@ per [anti-patterns.md](../anti-patterns.md) 累積 19 翻車：
 |---|---|---|---|
 | McKinsey 7-step | strategy engagement problem framing | issue tree / MECE 思維 | ProposalOS 13 模組 specific routing |
 | Shipley Capture Plan | 大標案 capture 階段情報 | 客戶 + 競品 + 採購 facts inventory | 案件規模分 3 層 output（小案也做動作）|
-| MEDDIC | enterprise sales qualification | Metrics / Economic Buyer / Decision Criteria | 加 8 強制檢查項 + industry-addons trigger |
+| MEDDIC | enterprise sales qualification | Metrics / Economic Buyer / Decision Criteria | 加 9 強制檢查項 + industry-addons trigger |
 | SPIN (Situation / Problem / Implication / Need-Payoff) | discovery 訪談技巧 | 訪談深度層次 | 加「未訪 vs 已訪 vs AI 模擬」protocol |
 | pre-mortem | risk surfacing | 假設審查方法 | Layer 4 紅隊審查 + assumptions log |
 | BANT | budget / authority / need / timeline | timeline + authority | budget 不放第 1 位（per nimitai 警告 enterprise sales 不適合）|
@@ -90,7 +90,7 @@ Decision Gate: Phase 0 review pass → 進 module fill
    ↓
 [Module 01-13 fill]（依 Phase 0 trigger map 跳過 N/A）
    ↓
-[8 強制檢查 + industry-addons + methodologies 對齊]
+[9 強制檢查 + industry-addons + methodologies 對齊]
    ↓
 [12 反方審查 + commit checkpoint 9 條]
    ↓
@@ -315,7 +315,7 @@ ship
 
 ---
 
-## §5 Phase 0 integration with industry-addons + 8 mandatory checks
+## §5 Phase 0 integration with industry-addons + 9 mandatory checks
 
 ### Phase 0 → industry-addons trigger
 
@@ -332,9 +332,9 @@ per [industry-addons/MODULE-INDEX.md](../industry-addons/MODULE-INDEX.md)：
 | Q3.9 vendor ecosystem 含 ERP / WMS / CRM 整合 | saas-software.md |
 | Q3.20 OT integration | manufacturing.md + 強制檢查項 D-E |
 
-### Phase 0 → 8 強制檢查項 trigger
+### Phase 0 → 9 強制檢查項 trigger
 
-| Phase 0 layer | 8 強制檢查項 trigger |
+| Phase 0 layer | 9 強制檢查項 trigger |
 |---|---|
 | Layer 1 Q1.13 reversibility low | G 退出機制 mandatory |
 | Layer 2 Q2.4 法務 audit | G 退出機制 + C 決策紀錄 |
@@ -497,7 +497,7 @@ per [industry-addons/MODULE-INDEX.md](../industry-addons/MODULE-INDEX.md)：
 **Output**：
 - Trigger industry-addon = `manufacturing.md` + （汽車零件 sub-segment）
 - Module 01-13 = 全填、emphasis 在 03 / 04 / 08（OT 架構）/ 11（pilot 驗收 → scale 條件）
-- 8 強制檢查項 = D + E（OT 軟體 supply chain）+ F（24/7 工廠）+ H（pilot case）
+- 9 強制檢查項 = D + E（OT 軟體 supply chain）+ F（24/7 工廠）+ H（pilot case）
 - Methodologies = Service Design + C4 + Cynefin（pilot = Complicated domain）
 
 ### Case B: SaaS 取代既有 vendor（中大型案）
@@ -514,7 +514,7 @@ per [industry-addons/MODULE-INDEX.md](../industry-addons/MODULE-INDEX.md)：
 **Output**：
 - Trigger industry-addon = `saas-software.md`
 - Module 01-13 emphasis = 02（vs Salesforce）/ 04（migration AS-IS）/ 06（data migration governance）/ 09（分階段 cutover）/ 11（migration UAT）
-- 8 強制檢查項 = G 退出機制（data export Day 1）+ F RTO（cutover）+ C 決策紀錄（CR-handling）
+- 9 強制檢查項 = G 退出機制（data export Day 1）+ F RTO（cutover）+ C 決策紀錄（CR-handling）
 - Methodologies = Cynefin（Complex）+ DDD（既有 domain model retain）+ Service Design
 
 ### Case C: 聯名 / B2B2B 共同產品開發（Amafans EAQS pattern）
@@ -533,7 +533,7 @@ per [industry-addons/MODULE-INDEX.md](../industry-addons/MODULE-INDEX.md)：
 - Trigger industry-addon = `manufacturing.md`（HVLS 製造）+ `energy-esg.md`（節能 KPI）+ `saas-software.md`（PaaS 部分）
 - Module 01-02 = Marketing N/A、Intelligence ✅ research/ 必建
 - Module 03-13 = 完整填、emphasis 在 03（雙方共同 KPI）/ 05（雙方 RACI）/ 08（雙方架構切割）/ 10（Phase 1 / Phase 2 商務分階段）/ 12（聯名 specific 風險）
-- 8 強制檢查項 = 全套（聯名退場機制特別重要）
+- 9 強制檢查項 = 全套（聯名退場機制特別重要）
 - Methodologies = Shipley capture（partner-facing）+ Service Design + spine-mode-for-large-proposal（research 9 file）
 
 ---
@@ -614,7 +614,7 @@ guardrails:
 □ 案件 framing 1 句 explicit、reviewer 不需 dig
 □ Module 01-13 trigger map 全列、每 module 標必填 / N/A / 簡化 + reason
 □ Industry-addons fired list explicit、不漏
-□ 8 強制檢查項 trigger list explicit、不漏
+□ 9 強制檢查項 trigger list explicit、不漏
 □ Open questions log 至少 5 條（< 5 = 可能 over-confident）
 □ Assumptions log 至少 10 條（< 10 = 沒挑戰 case、Layer 4 不夠）
 □ Pre-mortem Q4.16 跑過 ≥ 1 個 stakeholder（≥ 3 best）

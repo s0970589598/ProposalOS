@@ -433,7 +433,7 @@
 
 ---
 
-## §9 Cross-ref — 對應 13 模組 / 8 強制檢查 / 其他 addon / methodologies
+## §9 Cross-ref — 對應 13 模組 / 9 強制檢查 / 其他 addon / methodologies
 
 ### 9.1 對應 13 模組
 
@@ -445,7 +445,7 @@
 | §4 Joint review | [03 問題 / 目標](../modules/03-problem-business-goals.md) + [模組 05 RACI](../modules/05-stakeholders-raci.md) |
 | §5 Anti-pattern | [12 風險反方](../modules/12-risk-assumptions-red-team.md) |
 
-### 9.2 對應 8 強制檢查
+### 9.2 對應 9 強制檢查
 
 | 本檔段 | 強制檢查 |
 |---|---|

@@ -636,7 +636,7 @@
 
 ---
 
-## §9 Cross-ref — 對應 13 模組 / 8 強制檢查 / 其他 addon / methodologies
+## §9 Cross-ref — 對應 13 模組 / 9 強制檢查 / 其他 addon / methodologies
 
 ### 9.1 對應 13 模組
 
@@ -648,7 +648,7 @@
 | §4 Data governance | [06 資料治理](../modules/06-data-integration-governance.md) + [07 合規](../modules/07-compliance-security-ai-risk.md) |
 | §5 NFR / SLA | [08 架構 NFR](../modules/08-architecture-functional-nfr.md) + [11 驗收維運](../modules/11-acceptance-benefits-operations.md) |
 
-### 9.2 對應 8 強制檢查
+### 9.2 對應 9 強制檢查
 
 | 本檔段 | 強制檢查 |
 |---|---|

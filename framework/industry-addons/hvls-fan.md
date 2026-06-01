@@ -423,7 +423,7 @@
 
 ---
 
-## §8 Cross-ref — 對應 13 模組 / 8 強制檢查 / 其他 addon / methodologies
+## §8 Cross-ref — 對應 13 模組 / 9 強制檢查 / 其他 addon / methodologies
 
 ### 8.1 對應 13 模組
 
@@ -435,7 +435,7 @@
 | §3 Customer onboarding | [04 As-Is / To-Be](../modules/04-as-is-to-be-service-blueprint.md) + [11 驗收](../modules/11-acceptance-benefits-operations.md) |
 | §4 Joint partnership | [05 RACI](../modules/05-stakeholders-raci.md) + [10 商務報價](../modules/10-procurement-pricing.md) |
 
-### 8.2 對應 8 強制檢查
+### 8.2 對應 9 強制檢查
 
 | 本檔段 | 強制檢查 |
 |---|---|

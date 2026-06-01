@@ -319,7 +319,7 @@
 
 ---
 
-## §8 Cross-ref — 對應 13 模組 / 8 強制檢查 / 其他 addon
+## §8 Cross-ref — 對應 13 模組 / 9 強制檢查 / 其他 addon
 
 ### 8.1 對應 13 模組
 
@@ -330,7 +330,7 @@
 | §3 Alert routing | [08 架構](../modules/08-architecture-functional-nfr.md) + [11 驗收維運](../modules/11-acceptance-benefits-operations.md) |
 | §4 Display | [13 系統設計 MVP](../modules/13-system-design-mvp.md) |
 
-### 8.2 對應 8 強制檢查
+### 8.2 對應 9 強制檢查
 
 | 本檔段 | 強制檢查 |
 |---|---|

@@ -672,6 +672,90 @@
 - **教訓**：retrospective **必在 session end natural trigger 點立即跑**（deliverable ship 完 / case milestone 到 / 連續 work 段落結束）、不等下案 kickoff。配套 proposal-os Phase 6 結尾 auto trigger retrospective、verify-pipeline 結束 trigger、wiki-lint 跑出 contradiction trigger
 - **對應模組**：[methodologies/session-retrospective.md §2 Retrospective 觸發條件](methodologies/session-retrospective.md) + [skills/proposal-os SKILL.md Phase 6 結尾](../skills/proposal-os/SKILL.md)
 
+## Deck / Sub-Agent Tooling 相關 Anti-Patterns
+
+源自 Amafans EAQS 2026-05-27 → 2026-06-01 session 第 2 次 retrospective（late-session 累計 5 個新 AP）— pitch-deck-builder skill template、sub-agent spawn 規範、cascade phrasing sweep methodology 的失敗模式。
+
+⚠️ 本框架原創 per Amafans EAQS 2026-05-31 build / V.08 fold-in dogfood 累計、是 session-retrospective methodology 第 2 次跑時 surface 的 tool-specific gap。
+
+### AP-NEW-DECK-PDF-1：Playwright `require()` 直接 import、無 resolve fallback
+
+- **發生**：`deliverable-13pdf/build-pdf.js` 用 `require('playwright')` 直接 import、user 本機 node_modules 路徑非 default 時找不到 module、build 失敗（sandbox node 阻、需 user manual run）
+- **後果**：PDF build 卡 user 端、需 user manual `npm install playwright` 或手動補 `require.resolve` 指 absolute path、ship 延遲
+- **根因**：deck-builder skill template 沒 default 含 `require.resolve` fallback pattern
+- **教訓**：deck-builder skill SKILL.md 必含 resolvePlaywright fallback pattern template、build script template 自動寫進：
+  ```js
+  function resolvePlaywright() {
+    try { return require('playwright'); }
+    catch {
+      const paths = [
+        process.env.HOME + '/.npm-packages/lib/node_modules',
+        '/usr/local/lib/node_modules',
+        process.env.HOME + '/.nvm/versions/node/*/lib/node_modules',
+      ];
+      return require(require.resolve('playwright', { paths }));
+    }
+  }
+  ```
+- **對應模組**：`~/.claude/skills/pitch-deck-builder/SKILL.md` + FW#13 per Amafans 2026-06-01 retrospective
+- **Dogfood**：Amafans EAQS 2026-05-31 `deliverable-13pdf/build-pdf.js` sandbox node 阻、user 手動跑才 resolve
+
+### AP-NEW-DECK-PDF-2：@media print CSS override 缺、multi-slide PDF 只印第 1 張
+
+- **發生**：v2.1 deck rebuild 後 build-pdf.js 跑出 PDF 只 capture `.active` class slide、其他 slide CSS `display: none`、PDF 變 1 page
+- **後果**：12 slide deck 只印 1 page、需手動補 `@media print { .slide { display: block !important; page-break-after: always; } .slide:not(.active) { display: block !important; } }`、reviewer 收到的 PDF 殘缺
+- **根因**：deck-builder skill template 沒 default 含 @media print CSS override、slide visibility class gating（`.active` only）只對 browser interactive 模式 work、PDF render 用 print mode
+- **教訓**：deck-builder skill 必含 @media print override CSS template、scaffold 自動寫進新 deck stylesheet：
+  ```css
+  @media print {
+    .slide { display: block !important; page-break-after: always; }
+    .slide:not(.active) { display: block !important; }
+    .slide:last-child { page-break-after: auto; }
+  }
+  ```
+- **對應模組**：`~/.claude/skills/pitch-deck-builder/SKILL.md` + FW#14
+- **Dogfood**：Amafans EAQS 2026-05-31 v2.1 deck PDF rebuild、user catch「只 1 page」、加 @media print 才正常
+
+### AP-NEW-AGENT-TIMEOUT-1：Sub-agent stream timeout、需 surgical re-spawn smaller scope
+
+- **發生**：V.08 fold-in spawn agent 處理「合約書 + V0.7 → V0.8 整 RFP rebase」large scope task、stream timeout at **11 min**、agent 沒 return result 但 partial work 已 commit、需 surgical re-spawn smaller scope（只跑 7 surgical patch 而非整 V.08 rebase）才 complete
+- **後果**：~10 min token + agent quota 浪費、stream 中斷半路、partial commit 需要驗證 / cleanup、ship 延遲
+- **根因**：sub-agent scope 太大、single-shot 處理 30+ file edit + 跨 doc cross-ref + 多 round verify、超出 timeout window（empirical ≈ 8 min single-shot）
+- **教訓**：spawn sub-agent **scope 必 small-enough fit 1 timeout window**：
+  - 大 task 拆成 N 個 surgical sub-task、parallel spawn（每個 ≤ 8 min single-shot）
+  - 失敗 re-spawn 用更 narrow scope（如「只跑 7 patch」instead of「整 V.08 rebase」）
+  - Spawn 前評估 expected output size、>10 file edit / >500 行 output → 必拆
+  - 已 commit 的 partial work 不要 reset、re-spawn 補 missing piece 就好
+- **對應模組**：[methodologies/multi-tool-verification.md](methodologies/multi-tool-verification.md) + FW#15 candidate + sub-agent permission preflight（CLAUDE.md）
+- **Dogfood**：Amafans EAQS 2026-05-31 V.08 fold-in 第一次 spawn timeout at 11 min、surgical re-spawn smaller scope（7 patch）才 complete
+
+### AP-NEW-DECK-MULTI-FORK-1：Single-source-of-truth main deck vs multi-fork sub-deck 分流混淆
+
+- **發生**：Phase 2D 初期把 3 audience sub-deck（legal-signoff / customer-sales / engineering-deepdive）誤當 v2.2 main deck alternative 處理、和 main deck v2.1 → v2.2 evolution 路徑混淆、commit message 用詞不一致
+- **後果**：兩條時序疊在一起、user catch「sub-deck 跟 main deck 什麼關係？」才 clarify「sub-deck = audience-specific meeting artifacts、不取代 main deck」、ship 路徑混亂
+- **根因**：pitch-deck-builder skill 沒 explicit 分流規則：
+  - **Main deck**：single source-of-truth、每次正式對外用、N=10-15 slide、完整 narrative
+  - **Sub-deck (fork)**：audience-specific subset / re-frame、不偏離 main、各自含 audience-specific cover + 4-6 selected slide + audience-specific source footer
+- **教訓**：pitch-deck-builder SKILL.md 必含 multi-fork rule + 命名 convention：
+  - 目錄：`deck/` main / `decks-sub/<audience>/` fork
+  - Commit message：`deck v2.2` for main / `sub-deck-legal-v1` for fork
+  - Source footer：sub-deck cite 同 proposal §X、不另開 narrative
+- **對應模組**：`~/.claude/skills/pitch-deck-builder/SKILL.md` + FW#12
+- **Dogfood**：Amafans EAQS 2026-05-31 Phase 2D 3 sub-deck ship（commit `58cee2f`）、user clarify 後分流命名才一致
+
+### AP-NEW-CASCADE-PHRASING-1：新 mandatory check 加入時、child docs 內部 phrasing 變 stale
+
+- **發生**：本 session 加 check I（IIoT sensor coverage verification、第 9 條 mandatory check）、但 4 個 industry-addon（iiot-deployment / hvls-fan / air-quality-system / b2b2b-channel-partnership）+ phase-0-discovery skill 內部 phrasing 仍寫「8 mandatory check」、user W2-L1 honest flagged 才同步 sweep
+- **後果**：child doc phrasing 跟 parent index 不一致、reviewer 看到 8 vs 9 混淆、framework 自我矛盾、信任損
+- **根因**：framework 加新 check 時沒有自動 sweep 規則 — child docs（產業 add-on / skill / methodology）寫死 N 數字、parent index 變了 child 不會自動同步
+- **教訓**：加新 mandatory check / 新 module / 新 anti-pattern 時必跑 cascade sweep methodology：
+  - 加新 entity 同一 commit 內必跑：`grep -rn "8.*mandatory\|8.*強制\|8-mandatory\|13 模組" framework/ ~/.claude/skills/` 找所有 hard-coded N
+  - 加新 check 同 commit 內更新所有 child doc 內部 phrasing（不要分兩個 commit）
+  - 或改用 dynamic ref（如 「per mandatory-checks list at `8-mandatory-checks/` folder」、不寫死 N）、未來 grow 不會 stale
+  - Multi-tool-verification commit checkpoint #11 候選：「加新 entity to parent index → child doc cascade sweep」
+- **對應模組**：[methodologies/multi-tool-verification.md commit checkpoint #11](methodologies/multi-tool-verification.md) + FW#16
+- **Dogfood**：Amafans EAQS 2026-05-30 check I 加入後 4 industry-addon + phase-0-discovery internal phrasing stale at 「8」、W2-L1 sweep agent 才一致
+
 ## 7 問 Sanity Check（從真實案例提煉）
 
 寫每個具體數字 / 主張前自問：
@@ -698,6 +782,8 @@
 | 交付 | AP-17、AP-18、AP-19、AP-20 |
 | 法律 | AP-21、AP-22、AP-23 |
 | Sensor / IoT 部署（模組 13 §9）| AP-NEW-SENSOR-1、AP-NEW-SENSOR-2、AP-NEW-SENSOR-3、AP-NEW-SENSOR-4、AP-NEW-SENSOR-5 |
+| Session Retrospective（methodology 自身）| AP-NEW-SESSION-RETRO-1、AP-NEW-SESSION-RETRO-2、AP-NEW-SESSION-RETRO-3、AP-NEW-SESSION-RETRO-4、AP-NEW-SESSION-RETRO-5 |
+| Deck / Sub-Agent Tooling（skill template 規範）| AP-NEW-DECK-PDF-1、AP-NEW-DECK-PDF-2、AP-NEW-AGENT-TIMEOUT-1、AP-NEW-DECK-MULTI-FORK-1、AP-NEW-CASCADE-PHRASING-1 |
 
 ## 紅線提醒
 
