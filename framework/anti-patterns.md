@@ -800,7 +800,7 @@
   * **Bruce/Sara role swap mis-attribution（W3-A sweep 漏 4 places、user catch）**：uat-signoff L85-86 + acceptance-benefits-ops L38 / L91 / L131 4 處互換、W3-A sweep agent 漏網、原因 = sweep 不 catch 所有 instances、需 user spot check + Protocol A 必每 mention 都 verify、不可只 sample sweep
 - **Lesson reinforced (per 5/28 transcript dogfood)**：
   1. **Transcript / authoritative external source archive 必入 source-documents/**（per Protocol A T1 tier、5/28 Teams transcript archive 入 `source-documents/2026-05-28_meeting-transcript.md` after user explicit 提供）
-  2. **ASR misrecognition 校正必註**（5/28 transcript ASR 識「一輪/一辰/義程」、actual 義倫；引用 raw transcript 必先 cross-reference 校正對照表）
+  2. **ASR misrecognition 校正必註 + 警告 conflation 風險**（5/28 transcript ASR：「**一輪**」= 義倫（GoodLinker RD）/「**一辰**」+「**義程**」+「**依晨**」= Yitsen Liu（Amafans 補助案承辦）；**user 6/01 catch**：我 W4 archive 原把「一輪/一辰/義程」全 conflate 為「義倫 同一人」是 ghost attribution conflation 翻車、實為 **2 人**。引用 raw transcript 必先 cross-reference 校正對照表 + **不能假設多個 ASR 變體 = 同人**、可能是不同人 misrecognition；對策：每 ASR 變體 cite specific timestamp + context 確認 actual speaker）
   3. **Role identification round N（N≥2）即標 verification source**：「per [transcript] [timestamp] 自介 verified」、不是 session-derived 印象
   4. **Sweep agent 完必 user spot check**：W3-A sweep agent 漏 4 處 Bruce/Sara swap、root cause = sweep 不 catch 所有 instances（grep + Edit replace-all 漏部分 phrasing variation）、user manual catch 仍 essential
 
