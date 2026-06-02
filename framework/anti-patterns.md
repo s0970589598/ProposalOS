@@ -781,6 +781,22 @@
 - **對應模組**：[methodologies/multi-tool-verification.md commit checkpoint #11](methodologies/multi-tool-verification.md) + FW#16
 - **Dogfood**：Amafans EAQS 2026-05-30 check I 加入後 4 industry-addon + phase-0-discovery internal phrasing stale at 「8」、W2-L1 sweep agent 才一致
 
+### AP-NEW-CASCADE-2：Header banner ≠ body sweep done — partial sweep 留半身 stale
+
+- **發生**：CR revoke / scope shrink / Phase 1 narrow / product cut 觸發 cascade、在 file top 加 header banner（如 `> ⚠️ CR-003 撤回電力、Phase 1 N/A`）標示「已處理」、但 body 全文 inline 還有 stale token / 舊 phrasing / 已刪 feature mention、partial sweep 沒掃乾淨
+- **後果**：reviewer 看 header 以為 file aligned with current scope、實際讀 body 仍見已撤回 feature 描述 / KPI / mockup / UAT case、信任崩、cross-doc audit 被迫 re-sweep、cascade methodology 失效
+- **根因**：sweep 工作流只做 header banner add（visible at file-top）、沒做 body verify-zero-match grep（invisible at deep section）、漏掉 inline mentions deep 在第 N 段、grep keyword 沒跑完 / 跑了沒看 0-result
+- **教訓**：sweep 必過 4-step verify checklist：
+  1. **Banner add** → header banner 寫好 `> ⚠️ CR-NNN / scope shrink / feature cut YYYY-MM-DD`
+  2. **Body 全 strike-through 或 inline note** → 每個 inline mention 都要 `~~strikethrough~~` + `❌ N/A per CR-NNN` 註、不能只在 header signal「已處理」
+  3. **Cross-ref typo sweep** → 新 CR record file 命名後 grep 所有 `CR-NNN-*` 引用 verify naming 一致（防 broken link）
+  4. **Last-mile verify** → `grep -n "AI 月報\|電力\|kW\|kWh" file` 應 **0 命中** or **全 strikethrough**、不能有 active mention
+- **對應模組**：[`methodologies/cr-handling-protocol.md §11`](methodologies/cr-handling-protocol.md)（CR Revoke Cascade Methodology、3-mode + 7-step sweep checklist）
+- **Dogfood**（per Amafans EAQS 2026-06-01 W5-B audit caught、41 finding 9 critical）：
+  * **4 ancillary file 完全 pre-CR-003**（無 banner、無 body strike、整 file pretending CR-003 沒發生）：`sales/joint-sales-kit.md` / `operations/customer-onboarding-playbook.md` / `acceptance/uat-script.md` / `mockup/index.html`、root cause = W3-A sweep agent scope 沒覆蓋 ancillary folder、只 sweep proposal.md / RACI / research/
+  * **2 partial sweep**（header banner 加了、body 漏掃）：`sales/joint-sales-kit.md` 8 處「AI 月報」inline mention 仍在 active phrasing、`operations/customer-onboarding-playbook.md` 同樣 body 多處 AI 月報 mention banner-only signaled
+- **驗證**：W5-B audit §2 Check 7 finds these via `grep -rn "AI 月報\|電力" amafans-eaqs-proposal/` non-zero hits at file with banner present — banner ≠ verify-zero-match
+
 ### AP-NEW-ANTI-HALLUC-X1：Person / role / actor attribution 必驗、不 default session 記憶
 
 - **發生**：寫人名 / role / 指動者 / actor / RACI / stakeholder claim 時、default 用 session 累積印象 / 之前 fill 的 file / generic assumption、而非查 authoritative source（5/13 開案 PDF + 合約 binary + user explicit）
@@ -863,7 +879,7 @@
 | 法律 | AP-21、AP-22、AP-23 |
 | Sensor / IoT 部署（模組 13 §9）| AP-NEW-SENSOR-1、AP-NEW-SENSOR-2、AP-NEW-SENSOR-3、AP-NEW-SENSOR-4、AP-NEW-SENSOR-5 |
 | Session Retrospective（methodology 自身）| AP-NEW-SESSION-RETRO-1、AP-NEW-SESSION-RETRO-2、AP-NEW-SESSION-RETRO-3、AP-NEW-SESSION-RETRO-4、AP-NEW-SESSION-RETRO-5 |
-| Deck / Sub-Agent Tooling（skill template 規範）| AP-NEW-DECK-PDF-1、AP-NEW-DECK-PDF-2、AP-NEW-AGENT-TIMEOUT-1、AP-NEW-DECK-MULTI-FORK-1、AP-NEW-CASCADE-PHRASING-1 |
+| Deck / Sub-Agent Tooling（skill template 規範）| AP-NEW-DECK-PDF-1、AP-NEW-DECK-PDF-2、AP-NEW-AGENT-TIMEOUT-1、AP-NEW-DECK-MULTI-FORK-1、AP-NEW-CASCADE-PHRASING-1、AP-NEW-CASCADE-2 |
 | Person / Role / Decision Chain Attribution（Protocol A）| AP-NEW-ANTI-HALLUC-X1、AP-NEW-ANTI-HALLUC-X2、AP-NEW-DECISION-CHAIN-1 |
 
 ## 紅線提醒
