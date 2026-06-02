@@ -571,3 +571,111 @@ UI hierarchy：`research/09 §9.4` 把 sensor metadata 對應 L1/L2/L3：
 **驗證狀態**：3 WebSearch citation verified（ITIL 7Rs / CMMI CM / 5 questions）+ 內部 dogfood 主 case verified（Amafans CR-001/CR-002 + research/09）+ 4 hypothetical CR 範例為 推導 hedged
 **驗證 ⚠️ markers**：本檔內 ⚠️ training-data 印象 hedge 計約 7-9 處（主要對應 Q3 regulatory anchor 範例段、法規 clause 編號需 CR-trigger 跑時 WebSearch verify、本 methodology 檔不重 verify）
 **對應 skill 觸發**：未來 `/cr-trigger-lint` skill（spec 見 §7）
+
+---
+
+## §11. CR Revoke Cascade Methodology（CR 撤回 / scope-shrink 後的 cascade sweep）
+
+### §11.1 介紹 — 為什麼要這節
+
+`§3 5-Q lint` 涵蓋 **CR fire** 時 5 維度 implication 驗（WHERE / COUNT / REGULATORY / BOM / DATA+UI）— 是 CR 進來那一刻要做的事。
+
+本節涵蓋 **CR revoke / scope-shrink / cleanup execution** — 一個 CR 已經被撤回、scope 縮小、product 整個 cut 的時候、**framework 要怎麼掃 child docs / cross-ref / RACI / UAT case / audit chain、不留半身 stale**。
+
+兩節互補：
+- **§3** = CR 出生時的 implication 驗 (lint at fire-time)
+- **§11** = CR 死亡 / 縮 scope 時的 cascade 清理 (sweep at revoke-time)
+
+> Per Amafans EAQS 2026-06-01 dogfood（W3-A / W3-B / W5-B audit）：CR-003 撤回電力 + AI 月報 cut 同 session 觸發 ~48 file × ~600 corrections cascade、但 W5-B audit 仍 caught 4 ancillary file 完全 pre-CR-003 + 2 file partial sweep banner-only 留 8 inline mentions stale。沒有 methodology → 每次 cleanup 都漏。
+
+### §11.2 3-Mode 決策樹（revoke 範圍 × 是否保留 forward routing）
+
+| Mode | 條件 | 處理方式 | 範例 |
+|---|---|---|---|
+| **Mode A: Narrow-keep** | 部分撤回、保留 Phase 2 / 後續階段 forward routing（不打死「永遠不做」）| Header banner + Phase-N routing note + body inline strikethrough、保留商務 reroute path | **CR-002 撤回電力**（amafans CR-003）：Phase 1 cut 電力 + Phase 2 EMS module 另案 forward path 保留、客戶有電力需求 → 轉介 GoodLinker EMS sales |
+| **Mode B: Full-cut** | 整 product / feature cut、不保留 routing（unconditional removed） | Header banner + body inline strike ❌ N/A across all mentions + UAT row 移除 / strikethrough + RACI row strike | **AI 月報 cut**（amafans 2026-06-01）：S01-S05 monthly cron + Anthropic Claude + PDCATracker + `/monthly` route + MonthSelector 全 cut、24 file cascade strike |
+| **Mode C: Archive** | 該 doc 整個 obsolete、新版 doc 取代 / 內容過時且無 forward path | Move file → `archive/` folder + 頂部加 `> ⚠️ HISTORICAL — superseded by [new doc]、do not cite for current scope` banner | **W7 archive moves**（amafans 2026-06-01）：pre-CR-003 retro draft / pre-V.08 RFP audit / pre-cut 1-pager moved to `archive/` per W5-A audit recommendation |
+
+**決策樹**：
+```
+CR 撤回 / scope shrink 進來
+    ↓
+Phase 2 / 後續 forward path 保留嗎？
+    ├─ Yes → Mode A: Narrow-keep（保留 routing note）
+    └─ No  → 該 doc 還有 current scope 價值嗎？
+              ├─ Yes → Mode B: Full-cut（body inline strike、doc 留）
+              └─ No  → Mode C: Archive（move to archive/、加 HISTORICAL banner）
+```
+
+### §11.3 7-Step Sweep Checklist（任一 mode 都要跑、依 mode 內容不同）
+
+CR record 一旦從 draft → confirmed revoke 狀態，**同 commit 內**跑完 7 step：
+
+1. **CR record file 加 revoke 決議 + 5-row decision chain audit trail**
+   - CR-NNN.md 檔頂部加 `> ⚠️ REVOKED YYYY-MM-DD per [decision source]` banner
+   - 含 5-row decision chain（per `anti-patterns.md` AP-NEW-DECISION-CHAIN-1）：WHO initiated / WHEN finalized / WHO ↔ WHO sync before / WHO informed after / counterparty commitment confirmed
+   - 例：amafans CR-003 §9.1 5-row chain (Ethan ↔ Eric phone confirm + GoodLinker 內部 informed + Amafans 內部 informed)
+
+2. **Child doc body inline strikethrough + ❌ 標 N/A**
+   - 不能只在 header 加 banner、body 全文 grep keyword 都要 strikethrough
+   - `<del>` HTML tag 或 markdown `~~text~~`、配 `❌ N/A per CR-NNN YYYY-MM-DD`
+   - 例：amafans `raci.md L48 / L52` 「電力分析」row 加 strikethrough + ❌ N/A
+
+3. **Cross-ref typo grep sweep（防 broken link）**
+   - 新 CR record file 命名後、grep 所有 `CR-NNN-*` 引用 verify naming 一致
+   - 例：amafans 一度有 `CR-003-remove-electricity-monitoring.md` typo、應為 `CR-003-remove-power-from-scope.md`、broken link 4 處 cross-ref
+
+4. **RACI row 處理**
+   - RACI matrix 內凡 owner / responsible 涉及 revoked scope 都 strikethrough + reason note
+   - 不要直接刪 row（保留 audit trail）、用 strikethrough + `(removed per CR-NNN)` 註
+
+5. **UAT case row 處理**（per Mode B / C 必跑、Mode A 移動到 Phase 2 UAT）
+   - UAT script / acceptance criteria 內凡 revoked feature 都 strikethrough / 移除 / 標 N/A
+   - 例：amafans `acceptance/uat-script.md` AI 月報 5 case row strike + 標「Phase 2 EMS routing、Phase 1 N/A」
+
+6. **Audit score chain update**
+   - rfp-audit.md / 內部 audit doc 內 audit score evolution chain 更新
+   - 注意 audit score 可能 **non-monotonic**（amafans W5: 73→91→98→95→93、D.5 differentiator 略降反映 scope shrink、但 audit trail + Protocol A 加分）
+   - 不要強行寫「audit score 持續上升」、scope shrink 對某維度可能扣分但對 risk / clarity 加分、要 explicit 註
+
+7. **README CR table + roadmap update**
+   - README / index doc 內 CR list table 加 revoked status + revoke date + reason
+   - Roadmap / Phase plan 內 revoked feature 移到 Phase 2 / 或標 ❌ removed
+   - Spine 主檔（`proposal.md`）對應 §X 段加 cross-ref to CR-NNN revoke note
+
+### §11.4 Dogfood Examples（雙 case + W6/W7 cleanup）
+
+#### Dogfood 1: CR-002 Narrow-keep（Mode A、amafans CR-003 撤回電力）
+
+- **Trigger**：2026-06-01 Ethan ↔ Eric 電話 confirm 撤回電力 from Phase 1 scope
+- **Mode**：A — narrow-keep、Phase 2 EMS module forward routing 保留
+- **CR record**：`change-requests/CR-003-remove-power-from-scope.md`（含 §9.1 5-row decision chain）
+- **Cascade scope**：~24 file edit（proposal.md spine §3 + RACI + UAT + roadmap + README + 4 industry-addon cross-ref + ai-handoff/spec + research/cr002-* + rfp-audit + decks-sub）
+- **Step 1 例**：CR-003 §9.1 5-row decision chain explicit、不只「Ethan 決議」單一 actor naming
+- **Step 7 例**：README CR table 加「CR-002 → CR-003 撤回、Phase 2 EMS routing」+ Roadmap Phase 1 scope 移除電力 + Phase 2 加「客戶有電力需求 → Amafans 轉介 GoodLinker EMS module 獨立合約」routing note
+
+#### Dogfood 2: AI 月報 Full-cut（Mode B、amafans 2026-06-01 全 cut）
+
+- **Trigger**：2026-06-01 user authoritative directive「AI 月報都要拿掉、因為他本來就跟能源模組綁在一起的」
+- **Mode**：B — full-cut、無 forward routing（AI 月報 與能源模組綁、能源模組已 Phase 2 routing、AI 月報自然 Phase 2 reserved）
+- **Cascade scope**：~24 file × inline strikethrough（S01-S05 monthly cron + Anthropic Claude + PDCATracker + `/monthly` route + MonthSelector）
+- **Step 2 例**：每個 inline「AI 月報」mention 都要 strikethrough + ❌ N/A、不能只在 header 加 banner（W5-B audit caught `sales/joint-sales-kit.md` 8 處 inline still active despite header banner — 經典 Mode B sweep 失敗 case）
+- **Step 5 例**：`acceptance/uat-script.md` AI 月報 5 case row 全 strikethrough + 標「Phase 2 EMS reserved」
+
+#### Dogfood 3: W6 cleanup + W7 archive（48 file change in one commit）
+
+- **Trigger**：2026-06-01 W5-B audit 找到 41 inconsistency、9 critical、user directive「W6 fix + W7 archive」
+- **Mode mix**：Mode B (full-cut sweep on stale phrasing) + Mode C (archive obsolete pre-CR-003 docs)
+- **Cascade scope**：48 file change in one commit（W6 fix critical inline strikethrough + W7 move 4 obsolete file to `archive/`）
+- **Step 6 例**：rfp-audit.md audit score chain 73→91→98→95→93 non-monotonic explicit 註、D.5 differentiator score 略降 reflect 4→2 differentiator narrative shift
+- **Lesson reinforced**：**沒有 methodology → 每次 cleanup 都漏、W5-B 41 finding 證明 banner alone 不夠**（see `anti-patterns.md` AP-NEW-CASCADE-2 G2 fix）
+
+### §11.5 Cross-ref
+
+- **`anti-patterns.md` AP-NEW-CASCADE-PHRASING-1**（child docs phrasing stale at parent index change）— 本節 Step 2 內 inline strike-through 規則的 anti-pattern 源
+- **`anti-patterns.md` AP-NEW-CASCADE-2**（Header banner ≠ body sweep done — partial sweep 留半身 stale）— 本節 Step 2 + Step 4 verify-zero-match 規則的 anti-pattern 源、雙 doc 互引
+- **`anti-patterns.md` AP-NEW-DECISION-CHAIN-1**（5-row audit trail explicit）— Step 1 decision chain 必含 5 欄、cross-party sync chain 不能省
+- **`methodologies/spine-mode-for-large-proposal.md`** HISTORICAL banner / archive 結構 — Mode C archive 目錄結構 + banner 文字模式
+- **`methodologies/multi-tool-verification.md` commit checkpoint #11**（parent index add → child cascade sweep）— 本節 7-step checklist 是該 commit checkpoint 的 expanded 版
+
+---
