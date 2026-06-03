@@ -184,6 +184,12 @@ proposal-name/
 
 ---
 
+## See also — 完整 SOP + cascade matrix
+
+> 本檔提**概念 + 14 folder + 3 consolidation pattern**、SOP 化（新案啟動 0 → ship STEP 1-13、既有案 update cascade matrix、verify-zero-match 鐵則）走 **[`proposal-folder-and-file-system.md`](proposal-folder-and-file-system.md)** — 該檔為 single-source SOP、含每 entity 七欄 rationale（WHY / WHAT / WHEN / HOW / WHO / DEPENDS / REFERENCED）+ 11 row cascade event table + Amafans 7-day dogfood。新案啟動 / cascade sweep / ROOT audit 必看該檔。
+
+---
+
 ## proposal.md spine 結構（per ProposalOS 13 模組）
 
 每 §N 模組節寫法：

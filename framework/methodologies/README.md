@@ -1,4 +1,4 @@
-# 跨領域方法論（21 個）
+# 跨領域方法論（23 個）
 
 ProposalOS 借用的**業界成熟方法論** + **ProposalOS 原創方法論**。
 
@@ -18,7 +18,7 @@ ProposalOS 原創方法論（5 個）per Amafans EAQS 2026-05 retrospective accu
 
 ## 方法論清單（21 個、依類別、verified per `ls methodologies/*.md` 2026-05-29）
 
-### A. ProposalOS 原創（6 個、per session retro 累積）
+### A. ProposalOS 原創（7 個、per session retro 累積）
 
 | 方法論 | 用在哪 | 必看 |
 |---|---|---|
@@ -26,6 +26,7 @@ ProposalOS 原創方法論（5 個）per Amafans EAQS 2026-05 retrospective accu
 | [CR-Handling Protocol](cr-handling-protocol.md) | 新 sensor / 新 measurement / 新 data stream CR 自動觸發 5 大 implication 問 + §11 CR Revoke Cascade（撤回 / scope shrink 後 7-step sweep）| 🔴 IoT 案 + 任何含 sensor / device CR 必看 |
 | [Session Retrospective](session-retrospective.md) | 每 session 結尾累積 user-push gap、systematic feed 回 framework upgrade | 🔴 結案 / 重大 milestone 必跑 |
 | [Spine Mode for Large Proposal](spine-mode-for-large-proposal.md) | 大型 proposal（> 200 頁）的 spine / index 結構模式 + **14 canonical folder inventory + 3 optional consolidation patterns**（rfp/ / outbound-drafts/ / archive/retros/、per Amafans 6/03 retro）| 🟡 大案 / 多 module 必看 / 含 RFP / 多 owner 必看 |
+| [Proposal Folder + File System SOP](proposal-folder-and-file-system.md) | 完整 SOP：14 root .md + 19 folder inventory、每 entity 七欄 rationale、新案啟動 STEP 1-13、既有案 update cascade matrix（11 row）、verify-zero-match 鐵則。spine-mode 概念的 SOP 化 + cr-handling §11 cascade 的 generic 版 | 🔴 任何新案啟動必看 / 既有案 cascade sweep 必看 |
 | [Multi-Tool Verification](multi-tool-verification.md) | High-stakes claim 用 ≥ 2 工具交叉驗、avoid single-tool over-confidence | 🔴 寫具體數字 / 識別符 / 業界主張前必過 |
 | [Protocol A — Person / Role / Actor Attribution](protocol-a-attribution.md) | 每個人名 / role / actor / 指動者 claim 必驗、3-tier authority + 5-row decision chain + ASR conflation handling | 🔴 聯名 / 對外 RFP / 顧問式提案 stakeholder mapping 必過 |
 
@@ -79,16 +80,16 @@ ProposalOS 原創方法論（5 個）per Amafans EAQS 2026-05 retrospective accu
 
 | 類別 | 數量 |
 |---|---|
-| A ProposalOS 原創 | 6 |
+| A ProposalOS 原創 | 7 |
 | B 提案方法論本身 | 3 |
 | C 需求 / 戰略分析 | 5 |
 | D 服務 / 體驗設計 | 1 |
 | E 系統 / 架構 | 3 |
 | F 資安 / AI / 治理 | 3 |
 | G 商務 / 採購 | 1 |
-| **Total** | **22** |
+| **Total** | **23** |
 
-> ✅ Verified per `ls framework/methodologies/*.md` 2026-06-02 (排除 README.md) = 22 個 methodology file。原 18 + Amafans EAQS retro 累積 4（phase-0-discovery / cr-handling-protocol / session-retrospective / protocol-a-attribution）= 22。A 類「ProposalOS 原創」共 6 個但其中 spine-mode + multi-tool-verification 為更早 retro 已加、protocol-a-attribution 2026-06-02 per W5-closing dogfood 加。
+> ✅ Verified per `ls framework/methodologies/*.md` 2026-06-03 (排除 README.md) = 23 個 methodology file。原 22 + Amafans EAQS 6/03 retro 累積 1（proposal-folder-and-file-system per user 6/03 directive「檢查所有資料夾跟檔案、建立資料夾以及檔案的脈絡」）= 23。A 類「ProposalOS 原創」共 7 個。
 
 ## 怎麼用
 

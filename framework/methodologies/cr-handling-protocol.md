@@ -672,6 +672,7 @@ CR record 一旦從 draft → confirmed revoke 狀態，**同 commit 內**跑完
 
 ### §11.5 Cross-ref
 
+- **`methodologies/proposal-folder-and-file-system.md` §3 Cascade Matrix**（11 row event-to-cascade table、含本節 3-mode CR revoke 全 row + 其他 event 如 module spec change / V.X RFP ship / role attribution / session end）— 本節是該 matrix 的 CR-specific deep-dive、generic event cascade 查該檔
 - **`anti-patterns.md` AP-NEW-CASCADE-PHRASING-1**（child docs phrasing stale at parent index change）— 本節 Step 2 內 inline strike-through 規則的 anti-pattern 源
 - **`anti-patterns.md` AP-NEW-CASCADE-2**（Header banner ≠ body sweep done — partial sweep 留半身 stale）— 本節 Step 2 + Step 4 verify-zero-match 規則的 anti-pattern 源、雙 doc 互引
 - **`anti-patterns.md` AP-NEW-DECISION-CHAIN-1**（5-row audit trail explicit）— Step 1 decision chain 必含 5 欄、cross-party sync chain 不能省
