@@ -227,6 +227,19 @@ STEP 5: 6 framework deliverable（顧問式必有）
   - pending-items-tracker.md（per 模組 04 衍生）
   - acceptance-benefits-operations.md（per 模組 11）
 
+STEP 5.5: 9-check standalone audit ⚠️ MANDATORY（per Amafans 6/03 Option A 修正）
+  - A RTM         → rtm.md ✅ (STEP 5)
+  - B Communication plan → B-communication-plan.md 或 raci.md § Communication （必 ⚠️ 標）
+  - C Decision log → C-decision-log.md 或 pending-items-tracker.md § Decision Log （必 ⚠️ 標）
+  - D Secure SDLC → D-secure-sdlc.md 或 rfp-section-A-IV §A.IV.4 cross-ref
+  - E SBOM/License → E-sbom-license.md 或 §A.IV.6 cross-ref
+  - F RTO/RPO/Rollback → F-rto-rpo-rollback.md 或 §A.IV.8 + research/08 cross-ref
+  - G Exit plan   → exit-plan.md ✅ (STEP 5)
+  - H Evidence pack → H-evidence-pack.md 或 acceptance-benefits-operations.md § Evidence cross-ref
+  - I Deployment model → I-deployment-model.md 或 architecture/c4-integration.md + research/12 cross-ref
+  - **rule**：✅ standalone 最佳；✅ embedded + ⚠️ explicit cross-ref + § anchor acceptable；❌ silent scattered = fails coverage
+  - **audit cmd**：`for c in A B C D E F G H I; do ls ${c}*.md 2>/dev/null || echo "⚠️ check $c: 確認 embedded 標註"; done`
+
 STEP 6: 若有 deck → pitch-deck-builder
   - DESIGN.md（8 必填 section、不共用其他 project）
   - outline.md（slide-by-slide map）

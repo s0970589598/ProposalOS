@@ -85,6 +85,35 @@ proposal-name/
 | **若 3+ session retros**（per 6/03 retro）| archive/retros/ | retros 累積 |
 | **Case-specific**（optional、不寫死）| sales / `source-documents/<case-specific>/` | 模組 11 case-by-case 衍生、不必每案有 |
 
+### ⚠️ 9 mandatory check 強制 standalone（per Amafans 6/03 Option A 修正）
+
+per `8-mandatory-checks/` 9 個 check（A-I）、**每案必 ship 9 個對應 standalone file**（或 explicit embedded ⚠️ cross-ref、不可 silent 散落）：
+
+| Check | Standalone file（推薦 root）| Acceptable embedded location | Anti-pattern（避免）|
+|---|---|---|---|
+| A RTM | `rtm.md` | — | ❌ embedded 入 proposal.md §13、reviewer 找不到 |
+| B 溝通計畫 | `B-communication-plan.md` or `communication-plan.md` | 顧問式 small case 可 embedded 入 `raci.md` § Communication、必 ⚠️ 標 | ❌ silent 散在 raci + meeting-minutes、reviewer 拼湊 |
+| C Decision log | `C-decision-log.md` or `decision-log.md` | 可 embedded 入 `pending-items-tracker.md` § Decision Log、必 ⚠️ 標 | ❌ 散在 pending + CR files + meeting-minutes 3 file、reviewer 拼湊 |
+| D Secure SDLC | `D-secure-sdlc.md` | 顧問式 可 embedded 入 `rfp-section-A-IV-security-compliance.md §A.IV.4`、必 cross-ref | ❌ 無 single source、scattered across system-design |
+| E SBOM / License | `E-sbom-license.md` | 同 D、可 embedded 入 §A.IV.6 | ❌ 無 license inventory |
+| F RTO/RPO/Rollback | `F-rto-rpo-rollback.md` | 同 D、可 embedded 入 §A.IV.8 + research/08-nfr-sla | ❌ 散在 NFR + 合約 |
+| G Exit plan | `exit-plan.md` | — | ❌ embedded 入 proposal.md §11、reviewer 找不到 |
+| H Evidence pack | `H-evidence-pack.md` or `evidence-pack.md` | 可 embedded 入 `acceptance-benefits-operations.md § Evidence`、必 ⚠️ 標 | ❌ 散在 acceptance/uat-* + acceptance-benefits-operations、reviewer 拼湊 |
+| I Deployment model | `I-deployment-model.md` | 顧問式 可 embedded 入 `architecture/c4-integration.md` + `research/12-deployment-model`、必 cross-ref | ❌ 散落、無 deployment decision matrix |
+
+**Rule**：
+- ✅ Standalone file = 最佳、reviewer 一站找到
+- ✅ Embedded + explicit ⚠️ cross-ref + § anchor + README 索引 = acceptable
+- ❌ Silent scattered across multiple files = **fails 9 check coverage**
+
+**Audit 命令**（per Build SOP STEP 6.5）：
+```bash
+for check in A-rtm B-communication C-decision D-secure E-sbom F-rto G-exit H-evidence I-deployment; do
+  ls "${check}"*.md 2>/dev/null || echo "⚠️ missing standalone: $check"
+done
+# Output: 缺即補、或加 embedded ⚠️ cross-ref
+```
+
 ---
 
 ## Optional consolidation patterns（per Amafans EAQS 2026-06-03 retro）
