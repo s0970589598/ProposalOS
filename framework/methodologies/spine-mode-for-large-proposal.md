@@ -60,11 +60,30 @@ proposal-name/
 ├── mockup/              ← UI mockup（HTML 純視覺、頂部標 ⚠️「MOCKUP 非真實系統」）
 ├── ai-handoff/          ← spec.md 給 AI codegen 接手
 ├── meeting-minutes/     ← 每次會議 minutes（不追溯改、歷史紀錄）
+├── acceptance/          ← UAT script / sign-off / acceptance criteria（per 模組 11 衍生）
+├── operations/          ← 客戶 onboarding playbook / SOP（per 模組 11 衍生）
+├── deck/                ← 主 deck（per pitch-deck-builder skill）— 含 HTML / PDF
+├── decks-sub/           ← 多 deck 場景（legal-signoff / customer-sales / engineering-deepdive 等 sub-deck）
+├── deliverable-13pdf/             ← 13-module bundle internal 版
+├── deliverable-13pdf-client/      ← 13-module bundle 客戶版（per 顧問式 13 模組 deliverable）
 ├── pending-items-tracker.md   ← 待確認事項追蹤 17 項+
 ├── rfp-audit.md         ← 對 RFP 跑 audit / scoring
 ├── rfp-v07-draft-additions.md ← V0.7 整合草稿
 └── rfp-v07-section-A-IV-security-compliance.md  ← 顧問版 §A.IV
 ```
+
+### Folder inventory 分類（per 觸發條件）
+
+| 觸發條件 | Folder | 為何標準 |
+|---|---|---|
+| **每案必有**（核心 8）| source-documents / research / change-requests / system-design / architecture / mockup / ai-handoff / meeting-minutes | spine-mode methodology canonical、reviewer 預期看到 |
+| **顧問式提案**（per 模組 11）| acceptance / operations | UAT + 客戶 onboarding playbook 必有 |
+| **若有 deck**（per pitch-deck-builder skill）| deck / decks-sub | deck 主+多 sub-deck 場景 |
+| **若做 13-module bundle**（per 顧問式 deliverable）| deliverable-13pdf / deliverable-13pdf-client | internal + client 雙版本 |
+| **若 4+ RFP file**（per 6/03 retro）| rfp/ | RFP version mgmt |
+| **若 5+ external owner helper**（per 6/03 retro）| outbound-drafts/ | proactive helper drafts |
+| **若 3+ session retros**（per 6/03 retro）| archive/retros/ | retros 累積 |
+| **Case-specific**（optional、不寫死）| sales / `source-documents/<case-specific>/` | 模組 11 case-by-case 衍生、不必每案有 |
 
 ---
 
