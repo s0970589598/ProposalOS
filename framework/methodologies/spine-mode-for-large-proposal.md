@@ -68,6 +68,103 @@ proposal-name/
 
 ---
 
+## Optional consolidation patterns（per Amafans EAQS 2026-06-03 retro）
+
+當以下 3 情境發生、額外加 sub-folder consolidate root、保 root 乾淨：
+
+### 1. `rfp/` — RFP file 4+ 聚集場景
+
+**觸發條件**：root 出現 `rfp-audit.md` / `rfp-v0X-deltas.md` / `rfp-section-A-IV.md` / `13-pdf-bundle-index.md` 等 4+ 個 RFP-related file
+
+**Pattern**：
+```
+proposal-name/
+├── rfp/
+│   ├── README.md                                     ← folder index
+│   ├── rfp-audit.md
+│   ├── rfp-v09-deltas.md
+│   ├── rfp-section-A-IV-security-compliance.md
+│   ├── 13-pdf-bundle-index.md
+│   └── （未來 V.10/V.11 deltas 統一進 rfp/）
+```
+
+**為何 consolidate**：
+- 4+ RFP file 散 root reviewer 找版本要捲半天
+- Version management（V.08→V.09→V.10）集中、跨版 diff 容易
+- Inbound xref 統一 `rfp/X.md` 模式
+- Reviewer 對 RFP 一站式 navigate
+
+**xref convention**：root caller → `rfp/X.md`、subfolder caller → `../rfp/X.md`、archive caller → `../../rfp/X.md`
+
+### 2. `outbound-drafts/` — 顧問式 multi-stakeholder helper deliverable
+
+**觸發條件**：顧問式 proposal 對 5+ external owner（甲方 GM / 法務 / PM / 計畫案承辦 / 雙方 leadership）產出 proactive helper draft
+
+**Pattern**：
+```
+proposal-name/
+├── outbound-drafts/
+│   ├── README.md                                     ← folder index + owner table
+│   ├── 01-rfp-v10-outline-for-bruce.md               ← V.X 整合 scaffolding
+│   ├── 02-rs485-point-list-template-for-neko.md     ← 對方 PM 待填 template
+│   ├── 03-legal-signoff-checklist-for-both-counsels.md  ← 雙方法務 sign-off
+│   ├── 04-phase-0-onboarding-playbook-for-goodlinker.md ← internal owner playbook
+│   ├── 05-phase-2-subscription-pricing-framework.md  ← 商務條款 framework
+│   └── 06-customer-sales-kit-revamp.md               ← 對外 sales kit
+```
+
+**為何 consolidate**：
+- 顧問式 proposal 對 5+ 外部 owner 都需 proactive helper（不是 own deliverable、是替對方搭手架）
+- 每 file 必含：⚠️ DRAFT banner / owner / deadline / status / 待 input / cross-ref
+- README index 含 status table + authority chain（per Protocol A T1 source）
+- 跟 spine `proposal.md` 區分：spine = 對外 ship 主體、outbound-drafts = 對方需 fill / sign-off / consume 的腳手架
+
+**Naming convention**：`NN-<purpose>-for-<owner>.md`、NN = 0X 順序、purpose = scaffolding kind、owner = external party name
+
+### 3. `archive/retros/` — Session retros 累積場景
+
+**觸發條件**：session 跑 3+ retros file（W5-closing / 7-day retros / framework gap audits）
+
+**Pattern**：
+```
+proposal-name/
+├── archive/
+│   ├── retros/
+│   │   ├── W5-A-archive-review.md                  ← Session 內 archive snapshot
+│   │   ├── W5-B-correctness-audit.md               ← cross-doc correctness
+│   │   ├── W5-closing-retrospective.md             ← session closing
+│   │   ├── W8-folder-convention-audit.md           ← folder structure
+│   │   ├── FRAMEWORK-GAPS-REPORT.md                ← framework gap audit
+│   │   ├── PROPOSAL-INTELLIGENCE-GAPS-REPORT.md    ← case-intel gap audit
+│   │   ├── SKILL-GAPS-REPORT.md                    ← skill gap audit
+│   │   ├── DECK-VISUAL-VERIFY-REPORT.md            ← deck visual catch
+│   │   └── ROOT-26-AUDIT-REPORT.md                 ← root file audit
+│   ├── rfp-versions/                                ← V.X archived RFP deltas
+│   ├── change-requests/                             ← CR-002 撤回後 archive
+│   ├── research/                                    ← cr002-* research moot
+│   └── docs-deck-X-pre-meeting/                     ← pre-meeting deck snapshot
+```
+
+**為何 archive 不 root**：
+- Retros file 是「過程性產物 ship 後可 archive、保 root 乾淨」
+- HISTORICAL banner top 標 status「findings absorbed by W6/W7/W8 fixes」
+- 不刪、保 time-capsule + audit trail（per AP-NEW-DECISION-CHAIN-1）
+
+**何時 archive**：findings 被後續 fix commit 吸收完、不再是 active reference。
+
+### Decision tree
+
+```
+若 ≥ 4 個 RFP file → 建 rfp/
+若 顧問式 + 5+ external owner deliverable → 建 outbound-drafts/
+若 ≥ 3 個 session retros → 建 archive/retros/
+否則 → root 直接放、保簡單
+```
+
+⚠️ **Anti-pattern**：1-2 file 就建 subfolder = over-engineering，per CLAUDE.md「三條相似比 premature abstraction 好」。
+
+---
+
 ## proposal.md spine 結構（per ProposalOS 13 模組）
 
 每 §N 模組節寫法：
