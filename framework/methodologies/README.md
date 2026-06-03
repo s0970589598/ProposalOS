@@ -25,7 +25,7 @@ ProposalOS 原創方法論（5 個）per Amafans EAQS 2026-05 retrospective accu
 | [Phase 0 Discovery](phase-0-discovery.md) | 模組 01-13 填寫**前**的顧問式案件審訊（avoid「先填 template 再驗 case」反向工作）| 🔴 任何案件 Phase 0 必跑 |
 | [CR-Handling Protocol](cr-handling-protocol.md) | 新 sensor / 新 measurement / 新 data stream CR 自動觸發 5 大 implication 問 + §11 CR Revoke Cascade（撤回 / scope shrink 後 7-step sweep）| 🔴 IoT 案 + 任何含 sensor / device CR 必看 |
 | [Session Retrospective](session-retrospective.md) | 每 session 結尾累積 user-push gap、systematic feed 回 framework upgrade | 🔴 結案 / 重大 milestone 必跑 |
-| [Spine Mode for Large Proposal](spine-mode-for-large-proposal.md) | 大型 proposal（> 200 頁）的 spine / index 結構模式 | 🟡 大案 / 多 module 必看 |
+| [Spine Mode for Large Proposal](spine-mode-for-large-proposal.md) | 大型 proposal（> 200 頁）的 spine / index 結構模式 + **14 canonical folder inventory + 3 optional consolidation patterns**（rfp/ / outbound-drafts/ / archive/retros/、per Amafans 6/03 retro）| 🟡 大案 / 多 module 必看 / 含 RFP / 多 owner 必看 |
 | [Multi-Tool Verification](multi-tool-verification.md) | High-stakes claim 用 ≥ 2 工具交叉驗、avoid single-tool over-confidence | 🔴 寫具體數字 / 識別符 / 業界主張前必過 |
 | [Protocol A — Person / Role / Actor Attribution](protocol-a-attribution.md) | 每個人名 / role / actor / 指動者 claim 必驗、3-tier authority + 5-row decision chain + ASR conflation handling | 🔴 聯名 / 對外 RFP / 顧問式提案 stakeholder mapping 必過 |
 
