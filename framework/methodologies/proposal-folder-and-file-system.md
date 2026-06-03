@@ -356,3 +356,31 @@ STEP 13: Session 結束
 - ⚠️ Hypothetical「新案啟動 STEP 1-13」順序 derived per spine-mode + 9-check + Amafans 7-day arc、未在多案 dogfood verified
 
 **對應 framework gap**：本檔填補 spine-mode（提概念）+ cr-handling §11（提 CR-specific cascade）+ anti-patterns（提 AP-NEW-CASCADE-1/2）之間的 SOP 整合層、原 framework 對「新案啟動 0 → ship 完整 folder/file 建檔順序」+「既有案 update cascade matrix」沒整合 entry、本檔為 single-source SOP。
+
+---
+
+## §9. Future enhancements RFC（不在 v0.1 scope）
+
+當前 framework 是 4-layer net（methodology + skill + grep verify + user catch）、ship 6/03 後實測 Amafans 7-day arc catch rate 高（41+11+17 = 69 issue catch、0 ship-blocker 出 remote）、但未到 100% auto-enforce。
+
+下面是 future enhancement candidate、**defer 到 2-3 case dogfood validated 再 ship**（避免 premature abstraction、per CLAUDE.md anti-pattern guard）：
+
+| Enhancement | 動作 | Effort | 觸發 build 條件 |
+|---|---|---|---|
+| **Pre-commit hook：stale ref detector** | Hook grep CR-revoked keyword（e.g. 「電力」「AI 月報」without strike）、active mention 則 fail commit | 4-6 hr（含 context exception design）| 2+ case 同 anti-pattern recur、ROI 證實 |
+| **`cascade-execute` skill**（generic、非 CR-only）| Take event type → auto cascade target file 改、目前只 cr-handling §11 + Phase X.2 cover CR、其他 6 event 手動 | 6-8 hr | 3+ case 同 event recur（e.g. module change / role swap）|
+| **`auto-sweep` linter** for AP-NEW-CASCADE-2 / phrasing drift | grep all stale token + report orphan | 3-4 hr | deck-builder Stage 4 已 cover deck-side、其他 broader sweep 待 case validate |
+| **CI integration**（每 commit auto-grep）| GitHub Actions / pre-commit chain run | 2-3 hr | infrastructure ready + 上述 detector ship 後 |
+
+⚠️ **不早做的理由**（per 6/03 user 討論）：
+- 1 case Amafans dogfood = insufficient pattern abstraction、寫死 rule false-positive 風險高
+- Stale token context-sensitive（archive / source-documents / historical block 可保留 vs active spec 必 strike）— rule design 比看起來複雜
+- Pre-commit hook 太嚴會阻 legit work、太鬆又漏 → 需 2-3 case 反覆 tune
+- Current 4-layer net 實測夠（69 catch / 0 ship-blocker）— defense in depth 已有
+
+**Trigger 條件 review**：每次新案 ship 後跑 session-retrospective、若發現本 enhancement 對應 anti-pattern recur 2+ 次、即 promote 到 active build queue。
+
+**Cross-ref**：
+- `~/.claude/skills/proposal-os/SKILL.md` Phase X.2 CR Cascade Execution（CR-only auto cascade、本 RFC 提 generic 版）
+- `~/.claude/skills/pitch-deck-builder/SKILL.md` Stage 4 #7（deck-side cascade phrasing sweep、本 RFC 提 generic 版）
+- `anti-patterns.md` AP-NEW-CASCADE-2（banner ≠ body sweep、defense layer 之一）
