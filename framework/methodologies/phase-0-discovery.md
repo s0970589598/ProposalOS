@@ -226,6 +226,26 @@ ship
 
 ---
 
+### Layer 6: Folder structure anticipation（5 Q、per Amafans 6/03 Option 4 retro）
+
+per `proposal-folder-and-file-system.md §3 Cascade Matrix` + `spine-mode-for-large-proposal.md § Optional consolidation patterns`、Phase 0 即 anticipate consolidation trigger、避免 mid-flight ad-hoc cleanup（per Amafans 6/03 「20 個檔沒資料夾」emergency）。
+
+| # | Question | 答案 type | Trigger if |
+|---|---|---|---|
+| **Q6.1** | 預期 RFP version 數？（V.0X draft + amendment + final + 主合約附件 + audit）| 整數 | ≥ 4 → **trigger `rfp/` folder** at kickoff、避免後期 12+ root file ad-hoc |
+| **Q6.2** | 預期 external owner proactive helper deliverable 數？（甲方 GM / 法務 / PM / 計畫案承辦 / 雙方 leadership / 客戶 sales / 銀行 / ESG 顧問 etc）| list of owner + deliverable | ≥ 5 owner → **trigger `outbound-drafts/`** + naming convention `NN-<purpose>-for-<owner>.md` |
+| **Q6.3** | 預期 session 跨 wave 數？（單 sprint / 多 wave / 跨 session retros）| 整數 | ≥ 3 retros → **trigger `archive/retros/`** sub-folder at kickoff |
+| **Q6.4** | 預期 deck multi-audience？（單 main deck / 多 sub-deck per audience）| audience list | ≥ 2 sub-deck → **trigger `decks-sub/`** + naming convention `<purpose>/index.html` |
+| **Q6.5** | 顧問式 deliverable scope?（13-module bundle / acceptance UAT / operations playbook）| bool × 3 | 任一 → **trigger** 對應 folder: `deliverable-13pdf{,client}/` / `acceptance/` / `operations/` |
+
+**Aggregate output**：folder pre-flight checklist + Build SOP STEP 5.5 即可 audit、不待 mid-flight cleanup
+
+**Anti-pattern catch**（per Amafans 6/03 dogfood）：
+- ❌ Phase 0 跳 Layer 6 → 6/03 才 user catch「20 個檔沒資料夾」、emergency `git mv` 4 RFP file + 142 xref update
+- ✅ Phase 0 過 Layer 6 → kickoff 即建 `rfp/` 等資料夾、cascade 從第一天乾淨
+
+---
+
 ## §4 Phase 0 Discovery Report 輸出 template
 
 ### 4.1 1-page Executive Summary
@@ -287,6 +307,10 @@ ship
 ## Layer 5: Output + alignment
 
 [同上]
+
+## Layer 6: Folder structure anticipation
+
+[5-Q output: folder pre-flight checklist + trigger map for rfp/ / outbound-drafts/ / archive/retros/ / decks-sub/ / 顧問式 deliverable folder]
 ```
 
 ### 4.3 Open questions log
@@ -410,7 +434,7 @@ per [industry-addons/MODULE-INDEX.md](../industry-addons/MODULE-INDEX.md)：
 | 案件規模 | Phase 0 預期時間 | Scale 規則 |
 |---|---|---|
 | 小案（< 50 萬）| ~2-4 hr | 跑 5 Facts 摘要、Layer 1-3 高度濃縮、Layer 4-5 簡化 5 條最關鍵假設 |
-| 中型案（50-500 萬）| ~16 hr / 2 day（預設）| 全 ~75 Q 跑、output Phase 0 Discovery Report 完整版 |
+| 中型案（50-500 萬）| ~16 hr / 2 day（預設）| 全 ~80 Q 跑、output Phase 0 Discovery Report 完整版 |
 | 大型案 / 政府 / 標案（> 500 萬）| ~3-5 day | 加 Shipley capture plan workflow + 多 stakeholder 訪 + competitive intel deep dive |
 | 聯名 / B2B2B 共同產品 | ~3 day（中型案 + 多方 stakeholder）| 加雙方 stakeholder map + 雙方 internal political dynamic + 雙方 attribution discipline |
 
@@ -581,7 +605,7 @@ output:
 
 guardrails:
 - 19 翻車 dogfood 必過 ≥ 18
-- ≥ 75 Q 涵蓋（< 75 = warn）
+- ≥ 80 Q 涵蓋（< 75 = warn）
 - 95% Q「我不知道」也 OK（誠實 hedge > 編造）
 - Pre-mortem question Q4.16 必跑（少 1 個 stakeholder 答 = warn）
 ```
@@ -610,7 +634,7 @@ guardrails:
 ### 自檢 checklist（Phase 0 ship 前）
 
 ```
-□ Layer 1-5 全 ~75 Q 都答了（即使「不知道、待訪」也是有效答）
+□ Layer 1-6 全 ~80 Q 都答了（即使「不知道、待訪」也是有效答、含 Layer 6 folder anticipation 5-Q）
 □ 案件 framing 1 句 explicit、reviewer 不需 dig
 □ Module 01-13 trigger map 全列、每 module 標必填 / N/A / 簡化 + reason
 □ Industry-addons fired list explicit、不漏
@@ -654,7 +678,7 @@ guardrails:
 | 5 | Q5.8 anti-hallucination protocol | 翻車 #3 #4 #6 #7 #8 multi-tool sequence 早約定 |
 | 5 | Q5.9 dense claim 配 example | 翻車 #10 #11 「什麼意思」 catch |
 
-**結論**：Phase 0 跑完 ≥ 75 Q、19 翻車中能 catch ≥ 16 個、剩 3 個是「multi-step edit hygiene」/「session 結束前 sweep hedged claim」/「reverse over-correction」屬執行階段 hygiene、Phase 0 約定 + commit checkpoint 9 條合力 catch。
+**結論**：Phase 0 跑完 ≥ 80 Q、19 翻車中能 catch ≥ 16 個、剩 3 個是「multi-step edit hygiene」/「session 結束前 sweep hedged claim」/「reverse over-correction」屬執行階段 hygiene、Phase 0 約定 + commit checkpoint 9 條合力 catch。
 
 ---
 
