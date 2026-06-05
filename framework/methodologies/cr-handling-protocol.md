@@ -494,6 +494,8 @@ UI hierarchy：`research/09 §9.4` 把 sensor metadata 對應 L1/L2/L3：
 
 #### 8.3.3 假設 CR-005：加 temperature delta（衍生指標、不是新 sensor）
 
+⚠️ **Naming note**：本節「假設 CR-005」為 §8 hypothetical 範例（temperature delta 衍生指標）、與 §11.4 Dogfood 4「Amafans EAQS 2026-06-04 CR-005 雲端 7 點 schema clarify」**為不同 case**（同名但前者 hypothetical、後者 real dogfood、命名巧合）。真實 Amafans CR-005 dogfood 看 §11.4。
+
 | Q | 5 問 lint surface |
 |---|---|
 | **Q1 WHERE** | N/A — delta 是衍生、placement 已 inherit ambient + fan-local |
@@ -669,6 +671,28 @@ CR record 一旦從 draft → confirmed revoke 狀態，**同 commit 內**跑完
 - **Cascade scope**：48 file change in one commit（W6 fix critical inline strikethrough + W7 move 4 obsolete file to `archive/`）
 - **Step 6 例**：rfp-audit.md audit score chain 73→91→98→95→93 non-monotonic explicit 註、D.5 differentiator score 略降 reflect 4→2 differentiator narrative shift
 - **Lesson reinforced**：**沒有 methodology → 每次 cleanup 都漏、W5-B 41 finding 證明 banner alone 不夠**（see `anti-patterns.md` AP-NEW-CASCADE-2 G2 fix）
+
+#### Dogfood 4: CR-005 Mode A clarify（first Mode A clarify case、與 Mode B Full-cut CR-003/CR-004 對比）
+
+- **Trigger**：2026-06-04 user authoritative directive「雲端的話初步規劃 7 個點位（5 個 analog sensor + 2 個 string motor data point）。雲端可以先用 LESI 202 模擬國際精工大吊扇的 sensor 值並行開發、由 Sara 建立點位 + 模擬實際工廠情境值。」+ 4 個技術決定（D1 sensorType analog → string / D2 雲端 2 new table / D3 DDB 狀態歷史 hedged / D4 Phase 1 manual / Phase 2 future edge auto）+ 噪音 sensor pending
+- **Mode**：**A — clarify + add**（first Mode A clarify case in ProposalOS dogfood library）、非 Mode B Full-cut（CR-003 / CR-004 樣式）— 不撤回任何既有 scope、是雲端 7 點位 schema 明確化 + 加 simulator approach + 訂 Phase 1 / 2 control 分階段
+- **Mode A 特性 vs Mode B**：
+  | 維度 | Mode A clarify（CR-005）| Mode B Full-cut（CR-003 / CR-004）|
+  |---|---|---|
+  | **動作** | Scope expand or detail clarify、不撤回 / 不 strike | 整 product / feature cut、撤回 + strikethrough |
+  | **Cascade 範圍** | Narrow（CR-005 13 file、僅 schema-relevant doc） | Wide（CR-003 39 file、CR-004 22 file、含 RACI / UAT / mockup / sales kit ancillary 全 sweep） |
+  | **Body sweep 動作** | Inline mention update to new schema（5 analog → 5 analog + 2 string motor）、不 strikethrough | Inline strike `~~text~~` + ❌ N/A per CR-NNN |
+  | **Header banner** | ⚠️ CR-NNN cascade（scope expand / clarify）| ⚠️ REVOKED / CUT YYYY-MM-DD per CR-NNN |
+  | **Verify metric** | **「new schema ref 命中 ≥ N file」**（CR-005 ref 14 file、LESI 202 ref 12 file、motor sensor ref 12 file all aligned）| **「stale token grep 0 active match」**（CR-003 grep「電力」`<del>` 內 only、CR-004 grep「維護排程」strikethrough only）|
+  | **OQ generation** | 高（CR-005 生 3 OQ：OQ-005a/b/c）| 低（CR-003 / CR-004 主要是 cleanup、OQ 較少）|
+  | **UAT case 動作** | Add new case（CR-005 加 UAT-15/16/17 motor status case）| Remove / strike row（CR-003 strike AI 月報 5 case、CR-004 strike 維護排程 case）|
+- **Cascade scope**：~13 file（per [CR-005 §12 cascade impact list](https://github.com/.../change-requests/CR-005-cloud-7-point-schema-clarification.md)）：CR file + system-design × 4 + module-13 + proposal + outbound-drafts × 2 + tracker + acceptance + RFP + RACI + README
+- **Step 1 例**：CR-005 §9 5-row decision chain explicit pending status（step 3-5 標 pending）、不假設 Ethan ↔ Eric phone confirm 已完成、對外 phrasing 用「✅ User authoritative confirm 2026-06-04、⏳ pending Ethan ↔ Eric phone confirm 升 T1 verified」、hedging discipline 對齊 evidence 完整度（per [anti-patterns.md AP-NEW-DECISION-CHAIN-1](../anti-patterns.md) dogfood 2）
+- **Step 2 例**：每個 file 對「sensorType」「motor_status」「motor_error_code」inline mention update to new schema、不 strikethrough（因為 Mode A 無撤回 token）、banner 標 cascade scope expand 而非 REVOKED
+- **Step 3 例**：CR-005 file 命名 `CR-005-cloud-7-point-schema-clarification.md`、grep 全 repo cross-ref 統一、無 broken link
+- **Step 4 例**：RACI row 加「LESI 202 simulator + 點位模擬值」row（Sara owner / G-Dev 並行 / Neko consulted）、不 strikethrough 既有 row
+- **Step 5 例**：UAT case **add** UAT-15/16/17（motor_status enum 0-5 transition / motor_error_code bitmask compound / DDB write throughput stress test）、與 Mode B remove case 動作相反
+- **Lesson reinforced**：**Mode A clarify 不是 Mode B 的簡化版**、本質不同動作（expand vs cut）、verify metric 不同（「new schema ref ≥ N file 命中」vs「stale token 0 active match」）、cascade 範圍不同（narrow vs wide）、cr-handling-protocol §11.2 3-Mode 決策樹原本只有 CR-003 Mode A 例（Narrow-keep with Phase 2 routing）、CR-005 是 **first pure Mode A clarify 無 Phase 2 forward routing override** 的 dogfood case、補完 Mode A 樣本多樣性
 
 ### §11.5 Cross-ref
 

@@ -796,6 +796,11 @@
   * **4 ancillary file 完全 pre-CR-003**（無 banner、無 body strike、整 file pretending CR-003 沒發生）：`sales/joint-sales-kit.md` / `operations/customer-onboarding-playbook.md` / `acceptance/uat-script.md` / `mockup/index.html`、root cause = W3-A sweep agent scope 沒覆蓋 ancillary folder、只 sweep proposal.md / RACI / research/
   * **2 partial sweep**（header banner 加了、body 漏掃）：`sales/joint-sales-kit.md` 8 處「AI 月報」inline mention 仍在 active phrasing、`operations/customer-onboarding-playbook.md` 同樣 body 多處 AI 月報 mention banner-only signaled
 - **驗證**：W5-B audit §2 Check 7 finds these via `grep -rn "AI 月報\|電力" amafans-eaqs-proposal/` non-zero hits at file with banner present — banner ≠ verify-zero-match
+- **Dogfood 2**（per Amafans EAQS 2026-06-04 CR-005 Mode A clarify cascade、本 anti-pattern 規範 dogfood 反例）：
+  * **CR-005 Mode A clarify 13 file cascade all clean**：CR table 加 row → README、CR-005 ref hit 14 file（per `grep -rn "CR-005" amafans-eaqs-proposal/`）、LESI 202 ref hit 12 file（per `grep -rn "LESI 202" amafans-eaqs-proposal/`）、motor sensor ref（`motor_status` + `motor_error_code`）hit 12 file all aligned with new schema、無 stale orphan reference
+  * **Banner ≠ body sweep 全 success**：CR-005 cascade 13 file 每個 file 都 (a) header banner add ⚠️ CR-005 cascade note + (b) body inline mention update to new schema (5 analog → 5 analog + 2 string)、無 banner-only signal stale body—per agent verify pass
+  * **Mode A 與 Mode B 差異**：Mode A clarify cascade 較 narrow（CR-005 13 file vs CR-003 39 file Mode B）、無 strikethrough 動作（因為 scope expand 而非 cut）、verify 用「≥ N file ref 命中」而非「stale token 0 active」（因 Mode A 無撤回 token）
+  * **教訓**：Mode A clarify ≠ Mode B Full-cut、cascade methodology 須區分 mode 用對應 verify metric — Mode A 用「new schema ref 命中 ≥ N file」、Mode B 用「stale token grep 0 active match」（per [cr-handling-protocol.md §11.4 Dogfood 4](methodologies/cr-handling-protocol.md)）
 
 ### AP-NEW-ANTI-HALLUC-X1：Person / role / actor attribution 必驗、不 default session 記憶
 
@@ -851,6 +856,13 @@
   * **Step 2**: Ethan → Bruce + Sara（GoodLinker 內部 informed）
   * **Step 3**: Eric → Neko + Yitsen（Amafans 內部 informed）
   * **比較**：原本「Ethan 決議撤回」單一 actor naming → 看似單方 push；改 5 欄 chain 後 → 雙方 GM phone confirm + 雙方內部 informed close、對外正式 cite 不被質疑
+- **Dogfood 2**：Amafans EAQS 2026-06-04 CR-005 雲端 7 點 schema clarify（Mode A clarify、與 Mode B Full-cut CR-003 對比）：
+  * **WHO initiated**: user 6/04 文字 directive（per CR-005 §1 verbatim 引用）
+  * **WHEN finalized**: 2026-06-04（user authoritative confirm 對內 Claude / GoodLinker side）
+  * **BEFORE sync**: ⚠️ pending — Sara × Neko sensor data design discussion verify pending、Ethan 兼 GM × Eric 業務 GM 預期 phone confirm pending（per CR-003 / CR-004 same routine、CR-005 §9 step 5 標 pending、未升 T1）
+  * **AFTER inform**: 預期 G-Dev (Muki + 義倫) 雲端並行開發 informed / Neko 6/15 點位表 deliverable informed / Sara LESI 202 simulator deliverable informed（per CR-005 §9 step 3-4 標 pending）
+  * **COUNTERPARTY commitment**: ⚠️ Ethan ↔ Eric phone confirm pending（per CR-003 / CR-004 same channel routine、CR-005 對內 confirm 但對外 cite 需 phone confirm 完成）
+  * **比較 vs CR-003**：CR-003 phone confirm 已 complete、對外可 cite「雙方 GM phone confirm」；CR-005 仍 pending、對外 phrasing 為「✅ User authoritative confirm 2026-06-04、⏳ pending Ethan ↔ Eric phone confirm 升 T1 verified」、不假設 confirmed — 5-row chain explicit pending status preserve 對 hedging discipline 重要
 
 ## 7 問 Sanity Check（從真實案例提煉）
 
